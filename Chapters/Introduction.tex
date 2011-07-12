@@ -1,0 +1,74 @@
+\chapter{Introduction}
+\label{sec:Introduction}
+
+On safari, Herb and Charlotte were capturing vivid images of the landscape and the beautiful animals among the bushes and wild grasses. A lone elephant roamed across the plains not sixty feet from them, sniffing the ground with its robust trunk, and making its way to the shade of a nearby tree. A silly image popped into Charlotte's mind. ``What if the elephant jumped into the tree?" she thought. To Herb, she repeated this question. Herb laughed, then puzzled, he thought about why the elephant could not jump as high as the gazelle bounding so effortlessly across the plains in the distance. ``The elephant seems ten times larger than that gazelle over there, shouldn't it be ten times as strong?" he asked. Charlotte pulled a book \cite{mcmahon84} out of her bag, and turned to the last chapter. Together, they read about similarity and scaling, and realized that while $mg \propto L^{3}$, $\sigma_{0, max}$ = constant.
+
+Herb and Charlotte were fascinated by the possibility of making such inspiring discoveries from simple principles. In that very moment, they desired nothing more than they so powerfully desired a book that captures a smorgasboard of discoveries about animals and their graceful movement. This moment stayed with them until they were home, where Charlotte was in her darkroom developing pictures from the voyage. The pipes creaked in the darkness. A rat scurried across a stack of photos from a recent trip to an industrial robotics expo in Japan. She glanced in the direction of the sound. Honda's Asimo robot stared back at her from the photo at the top of the stack. She walked over to the table and placed a gentle hand on the picture, and cried. Finally, she knew...
+
+\section{Philosophical Musings}
+
+Things to talk about, possibly:
+\begin{itemize}
+\item Goal of locomotion
+\item dry friction
+\item skip wheels
+\item animals vs robots
+\item Radhakrishnan: locomotion is a balance of friction. in legged locomotion, we approximate rolling friction with no-slip contact: minimize frictional losses, kind of elegant. but nonetheless legged locomotors have a high cost of transport. this is because legged things are optimized for mobility, agility, and rough terrain. example is replacement of chariots with camels in middle east. we should include a plot from the Radhakrishnan paper as well.
+\item passive locomotion
+\item The story of this book: somebody is out there trying to make a real loco. what are the roadblocks to doing that? ROADBLOCKS
+\item What is locomotion, and what is the objective of locomotion? Locomotion hints to the idea that the animal that is moving is trying to move from one location to another location. Dry friction, not linear viscous friction. want robot to move, not fall apart, translate. can use wheels, circumvent friction by lifting up legs. We must use friction, but frictional contact would mean energy loss? avoid dynamic friction.
+\end{itemize}
+
+\section{Locomotion}
+
+What defines locomotion? Of course, it is a class of motion. It is the gainful movement from one location to another. However, riding a bicycle or driving a car is not a form of locomotion. Thus, locomotion implies self-propulsion. Locomotion comes in many forms. It is slithering, it is flying, it is swimming. If it is legged locomotion, it is walking, it is running, it is jogging, it is swimming, it is skipping, it is hopping, it is crawling, it is galloping, it is cantering, it is skating.
+
+\section{Friction in Locomotion}
+
+Locomotion often entails expending energy to travel at constant speed. This at first seems counter-intuitive, since energy should not be required to maintain an object's constant velocity. However, locomotion is riddled with friction.
+
+Locomotion entails friction in two senses. Friction removes energy from a locomotive, either from the exterior rubbing against a fluid, or from the dissipative deformation of body tissue. Friction is also required to generate locomotion. Of course, animals must exert forces on their surrounding to propel themselves. Logically, this force is a contact force, and thus comes from friction. The friction between two rigid objects (e.g. a foot and the ground) can either be sliding friction or static friction. The invention of the wheel was particularly clever because a wheel circumvents the energy dissipation that arises from sliding friction and only uses static rolling friction. Equally clever, then, is legged animal locomotion: feet make non-sliding non-dissipative contact with the ground, they exert a static friction force against the ground. To actually move the body, the other leg(s) of the locomotive are lifted and moved forward while the one stationary leg pushes \cite{radhakrishnan98}. For all the cleverness is an equal amount of interesting dynamics to study. One interesting facet of the motion is the stability of such a clever system of movement.
+
+\section{Control of Locomotion}
+[We can take this section out but we just wanted to consider including some things from the conversation with Ruina that we had 3/2011. Ruina's previous viewpoint: passive was whole story, but passive robots are not as stable as their bio counterparts [Alan's meeting notes]
+
+An inverted pendulum (in which the base is at the bottom rather than the top of the link) is unstable for most initial conditions. Locomotion can be termed stable if constant periodic movement can be achieved (i.e. the locomotive does not fall down after a few steps). It is instructive to study how stable locomotion can be achieved. Of course, all animals can achieve stable locomotion. A substantial question is what mechanisms provide this stability? Does the stability come from an active control process from the nervous system that ensures each leg is placed in the proper position? Alternatively, the stability could come from the pure mechanics of the locomotive. That is, the animal would be able to achieve stable motion even it did not have a brain. Such is the study of \emph{passive dynamics}, or \emph{passive control}, in which stability exists without control.
+
+While a study of passive dynamics with regard to locomotion can provide some enlightening results, the study of active control is necessary to blah blah.
+
+We can apply an understanding of locomotion in various engineering contexts such as robotics and biomechanics. This knowledge can inform the design of robots, of biomechanical equipment such as prosthetics, and can aid with the development of physical training regimens and surgical procedures. We are often interested, especially in robotics, in the energy cost of locomotion.
+
+\section{A rose by any other name...}
+
+\begin{itemize}
+\item Locomotive: obvious reasons, but also means railcar
+\item pedestrian: seems the most correct in terms of roots etc, but has weird associations with the public
+\item legged thing: two words
+\item LAR (legged robot and/or animal)
+\item another latin combination?
+\item robot: since we always simplify back to mechanics
+\item legged mechanism
+\end{itemize}
+
+\section{Approaches to Understanding Legged Locomotion} %(notes page 1)
+\label{sec:ApproachesToUnderstandingLeggedLocomotion}
+
+There are three approaches we can take to understanding legged robots and animals. One is to assume no control, and just study the mechanics of locomotion. The second is to assume knowledge of the control schemes, and strive to optimize some locomotion parameter. This approach may involve something like optimization of hip torque or ankle torque to minimize energy use. The third approach is to analyze only the controller. The first and third methods are very closely related, as it is very difficult to discuss one without discussing the other. This book attempts to shed light on all three approaches, with a focus on energy use. 
+
+Many successful walking robots already exist. Honda's Asimo is a capable home assistant that has been under development for nearly twenty years. BigDog, by Boston Dynamics, is a rugged battlefield assistant designed to carry heavy payloads for soldiers in variable terrain. These robots are very close to being able to do what the designers intended; however, one metric that escapes them and many other robots is energy effectiveness. These robots use significantly more power than their biological  counterparts. A human uses roughly 100 Watts of chemical energy when walking \cite{wilson04}. Legged robots like Honda's Asimo and BigDog by Boston Dynamics use anywhere from 2000 Watts to 18000 Watts of power. Honda's Asimo uses electric motors that are powered by batteries, while BigDog uses hydraulic actuators whose pump system is powered by a combustion engine \cite{needed}. As the field of legged robotics continues to grow, a better understanding of energy use will offer improvements in range and durability.
+
+\section{Energy Effectiveness} %(notes page 2)
+\label{sec:EnergyEffectiveness}
+\index{energy effectiveness}
+
+We would like some way to compare the effectiveness of legged robots. There are many qualitative ways to compare robots, such as a robotic arm's ability to manipulate its environment, or a mobile robot's ease of deployment in a battlefield. There are also ways to quantify a system's effectiveness; an automobile's energy use is typically cited in miles per gallon. We would like some way to cite energy use per distance traveled, but we would like it to be dimensionless so that we may equitably compare robots of different sizes. Given two robots that use equal amounts of energy to travel the same distance, the more useful robot is the one that can carry more mass. Adding mass to our comparison also conveniently makes the comparison dimensionless. Equation \ref{eq:CostOfTransport} defines the dimensionless cost of transport ($COT$):
+
+\begin{equation}
+COT = \frac{\mbox{energy spent}} {\mbox{mass}\cdot\mbox{gravity}\cdot\mbox{distance traveled}}=\frac{E}{mgd}
+\label{eq:CostOfTransport}
+\end{equation}
+\index{cost of transport (COT)}
+
+A particularly nonintuitive aspect of equation \ref{eq:CostOfTransport} is that the the $COT$ for animals that are not moving at all is infinity. This is because animals expend energy even when standing still, and none of this goes into center of mass movement \cite{radhakrishnan98}. Furthermore, the average $COT$ for legged animals is suspiciously high, considering that sliding or viscous friction does not play any significant role in the movement. Note that a non-zero $COT$ means that the locomotive must provide energy for even constant-speed movement on level ground. Where then is energy dissipated if not through external friction? During a walking gait, muscles contract and stretch. For the most part, the work that goes into contracting muscles is useful work. However, energy is lost in the so-called ``negative work'' that muscles ``perform'' when stretching under tension. This is elucidated in chapter \ref{sec:EnergeticsOfLocomotion}.
+
+When creating robots that mimic biologically successful walking animals, it is important to examine the role of the $COT$ in legged animal evolution. The evolutionary pressure on the $COT$ is fairly evident: many animals consume energy as food to supply energy for homeostasis. The animal must also spend energy to find food and mates to reproduce, and a more biologically successful animal will be one that can find food and mates without expiring. An animal can be compared to a robot in that they both consume energy in some form, whether it be chemical or electric, and make use of that energy with a certain efficiency or effectiveness.

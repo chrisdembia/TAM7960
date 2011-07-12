@@ -1,0 +1,353 @@
+\chapter{Exercises} %(notes page 67-71)
+\label{sec:Exercises}
+
+The following exercises were given as homework problems for the Spring 2010 offering of TAM7960 at Cornell University.
+
+\catcode`\^^M=10      %  Makes blank lines meaningless to TeX,
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cost of Transport}
+
+\begin{enumerate}
+\item A natural measure of energy use is ``The specific energetic
+cost of transport",
+
+\begin{equation}                  
+COT \equiv \frac{[\textrm{Energy used}]}{[\textrm{weight}]\cdot[\textrm{distance}]}
+\end{equation}
+
+Note that weight is a force so $COT$ is a
+dimensionless number.
+
+Estimate, using whatever numbers you know or look up, the
+$COT$ for the following.
+
+\begin{itemize}
+\item  a person walking
+\item a person biking
+\item a car (full weight)
+\item a car (only counting weight of passengers)
+\item a freight truck
+\item a freight train
+\item a passenger train (only counting weight of passengers)
+\item any animal; walking, running or flying.
+\end{itemize}
+
+Make your assumptions clear and clearly identify any sources use.  It is best to have two
+different estimates, based on different types of data.
+
+\item What would be a good measure of locomotion speed for 
+comparing different animals or robots?  Justify your answer
+as best you can.  If you have more than one candidate, 
+compare them. Use your own reasoning rather than finding metrics provided in the literature, etc.
+\end{enumerate}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{Motors}
+
+\begin{center}
+\begin{figure}[h]
+\centering
+\subfloat[worm drive.]{\includegraphics[scale =.7]{Figures/wormgear}}
+\subfloat[wedge.]{\includegraphics[scale =1]{Figures/wedge}}
+\end{figure}
+\end{center}
+
+\begin{enumerate}
+
+\item  An ideal passive transmission conserves energy.
+One example of a transmission is a screw-drive or ``worm drive''.   A model for the basic
+mechanics of a worm drive is the wedge.
+
+\begin{enumerate}
+
+\item  For simplicity, assume that all sliding is frictionless and that
+the parts have no mass or weight.  Think of A as the input and B as
+the output. 
+
+\begin{enumerate}
+
+\item   Find $F_B$ in terms of $\theta$ and $F_A$.
+
+\item From geometry (kinematics), find the sideways motion
+of B in terms of $\theta$ and the motion of A.
+
+\item Note that the results above are consistent with energy conservation.
+
+\item Simplify all of the expressions above using a small angle approximation
+($\theta \ll 1, \sin \theta \approx \theta$, \etc.)
+
+\end{enumerate}
+
+\item Now include friction, but just on the surface AB between the parts.  Assume a friction coefficient $\mu$ or friction angle $\phi$ with $\tan\phi = \mu$.  Assume that the
+friction against the walls is still zero.  For the worm drive this is like assuming
+that the shafts have good bearings but that all the friction is on the screw
+surface.  Assume the wedge is traveling down. 
+
+\begin{enumerate}
+\item  Find $F_B$ in terms of $\theta$,  $F_A$ and $\mu$  (or $\phi$).
+\item  Note that the kinematics is unchanged by the friction.
+\item  What fraction of the power is lost?
+\item  Now assume the drive is running backwards, with the wedge A
+ being pushed up.  Now what fraction of the power is lost?
+ 
+ \item Assume small angles.  Show that if $\mu$ (or $\phi$) and $\theta$ are
+ such that 50\% of the power is lost when A is pushed down, 100\% is lost when B is pushed in.
+ 
+\end{enumerate}
+\end{enumerate}
+
+\par
+
+\item  The most common idealization of a motor includes two energy dissipation terms:
+$c\omega$ in damping and $IR$ in electrical resistance.
+
+\begin{align}
+T_{m} &=  k I_{m}  - c \omega & \textrm{Torque equation}\label{firstmotoreq}\\
+V_{m} &= k \omega_{m} + I_{m} R + \dot I_{m} L & \textrm{Voltage equation} \label{secondmotoreq}
+\end{align}
+
+
+In these equations\par
+\begin{center}
+  \parbox{4 in}{
+\begin{description}
+\item[$T_m = $] the torque the motor exerts on what it's connected to,
+\item[$\omega = $] the motor angular velocity, 
+\item[$I_{m} = $] the electric current through the motor, 
+\item[$V_{m} = $] the voltage across the motor,
+\item[$k = $] the `motor constant' or
+`torque constant',  
+\item[$R = $] the internal electrical resistance of the motor, and
+\item[$c = $] the viscous damping constant, which also includes electrodynamic
+drag,
+\item[$L = $] the motor inductance which is not important for steady state operation with a DC power supply.
+\end{description}
+}
+
+\end{center}
+
+\par
+From these we calculate other various quantities, for example the electric power in  and mechanical power out are 
+
+\begin{equation}
+P_{i} = V_{m} I_{m}  \centerand P_{o} = T_{m} \omega_{m}
+\end{equation}
+
+
+Now imagine that we also have access to a frictionless gear box with gear ratio $G$ that
+changes the torque and angular velocity output to
+
+\begin{equation}
+T_{o} = G T_{m} \centerand \omega_{o} = \omega_{m}/G
+\end{equation}
+
+and also a lossless transformer with turns ratio $D$ that can 'transform' the battery
+voltage to
+
+\begin{equation}
+V_{m}  =   D V_{in}  \centerand   I_{m} = I_{in}/D.
+\end{equation}
+
+You are given a motor with a fixed $k$, $c$, and $R$, and a battery with fixed $V_{in}$. Additionally, the output angular velocity ($\omega_o$) and motor power power $P_o$ are specified.
+
+\begin{enumerate}
+
+
+\item Find  $G$ and $D$ to maximize the efficiency of the system. 
+
+\item  What is the maximized efficiency?
+
+\item   Do the calculations above for a real motor.  The Faulhaber
+4490-024B has a nominal voltage of  24 V.  This means you should use
+24 V to infer the other motor constants.  The motor resistance is $R = 0.237$ $\mathrm{\Omega}$.  The  `no load' speed is 9550 rpm; this means that at 24V that $\omega =
+9550 \times 2\pi/ 60\s$ when $T_m = 0$.  The stall torque is $2.406\Nm$. 
+The no-load current is $0.554$ Amps (this is the current when the 24V is applied but no torque).  The torque constant is $k =0.02383 \Nm/ $Amp.
+
+\begin{enumerate}
+\item  Find the damping constant $c$.
+
+\item  Assume that a mechanical power of  $P_{o} = 20 \watts$ is desired
+at $\omega_{o} = 1 \rad/\s$ using a $24 V$ battery.  Find the best gear ratio and transformer ratio to minimize the power in $P_{i}$.  What is that minimized power?
+
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{Hopping Frog}
+
+\begin{enumerate}
+
+\item \textbf{Reading.} Read Ruina 2005 \cite{ruina05}. Also read Rashevsky 1948 \cite{rashevsky48} if you are interested.
+
+\item \textbf{The cost of frog jumping.}  A frog makes a sequence of
+parabolic jumps, stopping and jumping again each time.  Neglect the
+waiting time between jumps.
+
+Here are some possibly relevant variables.\par
+\begin{center}
+  \parbox{4 in}{
+\begin{itemize} 
+\item[$d= $] step length (flight distance) 
+\item[$\phi= $] jump angle, measured from the positive $x$ axis
+\item[$t_f= $] time of flight
+\item[$ v_{x0}= $] $x$ component of jump velocity = $v_{0} \cos{\phi}$
+\item[$ v_{y0}= $] $y$ component of jump velocity = $v_ {0} \sin{\phi}$
+\item[$v_{0} = $] launch speed $=\sqrt{v_{x0}^2+v_{x0}^2}$
+\item[$v= $] average forward speed = $v_x = d/t_f$
+\item[$h = $] height of flight
+\item[$g= $] downwards gravity constant
+\item[$m= $] mass of the frog
+\item[$b = $] metabolic cost multiplyer $E_{m} = b|W_{neg}|$
+\end{itemize}
+}
+\end{center}
+
+\begin{enumerate}
+\item In terms of some of the variables above determine the specific cost of transport.
+
+\begin{equation}                  
+COT \equiv \frac{[\textrm{Energy cost}]}{[\textrm{weight}]\cdot[\textrm{distance}]}
+\end{equation}
+
+Express this $COT$ at least two different ways, using two different minimal sets
+of variables.
+
+\item  For a given $m$, $g$, and $d$ find other variables to minimize $COT$. Find
+the resulting $v$ and $COT$ in terms of $m$, $g$, and $d$. Plug in actual numbers with
+$g= 10\mperss$ and $d=1\m$.
+
+\item For a given $m,g,v$ find other variables to minimize $COT$. 
+
+\item What interesting observations can you make about the calculations
+above?
+
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Collisional Model}
+
+\begin{enumerate}
+\item  Equations 15 and 16 in Ruina 2005 \cite{ruina05} are based on a single metabolic inefficiency $b$. Rederive equations 15 and 16 using two cost coefficients $b_1$ and $b_2$, for negative and positive work respectively. The final formulas will be more complicated.
+
+\item Use two cost coefficients $b_{1}$ and $b_{2}$ to replace the formulas for curves i and ii in Figure 5 of \cite{ruina05}. You need not use the formulas from problem (1) above, but can rederive them as needed for this special case.
+
+\item  On the course motor page  there is a design sheet by David Palombo of Aveox (seller
+of motors).  He says  ``The motor is at it's peak efficiency when the iron loss equals the copper loss.''  The `copper loss'  is $I^{2}R/2$.  The iron loss is, presumably, $c\omega^{2}/2$.
+
+\begin{enumerate}
+
+\item Check this result using specific simple motor parameters (use $k=10, R=1, c=1$ in consistent units). Also, create a set of multiple-line or vertically stacked plots that show, for a fixed $V$ (use 10), the quantities $P_{in}, P_{out}$, $I^{2}R/2$, and $c\omega^2/2$ as functions of $\omega$.  A vertical line should mark the point of maximum efficiency.  You can
+use Matlab code, computer algebra or other such tools.
+
+\item Use the numerical answer above to definitively answer the
+questions: Is the result exactly true for our standard motor model? Is it approximately true?  Is it true in some limiting cases?
+
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Rimless Wheel}
+
+This whole exercise is about the rimless wheel. The basic parameters are given here.
+Where numerical values are needed, assume consistent units and use the numbers given in parentheses.
+
+\parindent = 30 pt
+\begin{description}
+\item[$ m=$] mass of rimless wheel (1).
+\item[$ I=I^{G}=$] moment of inertia about the center of the wheel, G (1/2).
+\item[$ N=$] number of spokes (8).
+\item[$ \phi=$] angle between spokes = $2\pi/N$.
+\item[$ \ell =$] length of spokes (1).
+\item[$ \gamma =$] slope of ground, down is to the left (0.1 radians).
+\item[$ g=$]  gravity constant (1).
+\end{description}
+
+The basic variables are:
+\begin{description}
+\item[$  \theta_n=$] angle of stance leg $n$ relative to a line normal to the ground, measured CCW.
+\item[$  \omega=\dot\theta=$] angular velocity of wheel, measured CCW.
+\item[$ (\dots)_{n}^{+}=$] $(\dots)$ just after collision $n$.
+\item[$ (\dots)_{n}^{-}=$] $(\dots)$ just before collision $n$.
+\item[$f(\omega_{n}^{+})  = \omega_{n+1}^{+} = $] poincare map/return map/stride function.
+\item[$ (\dots)_{*}^{-} =$] steady state value of $(\dots)$ if the motion is periodic.
+\end{description}
+
+\begin{enumerate}
+\item Use energy conservation to find $\omega_{n+1}^-$ from $\omega_{n}^{+}$
+\item Use numerical integration of the non-linear ODEs, with the appropriate
+end condition, to verify  your answer to the previous problem for a range of
+initial conditions.  
+
+\item Plot $f$ along with the line $y=x$ using the same scale for both
+axes.  Use your numerical evaluation to obtain the motion between collisions rather than using the energy conservation result above.
+
+\item Find $\omega_{*}^{+}$ to at least 10 digits accuracy with a root finding method on your numerical evaluation of $f$.  Find it again analytically using the energy conservation result. Compare the solutions.
+
+\item Start with the initial condition that $\omega_{0}^{+} = 1.5 \omega_{*}^{+}$.
+Calculate $\omega_{n}^{+}$ for $n = 1 \dots 20$.
+
+\item  Define a dimensionless quantity
+\begin{equation}
+r_{n} = \frac{ \omega_{n}^{+} -\omega_{*}^{+}}{ \omega_{n-1}^{+} -\omega_{*}^{+}}
+\end{equation}
+Plot $r_{n}$ vs $n$ and show that it tends to a constant.  Find that constant as best
+you can. Describe the significance of $r_{n}$.
+
+\item Find an analytic formula for the limit $n\rightarrow\infty$ of $r_n$, evaluate the result with the given numbers, and compare it to your numerical result above.
+
+
+\end{enumerate}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%
+\section{SLIP}
+
+In this assignment, you will develop a computational model for spring mass (SLIP) running.
+Here are the parameters of the model.  In parentheses are values you should use,
+in consistent units, for numerical work.
+
+\begin{description}
+\item{$m=$} mass of running human (100).
+\item{$ \theta_{c}=$} touchdown angle (variable).
+\item{$\ell_{0} =$} uncompressed leg length (1).
+\item{$ k=$}  spring constant (10,000; compression under gravity is 1/10 of leg length).
+\item{$ g=$}  gravity constant (10).
+\end{description}
+
+The basic dynamic variables, and things you can measure, are:
+\begin{description}
+\item{$ x,y,\dot{x}, \dot{y}=$} position and velocity of COM
+\item{$d=$} step length
+\item{$ \bar{v} =$} average forward speed
+\item{$h=$} height at top of periodic trajectory ($=y_{max}$)
+\item{$c_{duty}$} fraction of time the foot is on the ground
+\end{description}
+
+Develop the model using section 3 from Figure \ref{fig:SLIPSections}, the peak of the flight.
+Thus the section variables are $h$ and $\dot{x}$ with $\dot{y} = 0$.
+
+\begin{enumerate}
+
+\item Find a periodic motion using the computer recipe. That is, the fixed values $h$ and $\dot{x}$ at section 3 for each period.
+
+\item Find a \textit{stable} periodic motion.
+
+\end{enumerate}
+
+Graph and animate the trajectories of the locomotive, showing the stance leg
+during stance.  The activities of graphing and animation may also be useful for debugging purposes,
+even before you have solutions to the problems above.
+
+% THIS INPUTS MATLAB CODE:
+%\newpage
+%%%%%%%%%%%%%%%%%%%%%%%
+%\section{MATLAB: SLIP Simulation}
+%
+%\lstinputlisting{SLIP_Simulation/Raibert_Control.m}

@@ -1,0 +1,118 @@
+% document class declaration:
+\documentclass[normalsize]{book}
+
+% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% declare the packages to be used:
+\usepackage{geometry}
+\usepackage{graphicx}
+
+\usepackage[small]{caption} % caption must be loaded before subfig
+\usepackage{subfig} % subfig must be loaded after caption
+
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+
+%\usepackage{amssymb} % doesn't work with rpmath
+\usepackage{rpmath}
+\usepackage{amsmath}
+\usepackage{cancel} % allows cross-through lines through math
+\usepackage{epstopdf}
+\usepackage{array}
+\usepackage{verbatim}
+\usepackage{wrapfig}
+\usepackage{pdfpages}   % ?
+\usepackage{makeidx}    % creates index
+\usepackage[pdfborder={0 0 0},colorlinks={true},citecolor=black,linkbordercolor={0 0 0},linkcolor=black,bookmarksopen=false,hyperindex=true]{hyperref} % creates links
+
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+
+% declare some options:
+\geometry{b5paper}  		% b5paper is a common book paper size
+%\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png} % ????
+
+\makeindex
+
+% BEGIN DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% TOP MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% title information:
+
+
+% assemble the title page:
+% \begin{titlepage}
+
+\title{Legged Locomotion of Robots and Animals\\\textit{\large{TAM7960: Mechanics of Terrestrial Locomotion}}}
+\author{Andy Ruina, Alan Argondizza, and Chris Dembia\\\\Cornell University}
+\date{May 2011 \\ \vspace{1in} \includegraphics[width=0.6\textwidth]{Figures/SimplestWalkerPendulum} }
+
+
+\maketitle
+
+% \begin{centering}
+% \includegraphics[width=0.1\textwidth]{Figures/SimplestWalkerPendulum}\par
+% \end{centering}
+
+% \end{titlepage}
+
+\tableofcontents
+\listoffigures
+
+\input{Chapters/Preface}
+
+% SECTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapters/Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapters/Properties_of_Motors_and_Muscles}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Chapters/Modeling_Legged_Locomotion}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Chapters/Passive_Dynamics_of_Legged_Locomotion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Chapters/Controlling_Legged_Locomotion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Chapters/Energetics_of_Locomotion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Chapters/Optimization_in_Locomotion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Chapters/Similarity_and_Scaling}
+
+% APPENDIX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\input{Chapters/Using_SNOPT}
+
+\input{Chapters/Exercises}
+
+\input{Chapters/Further_Reading}
+
+\printindex
+
+
+% BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{plain}
+\bibliography{TAM7960Refs}
+
+
+
+% END DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+

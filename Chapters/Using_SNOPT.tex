@@ -1,0 +1,88 @@
+\chapter{Using SNOPT}
+\label{sec:UsingSNOPT}
+\index{SNOPT}
+
+
+
+Now Javad will tell us about how to get SNOPT up and running. 
+
+Google ``Phillip Gill."
+
+Go to sections $>$ software and get the appropriate version of SNOPT for your machine. It's a bundle of Matlab files. 
+
+toyusrfun.m
+
+Objective function:
+
+$F(x) = 3x_{1}+(x_{1}+x_{2}+x_{3})^{2}+5x_{4}$
+
+Constraint functions: 
+
+$4x_{2}+2x_{3} \geq 0$
+
+$x_{1}+x_{2}^{2}+x_{3}^{2}=2$
+
+$x_{2}^{4}+x_{3}^{4}+x_{4}=4$
+
+$x_{1}\geq0$
+
+$x_{4}\geq0$
+
+Define F in the program as a function of the objective function and the constraint functions, in a column vector, with the objective function on top:
+
+\begin{equation}
+\begin{bmatrix}
+\mbox{Objective Function} \\
+\mbox{Constraints} \\
+\mbox{...} \\
+\mbox{...} \\
+\mbox{...} \\
+\end{bmatrix}
+\label{eq:ObjectiveAndConstraints}
+\end{equation}
+
+And you have to define the function bounds:
+
+\begin{equation}
+[F_{low}]
+\leq
+\begin{bmatrix}
+\mbox{Objective Function} \\
+\mbox{Constraints} \\
+\mbox{...} \\
+\mbox{...} \\
+\mbox{...} \\
+\end{bmatrix}
+\leq
+[F_{upp}]
+\label{eq:FunctionBounds}
+\end{equation}
+
+What's most important? THE MAJOR ITERATION LIMIT!
+
+Now we also have to define the variable bounds:
+
+
+\begin{equation}
+[X_{low}]
+\leq
+\begin{bmatrix}
+x_{1} \\
+x_{2} \\
+x_{3} \\
+x_{4} \\
+\end{bmatrix}
+\leq
+[X_{upp}]
+\label{eq:VariableBounds}
+\end{equation}
+
+What's also useful is that Matlab has a built-in variable, eps or $\epsilon$, that is just a really tiny number, the smallest Matlab can go without rounding it away. 
+
+Then once you've defined these things, call snopt.m:
+
+[x, F, inform] = snopt(x, xlow, xupp, Flow, Fupp, `toyusrfun2')
+
+where x is the initial guess.
+
+You don't necessarily need to provide G or J.
