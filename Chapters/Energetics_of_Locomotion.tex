@@ -11,7 +11,7 @@ Energy is such an important aspect of locomtion because it seems that locomotive
 
 This section contains a review of some fundamental ideas in classical dynamics, and moves onto some thermodynamics and a description of muscles that extends beyond what was presented in Chapter \ref{sec:PropertiesOfMotorsAndMuscles}.
 
-In an introductory dynamics course, the equations of momentum conservation are developed with the understanding that only external forces and torques appear in the equations for a given free body diagram. This fact may often be neglected, since the free body diagrams considered in such courses often do not contain many internal forces. A locomotive, however, may move as a result of both internal forces and external forces. The free body diagram of a car only includes only external forces, such as gravity, normal forces, and friction (figure \ref{fig:CarForces}). Of course, though, there are forces internal to the car as well. These forces do not appear in a free body diagram of the entire car, but would appear in a free body diagram of just the engine, or of just the transmission.
+The systems considered in introductory dynamics courses often do not require one to consider internal forces. This is fine, because it is only the external forces and torques that must be present in equations of momentum balance. After all, internal forces do not appear in free body diagrams.  Internal forces are usually more relevant in a statics course, or for analyzing failure of a system; they are not required for determining rigid body motion with momentum balance.  However, internal forces are relevant when using energy and power to describe motion.  Accordingly, a locomotive's motion depends on both internal forces and external forces. The free body diagram of a car only includes external forces, such as gravity, normal forces, and friction. The internal forces do not appear in a free body diagram of the entire car, but would appear in a free body diagram of just the engine, or of just the transmission (figure \ref{fig:CarForces}).
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
@@ -23,7 +23,7 @@ In an introductory dynamics course, the equations of momentum conservation are d
 \end{figure}
 %
 
-Humans, animals and robots are like cars in that they are not propelled solely by external forces, as is the case with point masses. What implications does this have for energy, and more intuitively, power? It is enlightening to develop equations for power with distinction between internal and external forces. The instantaneous power required to force a particle that is traveling at a velocity $\vv$ is
+Humans, animals and robots are like cars in that they are not propelled solely by external forces (such is the case with point masses). What implications does this have for energy, and more intuitively, power? It is enlightening to develop equations for power with a distinction between internal and external forces. The instantaneous power required to force a particle that is traveling at a velocity $\vv$ is
 
 \begin{align}
 \vF_{tot} \cdot \vv  &=  m\va \cdot \vv = \frac{d}{dt} \left(\frac{m v^2}{2}\right) \\
@@ -42,7 +42,7 @@ P^{tot} &= \KEdot
 
 where $\vF_{i}$ is the total force on particle $i$ whose velocity is $\vv_{i}$, and $\KEdot$ is the time rate of change of the system's total kinetic energy. Equation \ref{eq:PowerCollectionOfParticles} can be used to describe the power developed with a system as simple as a two-particle system, or as complicated as a car. In the latter case, the system is comprised mostly of rigid bodies, in which case the forces and velocities are of the centers of mass of the rigid bodies.
 
-As we mentioned, it is important to make a distinction between internal and external forces. The total force on particle $i$ can be split up as $\vF_{i} = \vF_{i}^{int} + \vF_{i}^{ext}$. If we make this distinction, the power can be written as the sum of an internal power and an external power.
+As we mentioned, it is important to make a distinction between internal and external forces. Consider a collection of particles (no rigid bodies). The total force on particle $i$ can be split up as $\vF_{i} = \vF_{i}^{int} + \vF_{i}^{ext}$. If we make this distinction, the power can be written as the sum of an internal power and an external power.
 
 \begin{align}
 P^{tot} &= \sum_{i} (\vF_{i}^{int} + \vF_{i}^{ext}) \cdot \vv_{i} = P^{int} + P^{ext}\\
@@ -58,7 +58,7 @@ P^{int} + P^{ext} &= \KEdot_{/G} + \KEdot_{G}
 \label{eq:PowerInternalExternal}
 \end{align}
 
-where $\KEdot_{/G}$ is the time derivative of the sum of the kinetic energy of each particles (or rigid bodies) with respect to the center of mass of the system, and $\KEdot_{G}$ is the time derivative of the kinetic energy of the center of mass of the system. Accordingly, these last two terms are
+where $\KEdot_{/G}$ is the time derivative of the sum of the kinetic energy of each particle with respect to the center of mass of the system, and $\KEdot_{G}$ is the time derivative of the kinetic energy of the center of mass of the system. Accordingly, these last two terms are
 
 \begin{align}
 \KEdot_{/G} &= \frac{d}{dt} \sum_{i} \frac{m_i}{2}(v_{i} - v_{G})^{2} = \frac{d}{dt} \sum_{i} \frac{m_i}{2} v_{i/G}^{2} \\
@@ -69,7 +69,7 @@ where $v_{G}$ is the speed of the center of mass of the system, and $m_{T} = \su
 
 Equation \ref{eq:PowerInternalExternal} describes power through a sum of internal forces and external forces, and describes the time rate of change of kinetic energy as a sum of a ``relative'' kinetic energy, and a center of mass kinetic energy. It may seem that these terms correspond to each other; that the internal forces cause an internal power equivalent to $\KEdot_{/G}$ and that the external forces cause an external power equivalent to $\KEdot_{G}$. For example, if a car is in neutral and the driver depresses the accelerator, then the car has internal forces that contribute to an internal power that \textit{is} equivalent to $\KEdot_{/G}$ since the engine does turn. There is no external power since the external forces ground reaction act at stationary points and $\KEdot_{G} = m_{T}(0)^2/2 = 0$. The proposed correspondence holds.
 
-However, this correspondence is incorrect in general. Consider the car in figure \ref{fig:CarForces} once again. A free body diagram of this car illustrates that if the car is accelerating, its acceleration is a result of the horizontal external force acting at the bottom of its wheels. Additionally, $\KEdot_{G}$ is increasing since it is a function of $v_{G}$. While this external force is necessary to give rise to $\KEdot_{G}$, this force does not create the power that contributes to $\KEdot_{G}$. The velocity of a wheel at the point at which the horizontal external force is instantaneously zero from the no-slip condition. Thus, this external force does not produce any power. Instead, the relation between external force and $\KEdot_{G}$ is developed by first noting that 
+However, this correspondence is incorrect in general. Consider the car in figure \ref{fig:CarForces} once again. A free body diagram of this car illustrates that if the car is accelerating, its acceleration is a result of the horizontal external force acting at the bottom of its wheels. Additionally, $\KEdot_{G}$ is increasing since it is a function of $v_{G}$. While this external force is necessary to give rise to $\KEdot_{G}$, this force does not create the power that contributes to $\KEdot_{G}$. The velocity of a wheel at the point at which the horizontal external friction force is instantaneously zero from the no-slip condition. Thus, this external force does not produce any power. Instead, the relation between external force and $\KEdot_{G}$ is developed by first noting that
 
 \begin{equation}
 \KEdot_{G} = \frac{d}{dt} \KE_{G} = m_{T}  \frac{d}{dt} (\vv_{G} \cdot \vv_{G}) = m_{T} \va_{G} \cdot \vv_{G}
@@ -78,13 +78,13 @@ However, this correspondence is incorrect in general. Consider the car in figure
 and then by dotting Newton's second law with $\vv_{G}$
 
 \begin{align}
-( \vF_{ext} &= m_{T} \va_{G} ) \cdot \vv_{G} \\
-\vF_{ext} \cdot \vv_{G} &= \KEdot_{G} \label{eq:CarExternalForce}
+( \vF^{ext} &= m_{T} \va_{G} ) \cdot \vv_{G} \\
+\vF^{ext} \cdot \vv_{G} &= \KEdot_{G} \label{eq:CarExternalForce}
 \end{align}
 
 The left hand side of equation \ref{eq:CarExternalForce} is \emph{not} external power (the term is revisited later), but nonetheless the external force can be seen to relate to the center of mass kinetic energy of the car. The internal forces that generate power that contribute to $\KEdot_{G}$ are in the engine, the transmission, and so on. While it is possible to develop physically meaningful conceptions of mass, acceleration, force, and kinetic energy, the left hand side of equation \label{eq:CarExternalForce} has no perceptible conceptual or physical meaning.
 
-We elucidate this distinction by using one of the simplest systems of particles possible, as described in figure \ref{fig:ParticleExplosion}. Two masses are attached to each other by a spring with spring constant $k$, and the right mass is fixed to a wall. The system is excited, and the left mass oscillates. The center of mass of the two particle system is located at the midpoint between the masses. There is an external reaction force from the surface on the right particle, $F_{ext}$ that enforces the fixed constraint.
+We elucidate this distinction by using one of the simplest systems of particles possible, as described in figure \ref{fig:ParticleExplosion}. Two masses are attached to each other by a spring with spring constant $k$, and the right mass is fixed to a wall. The system is excited, and the left mass oscillates. The center of mass of the two particle system is located at the midpoint between the masses. There is an external reaction force from the surface on the right particle, $F_{ext}$ that enforces the fixed constraint on the right mass.
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
@@ -96,7 +96,9 @@ We elucidate this distinction by using one of the simplest systems of particles 
 \end{figure}
 %
 
-In this example, it is clear that $\KEdot_{G}$ is nonzero, since the center of mass has motion, but this motion arises from the power developed by the internal spring force $k\Delta x$, not from the external reaction force $F_{ext}$. The external reaction force acts at a stationary point, and thus does not develop any power. In the limit as $m_L/m_R \rightarrow \infty$, the system becomes a single oscillating mass, and the internal work becomes equivalent to the center of mass kinetic energy. Thus, the relation between internal power, external power, ``relative'' kinetic energy and center of mass kinetic energy is more elusive than it may seem at first.
+In this example, it is clear that $\KEdot_{G}$ is nonzero, since the center of mass has motion, but this motion arises from the power developed by the internal spring force $k\Delta x$, not from the external reaction force $F_{ext}$. The external reaction force acts at a stationary point, and thus does not develop any power. In the limit as $m_L/m_R \rightarrow \infty$, the system becomes a single oscillating mass, and the internal work becomes equivalent to the center of mass kinetic energy.
+
+Thus, the relation between internal power, external power, ``relative'' kinetic energy and center of mass kinetic energy is more elusive than it may seem at first.
 
 \subsection*{Power in Biomechanics}
 \label{sec:Power in Biomechanics}
