@@ -253,7 +253,7 @@ There are a few different methods for solving optimal control problems. One coul
 \begin{centering}
 \includegraphics[width=0.35\textwidth]{Figures/PiecewiseConstant}\par
 \end{centering}
-\caption{PiecewiseConstant approximation of an input function of time. This discretization simplifies the problem }
+\caption[Plot: Piecewise Constant Approximation of Input Function]{Piecewise constant approximation of an input function of time. This discretization simplifies the optimization problem such that the problem is tractable. The more pieces the user defines, the longer it takes for the solver to find the correct input function. As indicated in the plot, the user must also specify bounds on the horizontal axis, or in this case, the time boundaries of the input function.}
 \label{fig:PiecewiseConstant}
 \end{figure}
 %
@@ -266,7 +266,7 @@ Remember that our goal is to find the ``best" control function, $F(t)$. The obje
 \begin{centering}
 \includegraphics[width=0.4\textwidth]{Figures/SmoothedFunction}\par
 \end{centering}
-\caption{SmoothedFunction}
+\caption[Plot: Smooth Power Function]{Smoothing the power function. To use the power function $P=F(t)\dot{l}(t)$, it must be multiplied by a function (solid line) that will make the power function only exist when positive. The unit-ramp function can accomplish this for us. However, because of the non-smooth point at the origin, the unit-ramp function causes problems for the optimization solver. The function must be smoothed for it to work with the optimization solver (dotted line).}
 \label{fig:SmoothedFunction}
 \end{figure}
 %
@@ -278,7 +278,7 @@ To smooth the power function $[P(t)]^{+}$, a little trick is used. While it is d
 \begin{centering}
 \includegraphics[width=0.4\textwidth]{Figures/IntegralFunction}\par
 \end{centering}
-\caption{IntegralFunction}
+\caption[Diagram: Creating an Integral Function]{The unit-ramp function is difficult to describe mathematically as a smooth continuous function of the input variable, so we use a simple trick: find a mathematical description for the unit-step function, and integrate. The integral of the unit step function is the unit-ramp function, so we will get a reasonably accurate mathematical description of the unit-ramp function that is continuous and smooth.}
 \label{fig:IntegralFunction}
 \end{figure}
 %
@@ -290,7 +290,7 @@ To approximate a step function as a smooth function, we can use the logistic fun
 \begin{centering}
 \includegraphics[width=0.18\textwidth]{Figures/LogisticFunction}\par
 \end{centering}
-\caption{LogisticFunction}
+\caption[Plot: the Logistic Function]{The logistic function. The logistic function can be used to describe the unit-step function if the correct tuning parameter is applied, as in equation \ref{eq:LogisticFunctionTuned}. By tuning the logistic function, we can get it to look more like the unit-step function, which can then be integrated to get a mathematical description of a smooth continuous unit-ramp function.}
 \label{fig:LogisticFunction}
 \end{figure}
 %

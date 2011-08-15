@@ -83,8 +83,6 @@ T = \frac{k}{R}V - \frac{k^2}{R}\omega
 \label{eq:MotorTorque2}
 \end{equation}
 
-Figure \ref{fig:MotorTorqueCurveSketch} shows what equation \ref{eq:MotorTorque2} looks like:
-
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
@@ -125,17 +123,7 @@ P_{o} = T\omega= \left(\frac{k}{R}V - \frac{k^2}{R}\omega\right)\omega
 \label{eq:MotorPowerOutput}
 \end{equation}
 
-%% FIGURE
-%\begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
-%\begin{centering}
-%\includegraphics[width=0.4\textwidth]{Figures/PowerVsOmega}\par
-%\end{centering}
-%\caption[Plot: Output Motor Power vs. $\omega$]{Output motor power versus rotational speed, $\omega$. This plot shows equations \ref{eq:MotorPowerOutput} and \ref{eq:MotorPowerUse} on the same axis. The rotational speed that produces the greatest power output is half of the free spinning rotational speed of the motor. The required power drawn from the battery at this speed is twice the developed power, as indicated by the points labeled $a$ and $a/2$ on the P axis.}
-%\label{fig:PowerVsOmega}
-%\end{figure}
-%%
-
-Given the input and output power, we can calculate the motor efficiency:
+Given the input and output power, we can calculate the motor efficiency.
 
 \begin{equation}
 \mbox{efficiency} = \frac{P_{o}}{P_{i}}
@@ -144,21 +132,11 @@ Given the input and output power, we can calculate the motor efficiency:
 
 At peak power, $\omega = \frac{\omega_{f}}{2}$ and the efficiency therefore equals 50\%. The peak efficiency is close to 1 when $\omega$ approaches $\omega_{f}$. The efficiency is shown in figure \ref{fig:MotorEfficiency}.
 
-%% FIGURE
-%\begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
-%\begin{centering}
-%\includegraphics[width=0.3\textwidth]{Figures/MotorEfficiency}\par
-%\end{centering}
-%\caption[Plot: Electric Motor Power and Efficiency vs. $\omega$.]{Electric motor efficiency versus $\omega$. An electric motor is most efficient when it is allowed to spin at its free spinning rotational speed. However, as shown in figure \ref{fig:PowerVsOmega}, the motor produces no power when it spins at its free spinning rotational speed.}
-%\label{fig:MotorEfficiency}
-%\end{figure}
-%%
-
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
 \begin{center}
- \subfloat[]{\label{fig:PowerVsOmega}\includegraphics[width=0.48\textwidth]{Figures/PowerVsOmega}} \hspace{0.05\textwidth}%
- \subfloat[]{\label{fig:MotorEfficiency}\includegraphics[width=0.43\textwidth]{Figures/MotorEfficiency}}
+ \subfloat[]{\label{fig:PowerVsOmega}\includegraphics[width=0.38\textwidth]{Figures/PowerVsOmega}} \hspace{0.05\textwidth}%
+ \subfloat[]{\label{fig:MotorEfficiency}\includegraphics[width=0.33\textwidth]{Figures/MotorEfficiency}}
 \end{center}
 \caption[Plot: Electric Motor Power and Efficiency vs. $\omega$.] {(a) Output motor power vs. rotational speed, $\omega$. This plot shows equations \ref{eq:MotorPowerOutput} and \ref{eq:MotorPowerUse} on the same axis. The rotational speed that produces the greatest power output is half of the free spinning rotational speed of the motor. The required power drawn from the battery at this speed is twice the developed power, as indicated by the points labeled $a$ and $a/2$ on the P axis.  (b) Electric motor efficiency vs. $\omega$. An electric motor is most efficient when it is allowed to spin at its free spinning rotational speed. However, as shown in figure \ref{fig:PowerVsOmega}, the motor produces no power when it spins at its free spinning rotational speed.}
 \label{fig:MotorPowerAndEfficiency}
@@ -177,9 +155,7 @@ So now given a basic motor model, we can compare plots of various quantities, as
 \end{figure}
 %
 
-Key points to remember regarding efficiency: Running a motor slowly is not very efficient. Running a motor near free speed is very efficient. So given any motor, we can increase $V$ arbitrarily and get any power at any efficiency we choose. Sounds great, but here's the catch: as we increase $V$ at a fixed efficiency, we also inadvertently must change $\omega$, which may not be desirable. What's the solution? Gearboxes.
-
-A gearbox is a passive box that yields $P_{in}=P_{out}$:
+Running a motor slowly is not very efficient. Running a motor near free speed is very efficient. So given any motor, we can increase $V$ arbitrarily and get any power at any efficiency we choose. However, as we increase $V$ at a fixed efficiency, we also inadvertently must change $\omega$, which may not be desirable. The solution to this problem is to convert nearly free-speed rotation at the motor to a rotational speed of our choosing at our application point. This scaling can be accomplished with gearboxes. A gearbox is a passive box that ideally preserves input power, or: $P_{in}=P_{out}$.
 
 \begin{equation}
 T_{in}\omega_{in} = T_{out}\omega_{out}
@@ -197,7 +173,7 @@ T_{in}\omega_{in} = T_{out}\omega_{out}
 \end{figure}
 %
 
-It's important to realize one drawback of gearboxes. As we amplify the force, we reduce velocity. This is best illustrated with a pulley example:
+One drawback of gearboxes is that amplification of force, causes a reduction in velocity. This is best illustrated with a pulley example, as in figure \ref{fig:PulleyExample}.
 
 \begin{equation}
 F_{in}v_{in} = F_{out}v_{out}
@@ -225,18 +201,18 @@ These equations  \ref{eq:MotorAndGearbox} neglect the presence of friction.
 \end{figure}
 %
 
-Given any motor, $k, R$ and any efficiency, say 98\%, any power output, $P_{out}=50[W]$, and any $\omega=4[rev/s]$, we can pick $V$ and $G$ to do the job. What are the catches?
+Given any motor, $k, R$ and any efficiency, say 98\%, any power output, $P_{out}=50[W]$, and any $\omega=4[rev/s]$, we can pick $V$ and $G$ to do the job. However, there are some practical considerations to be aware of when choosing a $V$ and $G$ for real systems.  
 
 \begin{itemize}
 
-\item \textbf{Motor melting:} Motor can only dissipate so much.
-\item \textbf{Sparking/danger:} V can only be so big.
-\item \textbf{Real gears have friction:} The bigger the gear reduction, the bigger the friction.
-\item \textbf{Inertia:} Reflected inertia is proportional to $J_{shaft}G^{2}$
+\item \textbf{Motor melting.} An electric motor generates heat during operation, and can only dissipate so much heat. 
+\item \textbf{Sparking danger.} V can only be so big, otherwise it could create sparking across wire leads or brush tips within the motor and cause damage to components in the motor or in the circuit that powers the motor.
+\item \textbf{Real gears have friction.} The bigger the gear reduction, the more friction there is in the gearbox.
+\item \textbf{Inertia.} Reflected inertia is proportional to $J_{shaft}G^{2}$.
 
 \end{itemize}
 
-A more complete motor law:
+From some of these considerations, we can build a more complete motor law.
 
 \begin{equation}
 T_{m}=kI-J\dot{\omega}_{m}
@@ -272,7 +248,7 @@ C_{1}=\frac{1}{1+\mu* \mbox{sign}\left(T_{in}\omega_{in}\right)}
 and $C_{2}\omega$ represents viscous friction and $C_{3}\frac{\omega}{|\omega|}$ represents dry friction. If $\mu > 1$, non-backdriveable, or if efficiency forward $< 0.5$ (50\%).
 
 % FIGURE
-\begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
+\begin{figure}[htb]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.4\textwidth]{Figures/GearboxCurves}\par
 \end{centering}
@@ -291,7 +267,7 @@ P_{in}=P_{out}+P_{out}^{2}\frac{R}{(Gk)^{2}}
 
 
 % FIGURE
-\begin{figure}[]		% h="here" t="top" b="bottom" p="separate page"
+\begin{figure}[htb]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.4\textwidth]{Figures/GearboxPowerCurves}\par
 \end{centering}
@@ -300,15 +276,24 @@ P_{in}=P_{out}+P_{out}^{2}\frac{R}{(Gk)^{2}}
 \end{figure}
 %
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction to Muscles} % (notes page 7-9, 66)
 \label{sec:IntroductionToMuscles}
 \index{muscles}
 
-Animal muscles can only work in tension. Figure \ref{fig:HumanLeg} demonstrates some terminology that is commonly used when referring to muscles. Muscles are powered by sarcomeres \index{sarcomeres}, with myosin and actin.
+This section is meant to serve as only a brief introduction to muscles and the mechanisms that make them work. Only a basic understanding of muscles is needed to understand the rest of the material in this book. The information presented here is a collection of bits and pieces; for a more detailed explanation of the topics discussed here, the reader should consult a basic introductory biology textbook. 
+
+The main topic of concern for this field of study is energy use. This section introduces indirect calorimetry, metabolic efficiency, peak power consumption, effect of slope on energy consumption, and the basic mechanisms that allow the body to move, such as muscle geometry on both a macroscopic and microscopic scale. 
+
+\subsection{Muscle Geometry and Mechanisms}
+
+Figure \ref{fig:HumanLeg} demonstrates some terminology that is commonly used when referring to muscles. Figure \ref{fig:HumanLeg} shows only the calf muscle of a human leg. The muscle itself is attached securely to the bone by tendons. Each end of the muscle is attached to different bones in the leg so that when the muscle contracts, movement is produced in the joint that connects the two bones. The calf muscle is attached to the back of the foot by the achilles tendon, and to the top of the lower leg (the tibia) just below the knee. The point where the calf attaches to the foot is called the insertion, and the point where it attaches to the tibia is called the origin. When the calf muscle contracts, a person's ankle bends and points the tip of the foot away from the rest of the leg. Since the calf muscle is located on the tibia itself, the foot is considered to be moving relative the the tibia. This relationship defines what we call the insertion and the origin; the insertion is usually the connection point on the part of the body that is moving relative to where the muscle is located. 
+
+Animal muscles can only work in tension, so muscles must always come in pairs. For the foot to move in the opposite direction, another muscle would have pull it back to its original position. These pairs of muscles are called antagonistic because they pull in opposite directions to one another.  Figure \ref{fig:HumanLeg} does not show the muscle that completes the antagonistic pair with the calf muscle. 
 
 % FIGURE
-\begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
+\begin{figure}[htb]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.3\textwidth]{Figures/HumanLeg}\par
 \end{centering}
@@ -317,66 +302,77 @@ Animal muscles can only work in tension. Figure \ref{fig:HumanLeg} demonstrates 
 \end{figure}
 %
 
-Tendons \index{tendons} are passive connections from the muscle to the bone. The tendons are nearly perfectly elastic, though they do have a small associated hysteresis \index{tendons!hysteresis} when contracting and expanding, and are about 90 percent efficient. Tendons are very similar to springs \index{tendons!springs}, and can be modeled as such.
+The tendons that connect a muscle to bone cannot actively contract. Tendons \index{tendons} are passive elastic connections from the muscle to the bone. They are only slightly elastic, but nearly perfectly so. Tendons have a small associated hysteresis \index{tendons!hysteresis} when lengthening and shortening, but this hysteresis only causes approximately 10\% of the work done during lengthening to be lost during shortening. In this regard, tendons are very similar to springs \index{tendons!springs}, and are sometimes modeled as such. Modern robots that aim to replicate human locomotion will sometimes use stiff springs in series with an actuated cable to approximate a human muscle. 
 
 % FIGURE
-\begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
+\begin{figure}[htb]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
-\includegraphics[width=0.3\textwidth]{Figures/TendonTensionPlot}\par
+\includegraphics[width=0.25\textwidth]{Figures/TendonTensionPlot}\par
 \end{centering}
 \caption[Plot: Tension vs. Length for a Human Tendon]{Tension vs. Length for a human tendon. Tendons behave similarly to springs; however, there is a small hysteresis that occurs when loading and unloading tendons. The hysteresis loop forms clockwise; the tendon withstands greater force as it is being lengthened.}
 \label{fig:TendonTensionPlot}
 \end{figure}
 %
 
-Muscles are active motors. Up to 25\% of total fuel goes to muscle work. 50\% loss goes to metabolism in the fat to atp conversion. Another 50\% loss goes to the conversion of atp to mechanical work in the sarcomeres. Atp and calcium are what make the grab-and-release cycle happen. Calcium is the controller for the process. One part of the muscle makes atp from starch and fat, this is called metabolism.
+Active contraction in muscles is the result of a microscopic structure called a sarcomere. The sarcomere is the basic functional unit responsible for muscle contraction; one muscle is made up of thousands of sarcomeres. Sarcomeres are composed of myosin and actin, intertwined as shown in figure \ref{fig:Sarcomere}. The strands, or filaments, of myosin and actin are connected by myosin heads that act as small levers. The myosin heads are part of the myson filaments, but temporarily connect to the actin filaments. When the two filaments are temporarily connected, the myosin heads bend in one direction, release, and bend back to stick to the actin again and repeat the action. This motion incrementally pulls the filaments of actin past the filaments of myosin, and the total width of the sarcomere shortens. It is clear from the figure then that there is a maximum possible contraction for any given sarcomere, and thus a maximum possible contraction for a given muscle. 
 
 % FIGURE
-\begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
+\begin{figure}[htb]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
-\includegraphics[width=0.45\textwidth]{Figures/Sarcomere}\par
+\includegraphics[width=0.35\textwidth]{Figures/Sarcomere}\par
 \end{centering}
 \caption[Diagram: A Sarcomere]{A sarcomere. The sarcomere is the basic functional unit responsible for muscle contraction. They are composed of myosin and actin, intertwined as shown and connected by myosin heads that act as small levers. The myosin heads connect to the actin, bend in one direction, release, and bend back to repeat the action. This motion incrementally pulls the actin closer to the myosin.}
 \label{fig:Sarcomere}
 \end{figure}
 %
 
-One way to measure how much energy is used during locomotion is called Indirect Calorimetry. This method measures the oxygen and carbon dioxide entering the body and leaving the body, and assumes that the intermediate chemical reaction is equivalent to burning. By measuring oxygen and carbon dioxide in this way, we can indirectly measure the amount of food that was used during locomotion. This measurement is commonly quantified by the volume of oxygen, or ``$VO_2$.'' The ratio of carbon dioxide to oxygen is telling of the ratio of starch to fat that is burned.
+Muscles are active motors, and subsequently need fuel to operate. This fuel originally comes from caloric intake, but is spent at the muscle as a chemical called ATP (adenosine triphosphate). Only 25\% of total fuel intake goes to actual work performed by a muscle. Nearly 50\% of fuel intake is used to convert energy stored as fat to useable ATP. The process of converting fats and starches to ATP is called metabolism. Another 50\% of fuel intake is spent in the sarcomeres, converting ATP to mechanical work. Within the sarcomere, ATP and calcium ions work together to make the grab-and-release cycle happen. Calcium levels control the process, and the calcium is delivered to the muscle through a sheath that surrounds the muscle itself. It is possible to externally stimulate muscles and force them to move by applying an electric current or field to the muscle. This can be done even through the skin because the electric field created penetrates the skin and muscle tissue and causes the charged calcium ions to leave the sheath and enter the muscle. This external stimulation bypasses the normal process, which relies on neurons to deliver a weak electric signal to release the calcium into the muscles. 
+
+
+\subsection{Muscle Energy Use}
+
+One way to measure how much energy is used during locomotion is called Indirect Calorimetry. This method measures the oxygen and carbon dioxide entering the body and leaving the body, and assumes that the intermediate chemical reaction is equivalent to burning. By measuring oxygen and carbon dioxide in this way, it is possible to indirectly measure the amount of food that was used during locomotion. This measurement is commonly quantified by the volume of oxygen, or ``$VO_2$.'' The ratio of carbon dioxide to oxygen is telling of the ratio of starch to fat that is burned.
 
 % FIGURE
-\begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
+\begin{figure}[htb]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.35\textwidth]{Figures/Treadmill}\par
 \end{centering}
-\caption[Diagram: Treadmill Experiment Arrangement]{Treadmill experiment arrangement. This arrangement can be used to measure the relationship between energy use and slope of walking surface.}
+\caption[Diagram: Treadmill Experiment Arrangement]{Treadmill experiment arrangement. This arrangement can be used to measure the relationship between energy use and the angle $\alpha$ of walking surface. Increasing $\alpha$ effectively increases the amount of output work the human on the treadmill must do.}
 \label{fig:Treadmill}
 \end{figure}
 %
 
-Given a treadmill setup like the one in figure \ref{fig:Treadmill}, measurements can be made that produce a graph like the one in figure \ref{fig:MetabolicCost}.
+With a treadmill setup like the one in figure \ref{fig:Treadmill}, measurements can be made to produce a plot like the one in figure \ref{fig:MetabolicCost}. Increasing $\alpha$ effectively increases the amount of output work the human on the treadmill must do. Higher output work (a greater treadmill $\alpha$) requires more calories, which we call the metabolic cost of locomotion. 
 
 % FIGURE
-\begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
+\begin{figure}[htb]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.5\textwidth]{Figures/MetabolicCost}\par
 \end{centering}
-\caption[Plot: The Metabolic Cost of Walking on a Hill]{The metabolic cost of walking on a hill. When walking on a sloped surface, the amount of output work required to move uphill increases linearly with the slope of the surface, described by the formula for potential energy, $mgh$. By experiment, it has been found that the metabolic cost of doing that work also increases linearly with slope. When walking uphill, a human uses approximately 4 times as much metabolic energy as the minimum energy required to move their mass uphill. When walking downhill, it is interesting to note that there is still a metabolic cost. A human uses approximately 5/6 as much metabolic energy as would be created if they were to roll down the hill.}
+\caption[Plot: The Metabolic Cost of Walking on a Hill]{The metabolic cost of walking on a hill.  When walking uphill, a human uses approximately 4 times as much metabolic energy as the minimum energy required to move their mass uphill. When walking downhill, it is interesting to note that there is still a metabolic cost. A human uses approximately 5/6 as much metabolic energy as would be created if they were to roll down the hill.}
 \label{fig:MetabolicCost}
 \end{figure}
 %
 
-Higher slope = more tiring. Walking downhill is less tiring than walking uphill. However, it is important to note that walking downhill still consumes energy. The simplest estimate of energy cost of using muscle:
+When walking uphill, the metabolic cost of locomotion is approximately 4 times as much as the energetic cost of traveling the same route. That is to say that the metabolic cost of walking uphill is being compared to the pure energy it would take to move a mass $m$ up a slope $\alpha$, and there are losses due to inefficiencies in converting caloric intake to fats and starches and converting those fuels into mechanical work. When walking downhill, the theoretical mechanical output work is actually negative, but humans are incapable of recovering that energy as they walk downhill. Humans still have to use metabolic energy to prevent themselves from essentially falling or tumbling downhill. The amount of energy a person spends trying to check their speed going downhill is nearly equal to the amount of energy they would gain if they were to just roll downhill. In general, the greater the incline, the more tiring it is to walk up it. The metabolic cost is linear with increases in the steepness of the slope. Also, the greater the incline, the more tiring it is to walk down it, but walking down a given incline is easier than walking up it. 
 
-\begin{align}
-P_{cost} &= C_{1}|P| \mbox{ for } P > 0\notag \\
-P_{cost} &= C_{2}|P| \mbox{ for } P < 0
-\label{eq:MetabolicCost}
-\end{align}
+% Here's a little bit that I don't understand (AVA 20110814):
 
-where $C_{1}\approx0.25$ and $C_{2}\approx0.05$.
+%The simplest estimate of energy cost of using muscle:
+%
+%\begin{align}
+%P_{cost} &= C_{1}|P| \mbox{ for } P > 0\notag \\
+%P_{cost} &= C_{2}|P| \mbox{ for } P < 0
+%\label{eq:MetabolicCost}
+%\end{align}
+%
+%where $C_{1}\approx0.25$ and $C_{2}\approx0.05$.
+
+The idea that walking downhill is easier than walking uphill (for a given incline) can be observed on a smaller scale, at the muscular level. An individual muscle is also better at lowering a mass than raising a mass. Figure \ref{fig:LiftingVsLowering} shows that the amount of weight that you can lower (negative work) is greater than the amount of weight that you can lift (positive work). The isometric strength of a muscle $T_{0}$ describes how much force a muscle can provide with no change in length. The force a muscle can provide when lengthening is approximately 1.7 times the isometric muscle strength. A muscle in contraction provides less force the faster it contracts.
 
 % FIGURE
-\begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
+\begin{figure}[htb]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.5\textwidth]{Figures/LiftingVsLowering}\par
 \end{centering}
@@ -385,19 +381,17 @@ where $C_{1}\approx0.25$ and $C_{2}\approx0.05$.
 \end{figure}
 %
 
-Figure \ref{fig:LiftingVsLowering} says that the amount of weight that you can lower (negative work) is greater than the amount of weight that you can lift (positive work). 
-
 % FIGURE
-\begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
+\begin{figure}[htb]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.4\textwidth]{Figures/PeakMuscleStress}\par
 \end{centering}
-\caption[Plot: Muscle Stress vs. Strain Rate]{Muscle stress vs. strain rate. The peak muscle stress can be thought of as a kind of yield strength, except instead of yielding, the muscle simply cannot hold any more and releases.}
+\caption[Plot: Muscle Stress vs. Strain Rate]{Muscle stress vs. strain rate. The peak muscle stress can be thought of as a kind of yield strength, except instead of yielding, the muscle simply cannot hold any more and begins to release. }
 \label{fig:PeakMuscleStress}
 \end{figure}
 %
 
-Peak muscle stress is kind of like a muscle yield strength, except instead of yielding, the muscle simply cannot hold anymore and releases. For muscles, this peak muscle stress is approximately equal to 0.1\% of the yield strength of steel. 
+The isometric strength of a muscle is directly related to the peak muscle stress by a factor of the cross-sectional area of the muscle. In reality, a muscle will change cross-sectional area as it contracts, and the idea of ``stress" is only meant as a useful guide for thinking. The peak muscle stress is kind of like a muscle yield strength, except instead of yielding, the muscle simply cannot hold anymore and begins to release. For most muscles, this peak muscle stress is approximately equal to 0.1\% of the yield strength of steel. 
 
 \begin{equation}
 \sigma_{peak} \approx 200 kPa
@@ -409,11 +403,12 @@ Peak muscle stress is kind of like a muscle yield strength, except instead of yi
 \label{eq:PeakMuscleStress2}
 \end{equation}
 
+Equation \ref{eq:PeakMuscleStress3} is a quick back-of-the-envelope calculation that shows how much power a kilogram of muscle develops. The calculation assumes a peak strain rate of 5, the peak muscle stress from equation \ref{eq:PeakMuscleStress1}, and a muscle density approximately that of water.
 
 \begin{equation}
 \mbox{Power/Mass} \approx \frac{5[s^{-1}]}{3}\left(\frac{200000[N/m^2]}{3}\right)\frac{1}{1000[kg/m]} \approx 200 [W/kg]
 \label{eq:PeakMuscleStress3}
 \end{equation}
 
-But in practice, the peak power is typically nearer to $50[W/kg]$. The best electric motors have a peak power/mass of approximately $4000[W/kg]$, but typically they are only around $200[W/kg]$. 
+In reality, the peak power is typically nearer to $50[W/kg]$. The best electric motors have a peak power/mass of approximately $4000[W/kg]$, but typically they are only around $200[W/kg]$. For most situations, this means that the power density of electric motors is only slightly better than that of muscle (by a factor of 4). This comparison neglects any considerations made for battery weight that might be needed to power an electric motor. 
 
