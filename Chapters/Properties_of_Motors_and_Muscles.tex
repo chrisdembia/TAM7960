@@ -2,9 +2,9 @@
 \chapter{Properties of Motors and Muscles}
 \label{sec:PropertiesOfMotorsAndMuscles}
 
-Unfortunately, current technologies do not allow us to replicate the properties of muscles exactly. Muscles are strong and light, and can fit into extremely small spaces while still being able to deliver tremendous force. The two most robust forms of actuators in use today on legged robots are hydraulics and electric motors. Hydraulics are powerful, but they are extremely inefficient and can leak oil. Electric motors are far more efficient with energy, and thus are the main focus of actuation options in this text. This chapter starts with an introduction to the properties of electric motors and a discussion of their power consumption. The section on electric motors is followed by an introduction to human locomotive muscle properties, and how these muscles compare to electric motors.
+Unfortunately, current technologies do not allow us to replicate the properties of muscles exactly. Muscles are strong and light, and can fit into extremely small spaces while still being able to deliver tremendous force. Muscles are a type of actuator, which may be defined as a system that converts energy from any form into motion (kinetic energy).The two most robust forms of man-made actuators in use today on legged robots are hydraulics and electric motors. Hydraulics are powerful, but they are extremely inefficient and can leak oil. Electric motors are far more efficient with energy, and thus are the main focus of actuation options in this text. This chapter starts with an introduction to the properties of electric motors and a discussion of their power consumption. The section on electric motors is followed by an introduction to human locomotive muscle properties, and how these muscles compare to electric motors.
 
-\section{Introduction to Motors} % (notes page 3-7)
+\section{Motors} % (notes page 3-7)
 \label{IntroductionToMotors}
 \index{motors}
 
@@ -22,7 +22,7 @@ A basic configuration of an electric motor and a power supply is shown in figure
 \end{figure}
 %
 
-We are interested in the relationships between $I$, $V$, $\omega$, and $T$. Given that we have four variables, if we choose one of them to control, we will then be left with three equations that govern the other variables.
+We are interested in the relationships between $I$, $V$, $\omega$, and $T$. Given that we have four variables, we can choose one of them to control so that we are left with three equations that govern the other variables.
 
 \subsection*{Power}
 \label{sec:Power}
@@ -39,7 +39,7 @@ P_{o}=P_{out} = \mbox{power motor exerts on environment} = T\omega
 \label{eq:PowerOut}
 \end{equation}
 
-The fundamental restriction on electric motors is that there is always positive dissipation due to heat loss, and input power from the battery is greater than power output by the motor. This holds true for many types of actuation systems, as it is nearly impossible to build a completely lossless machine or system. Figure \ref{fig:IdealPowerPlotSketch} demonstrates this fundamental restriction.
+The fundamental restriction on electric motors is that there is always positive energy dissipation in the motor due to heat loss, and so power input from the battery is greater than power output by the motor. This holds true for many types of actuation systems, as it is nearly impossible to build a completely lossless, or ideal, machine or system. Figure \ref{fig:IdealPowerPlotSketch} demonstrates this fundamental restriction.
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
@@ -51,7 +51,7 @@ The fundamental restriction on electric motors is that there is always positive 
 \end{figure}
 \index{power}
 
-Imagine for one instant in time, $\omega$ is fixed. This leaves three variables: $T$, $V$, and $I$ to control in some way. If $V$ and $I$ are controlled, equations \ref{eq:PowerIn} and \ref{eq:PowerOut} become the following two equations:
+Imagine for one instant in time, $\omega$ is chosen or known. This leaves three variables: $T$, $V$, and $I$ to control in some way. If $V$ and $I$ are controlled, equations \ref{eq:PowerIn} and \ref{eq:PowerOut} become the following two equations:
 
 \begin{equation}
 IV = T\omega + I^2R
