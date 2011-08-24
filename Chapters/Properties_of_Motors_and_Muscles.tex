@@ -8,8 +8,8 @@ Unfortunately, current technologies do not allow us to replicate the properties 
 \label{IntroductionToMotors}
 \index{motors}
 
-Generally speaking, using stored electricity to power electric actuators is extremely efficient. One Joule of stored electric energy, in either a battery or capacitor, will deliver almost one Joule of energy to an electric motor paired with the storage device. This is greatly different from combustion-driven actuators, for which the amount of energy stored in chemical bonds is approximately four times the amount of thermal energy that results from the combustion.
-
+Generally speaking, using stored electricity to power electric actuators is extremely efficient. One \unit{Joule} of stored electric energy, in either a battery or capacitor, will deliver almost one \unit{Joule} of energy to an electric motor paired with the storage device. This is greatly different from combustion-driven actuators, for which the amount of energy stored in chemical bonds is approximately four times the amount of thermal energy that results from the combustion.
+\par % trying Ruina's paragraph command
 A basic configuration of an electric motor and a power supply is shown in figure \ref{fig:PowerSupplyAndMotor}. The voltage and current associated with the power supply are $V$ and $I$, respectively. The angular speed and torque provided by the motor are $\omega$ and $T$, respectively.
 
 % FIGURE
@@ -51,27 +51,28 @@ The fundamental restriction on electric motors is that there is always positive 
 \end{figure}
 \index{power}
 
-Imagine for one instant in time, $\omega$ is chosen or known. This leaves three variables: $T$, $V$, and $I$ to control in some way. If $V$ and $I$ are controlled, equations \ref{eq:PowerIn} and \ref{eq:PowerOut} become the following two equations:
+Imagine for one instant in time that $\omega$ is chosen or known. Perhaps this means that we want to set the speed at which a limb in a legged robot is rotating. This leaves the variables $T$, $V$, and $I$ to control in some way. If $V$ and $I$ are controlled, equations \ref{eq:PowerIn} and \ref{eq:PowerOut} can be combined in a power conservation equation:
 
 \begin{equation}
-IV = T\omega + I^2R
+IV = T\omega + I^{2} R
 \label{eq:EnergyConservation}
 \end{equation}
 
-where the $I^2R$ term represents the internal resistance of the motor. Additionally, we can quantify the motor torque:
+where the $I^{2}R$ term represents power dissipation from the internal resistance of the motor. Additionally, we can quantify the motor torque:
 
 \begin{equation}
 T = kI
 \label{eq:MotorTorque}
 \end{equation}
 
-where $k$ represents the motor torque constant, which has units of [Nm/Amp]. Substitution of equation \ref{eq:MotorTorque} into equation \ref{eq:EnergyConservation}, gives the motor voltage law:
+where $k$ represents the motor torque constant, which has units of \unitfrac{Nm}{Amp}. Substitution of equation \ref{eq:MotorTorque} into equation \ref{eq:EnergyConservation}, gives the motor voltage law:
+
 \begin{equation}
 V = k\omega + IR
 \label{eq:MotorVoltage}
 \end{equation}
 
-We think of equations \ref{eq:MotorTorque} and \ref{eq:MotorVoltage} as describing a motor that is controlled by a given voltage. So if given a voltage, say 9 volts, we would like to eliminate $I$ from these two equations so that we can see how the machine behaves. Manipulation yields:
+We think of equations \ref{eq:MotorTorque} and \ref{eq:MotorVoltage} as describing a motor that is controlled by a given voltage. So if given a voltage, say \unit[9]{Volts}, we would like to eliminate $I$ from these two equations so that we can see how the machine behaves. Manipulation yields:
 
 \begin{equation}
 V = k\omega + \frac{T}{k}R
@@ -93,21 +94,21 @@ T = \frac{k}{R}V - \frac{k^2}{R}\omega
 \end{figure}
 %
 
-An important quantity to solve for is the free spinning angular rate, $\omega_{f}$:
+An important quantity to solve for is the free spinning angular rate $\omega_{f}$,
 
 \begin{equation}
 \omega_{f} = \frac{1}{k}V
 \label{eq:FreeSpinningOmega}
 \end{equation}
 
-and with manipulation, we can find the value of the motor torque constant in terms of $\omega_{f}$:
+which is the speed at which the motor would rotate if there were no load on it. We can find the value of the motor torque constant in terms of $\omega_{f}$:
 
 \begin{equation}
 k = \frac{V}{\omega_{f}}
 \label{eq:MotorTorqueConstant}
 \end{equation}
 
-where $k$ has units of $[\frac{V}{rad/s}]$.
+where $k$ has units of \unitfrac{V}{rad/s}.
 
 It's useful here to demonstrate the energy used by the motor:
 
@@ -116,7 +117,7 @@ P_{i} = VI = V\frac{T}{k} = \frac{V}{k}\left(\frac{k}{R}V - \frac{k^2}{R}\omega\
 \label{eq:MotorPowerUse}
 \end{equation}
 
-equation \ref{eq:MotorPowerUse} describes the power consumed by the motor, which is equal to the power supplied by the battery. This power is called the input power. This power relationship is shown in figure \ref{fig:PowerVsOmega} as a straight line, where the curved line is the output power, $P_{o}$:
+Equation \ref{eq:MotorPowerUse} describes the power consumed by the motor, which is equal to the power supplied by the battery. This power is called the input power. This power relationship is shown in figure \ref{fig:PowerVsOmega} as a straight line, where the curved line is the output power, $P_{o}$:
 
 \begin{equation}
 P_{o} = T\omega= \left(\frac{k}{R}V - \frac{k^2}{R}\omega\right)\omega
@@ -143,7 +144,7 @@ At peak power, $\omega = \frac{\omega_{f}}{2}$ and the efficiency therefore equa
 \end{figure}
 %
 
-So now given a basic motor model, we can compare plots of various quantities, as in figure \ref{fig:FourMotorCurves}.
+With our basic motor model, we can compare plots of various quantities, as in figure \ref{fig:FourMotorCurves}.
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
@@ -155,7 +156,7 @@ So now given a basic motor model, we can compare plots of various quantities, as
 \end{figure}
 %
 
-Running a motor slowly is not very efficient. Running a motor near free speed is very efficient. So given any motor, we can increase $V$ arbitrarily and get any power at any efficiency we choose. However, as we increase $V$ at a fixed efficiency, we also inadvertently must change $\omega$, which may not be desirable. The solution to this problem is to convert nearly free-speed rotation at the motor to a rotational speed of our choosing at our application point. This scaling can be accomplished with gearboxes. A gearbox is a passive box that ideally preserves input power, or: $P_{in}=P_{out}$.
+Running a motor at a low $\omega$ is not very efficient, but running a motor near free speed is very efficient. Given any motor, we can increase $V$ arbitrarily and get any power at any efficiency we choose. However, as we increase $V$ at a fixed efficiency, we also inadvertently must change $\omega$, which may not be desirable. The solution to this problem is to convert nearly free-speed rotation at the motor to a rotational speed of our choosing at our application point, e.g. at the limb of a legged robot. This scaling can be accomplished with gearboxes. A gearbox is a passive box that ideally preserves input power, or: $P_{in}=P_{out}$.
 
 \begin{equation}
 T_{in}\omega_{in} = T_{out}\omega_{out}
@@ -173,7 +174,7 @@ T_{in}\omega_{in} = T_{out}\omega_{out}
 \end{figure}
 %
 
-One drawback of gearboxes is that amplification of force, causes a reduction in velocity. This is best illustrated with a pulley example, as in figure \ref{fig:PulleyExample}.
+One drawback of gearboxes is that amplification of force (or equivalently torque) causes a reduction in velocity. This is best illustrated with a pulley example, as in figure \ref{fig:PulleyExample}.
 
 \begin{equation}
 F_{in}v_{in} = F_{out}v_{out}
@@ -189,7 +190,7 @@ T_{in}\omega_{in}&=T_{out}\omega_{out}
 \label{eq:MotorAndGearbox}
 \end{align}
 
-These equations  \ref{eq:MotorAndGearbox} neglect the presence of friction.
+These equations \ref{eq:MotorAndGearbox} neglect the presence of friction in the gearbox.
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
@@ -201,7 +202,7 @@ These equations  \ref{eq:MotorAndGearbox} neglect the presence of friction.
 \end{figure}
 %
 
-Given any motor, $k, R$ and any efficiency, say 98\%, any power output, $P_{out}=50[W]$, and any $\omega=4[rev/s]$, we can pick $V$ and $G$ to do the job. However, there are some practical considerations to be aware of when choosing a $V$ and $G$ for real systems.  
+Given any motor, $k, R$ and any efficiency, say 98\%, any power output, $P_{out}=\unit[50]{W}$, and any $\omega=\unitfrac[4]{rev}{s}$, we can pick $V$ and $G$ to do the job. However, there are some practical considerations to be aware of when choosing a $V$ and $G$ for real systems.  
 
 \begin{itemize}
 
