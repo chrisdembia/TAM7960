@@ -1,3 +1,701 @@
 Email ava7@cornell.edu, ruina@cornell.edu, or cld72@cornell.edu with any inquiries.
-BYE.
-BYE2.
+
+
+To Do Last Week Spring 2011:
+
+Goal: other professors could use it in their courses
+(1) Proofread all, deep proofread, light proofread (mon & tues), Alan and Me
+(2) Fill in index
+(3) new figures & figure modifications & captions   [1]
+(4) take care of all '[chris:]' notes
+(5) citations [5]
+(6) -formatting consistency, full list of formatting rules (COT vs C_T) [3]
+(7) Futher Reading [4]
+(8) convert all regular math to Ruina's rpmath [2]
+(9) intro material [3]
+````````````````````````````
+
+________________
+CONTENT ADDITION
+(1) 05161832 introduction para about naming locomotives
+(2) 05181212 chris needs an explanation of the BadPredictor plot
+(3) 05191909 read mcmahon tomorrow morning for scaling additions
+____________________
+FIGURE MODIFICATIONS
+(1) 05161012 2.4a: label Pmax = kV/R on y-axis, label \omega_f/2 on x-axis, Power Input is P_i, Power Output is P_o? FIXED:20110704
+(2) 05161047 2.4b: P_out/P_in on left of y-axis? FIXED:20110704
+(3) 05162038 7.2a: horselocomotion: correct units on axes. right-side axis for historgram of "unforced" trials. FIXED:20110704
+			 7.2b: y-axis label
+````````````````````````````````
+(4) 05161839: 7.1: optimization: possibly combine this figure with 3 addtional figures, showing contours and for fixed f,v,d, the intersections of the level curves (contour lines) with the constraint (horizontal,vertical, diagonal). MAYBE the contours can be in a certain color, as well. 
+````````````````````````````````
+(5) 05162052: 3.3: bounce: remove the ground? FIXED:20110705
+(6) 05160925: 3.7: BounceEnergy: denote the contact region W, as in LegDiagram  FIXED:20110705
+(7) 05172020: 4.5: RimlessSmoothAndCollision: for (B), move point C to where the impulse is FIXED:20110705
+(8) 05172135  4.12: SimplestWalkerEigenvalues: put \lambda_{1} instead onf \lambda on the vertical axis FIXED:20110705
+````````````````````````````````
+(9) 05181112  7.1: Optimization. can you add contour lines emanating from the center, and that are tangent to the A,B,C lines at all intersections? This is a pretty important one compared to the other fig changes. I've emailed you the fig to mimick.
+````````````````````````````````
+(10)05181735 8.2: Pendulum: for consistency, put a FBD: underlined next to the fbd part of the figure FIXED:20110705
+(11)05182153 6.2: ParticleExplosion, can you write in Vg = 0 in the figure? FIXED:20110705
+(12)05191913 6.6: ForcePlate could contain the forces of gravity and Fg ground reaction force, and a direction for the unit vector j, \uj FIXED(sort of, see what you think):20110705
+(13)05192225 4.2: BasinOfAttraction: label position and velocity axes. Also, your second (lower left) basin needs a fixed point? (AVA: both parts are actually one basin; the basin does not have to be continuous) FIXED:20110705
+(14)05192255 4.3: Attractors: in the left section, is the curvy path supposed to go to the fixed point, or to the initial state? (AVA: it's supposed to look like that, the description was not clear enough. I updated the description a little bit FIXED:20110705)
+(15)05201016 7.7: change f(t) to F(t). Do not confuse with F_{obj}(t). FIXED:20110705
+(16)05201306 2.2: cut out the other three quadrants, focus on the first. Less stupid gray area. FIXED:20110705
+(17)06181255  6.2: ParticleExplosion: replace explosion with a spring, eg. change name of file and just add a spring betwixt the two masses. also plz place a \Delta x somewhere appropriate around the spring, also plz label the masses m_L and m_R FIXED:20110705 (except I did not rename the file).
+
+_________
+CITATIONS
+(1) 05161012 section 1.3: when walking [?]
+(2) 05161012 section 1.3: combustion engines [?]
+(3) 05161018 section 2.1: that results from combustion [?]
+
+__________________
+FORMATTING CHANGES
+(1) COMPLETE 05162336: 05161026 change Figure and Table to figure and table: 
+
+
+OLD BELOW
+
+To Do List:
+
+- Mike Colemen Paper on Rimless Wheel
+
+- READ: ruina's essay about writing on his website
+
+- READ: muscles motors and locomotion Tom McMann
+	- it's hard to understand
+
+-Split the main file into chapter files, homework
+
+-explain document structure in intro
+
+-learn some more indexing
+
+-
+
+- bibliography
+
+- homework section
+
+- what do we do at meetings?
+
+- goals:
+keep track of hours // chapter a week
+
+chris this week
+-index (indexmaster)
+-check out ruina's books
+-progress log
+list of tdo/questions
+-ch3
+
+alan this week
+- ch2
+
+-figures?
+
+- chris can do explanations for equations
+
+-get hw latex file from ruina
+
+-figure placement
+
+-wrapfig
+
+-caption/label management
+
+
+% LOG FILE
+LOG FILE RULES:
+-new stuff at the top
+-three stars indicates open project
+
+20110821-2304-*** CLD AVA
+
+Phone call 
+-Alan will draft email to Minoj this week.
+-We'll start (concurrently with Minoj) going through each other's sections 
+-Ruina's new paragraph command: we don't know what it is; Chris may look through Ruina's homework .tex source to discover it. We will not worry aobut this for a while but it seems that it's something deep in how Ruina processes the tex files?
+-\n at new sentence to deal with line breaks in github website.
+-Talked about UT Austin and about Northeastern classes
+
+20110703-2118-*** CLD
+
+working on an email to Ruina on energetics (outlining my energetics section)
+
+20110705-1948-*** CLD
+
+
+20110703-1811-*** CLD
+
+Thoughts for later in the week:
+I have a bunch of [chris: comments still scattered about
+Pehraps it is up for dicussion how much McMahon to include.
+A method for revisions: possibly use GIT revision control. Should Ruina put revision comments right in the tex files, or annotate upon the PDF?
+-We should definitely archive a copy as soon as we are ready to submit
+-There's a \begin{comment} environment we can use
+
+20110630-2055-*** AVA
+
+-IN passive right now.
+
+20110626-2044-2443 (EST) CLD
+
+-Listening to music by Brett Dennen http://brettdennen.net/. He performed at my cousin's wedding like 6 years ago and got a little popular. All of his stuff is about love though, and I think there are too many love songs. That's one thing I like about Vampire Weekend, that almost none of their songs are about love. I guess this is true for a lot of bands but VampWk is what comes to mind. VampWk is performing in August in the Hamptons at a 2-day festival (!) that costs almost $200 (=/)
+
+-I definitely didn't actually work for 4 hrs...time is SOOO weird. Anyway, I did captions for two more chappys. Next weekend I'll finish off the captions and move onto McMahon stuff.
+
+Working on captions
+
+20110625-1925-2116 AVA
+
+-I was in Passive, working on stability...
+
+20110619-2130-2230 AVA
+
+-Workin'
+
+20110618-1443-1530 AVA
+
+- just workin on my sections
+
+20110618-0929-1132 CLD
+
+the things I want to do by July 1st are:
+	-update Ruina's rant
+	-update McMahon section
+	-figure captions
+ALAN: I ADDED A FIGURE MODIFICATION TO THE LIST OF FIGURE MODIFICATIONS
+
+NOTES ON EXTERNAL POWER/RANT/BIOMECHANICS
+	-use power instead of energy b/c the math is easier for power
+	-pendulum example in rant: external work does not count gravity; we just ignore it?
+	-the first bio usage/messup of terms was by Fenn, Margaria (Magaria), or Hill: it is Ruina's sense that bio people are still not aware of the misuse of the term
+	-Car example: external power is not equal to d(KEcom) but is d(KEcom) is due to external force
+	-2 - mass example: replace with spring, to remove the temporal aspect of the internal force
+		-internal force gives rise to external work, KEcom from kdx, and Fext acts at a fixed point, so it does no work.
+20110614-1802-*** CLD
+
+did'nt do any work, just made this note
+
+-PEOPLE TO SHARE JULY4TH DRAFT WITH	
+	-hubbard
+	-pranav
+	-recktenwald
+	-ruina
+	-jason moran
+	-minoj
+
+20110612-2357-*** CLD AVA
+
+-phone call 
+-went over the stuff from ruina's talk
+-talked about life, girls, housing, y'know...
+-we will talk on sundays, at least for now
+-went over what we did last week, briefly
+-chris should take on some more figure captions to do
+
+20110606-1643-*** CLD
+
+I talked with Ruina just now on Skype. We covered the topics
+-external power clarification
+-naming locomotives
+-scheduling
+-the cute intro
+-RUINA SUGGESTS thought bubble on the cover figure should eminate from m_{2} rather than from the swing leg.
+
+-EXTERNAL POWER CLARIFICATION
+	-MUST CHANGE EXTERNAL KE TO COM KE
+	
+-NAMING LOCOMOTIVES
+	-can use multiple phrases
+	-Ruina reall doesn't like pedestrian. He likes legged things, and suggests using multiple variants of it throughout.
+-SCHEDULING
+	-July 4th is good for Ruina b/c some conference ends around that time
+	-He suggests that on July 4th, we send him the stuff, he makes minor edits, then sends the stuff out to other interested parties
+	-he may want to take somewhat of a vacation around July 4th as well
+	
+-CUTE INTRO
+	-Ruina has done his fair share of cute things in his textbook, and he finds that they are gradually being removed. At some point they seem to just bother people. A possible alternative is to write in a style that gets the reader into the desired mindset. Instead of saying "the pipes creeked", we can say "It seems strange that...", This would entail using more questions etc. "Why can't an elephant jupmp as high, even though it is large blah blah?"
+
+
+20110605-1407-1800 CLD
+
+   && &&&
+    && &&&
+     && &&
+	&& &&     <---- tornado
+   && &&
+  && &&
+  & &
+  & &
+  
+-messin around with the intro 
+-Alan, you had put a 100 W number in the intro; and wanted a source. I found a similar number, 115 W in Bicycling Science (David Wilson), and so I put in that citation. It's really not a good citation and should be changed though.
+-k i did some edits. it's far from done but it's further along. i see the introduction as not really ever being finished. for now it's a deposit of interesting thoughts
+
+
+20110604-1057-1200 AVA
+
+- started working on my sections...
+
+20110601-1710-1720 AVA CLD
+
+To do for July 4th:
+
+Both: 
+- indexing, conversation, maybe do it together. 
+
+Alan: 
+- content to write: note form to prose (chapter and a half, donÕt know which ones) THIS WEEK +  NEXT WEEK
+	 - on own 
+- figure modifications
+- on own ZE NEXT WEEK
+
+Chris:
+-content to write: 	-some parts of intro THIS WEEK
+			-ruinaÕs rant NEXT WEEK
+			-mcmahon additions to Scaling and Similarity ZE WEEK AFTER
+
+After July 4th: 
+When we are ready to hand off a copy to Pranav, Minoj, Recktenwald, etc
+- further reading
+- citations
+- reading, editing, etc. 
+
+
+
+
+20110517-2108-*** AVA CLD
+
+  ___                _
+ / __|___  ___  __ _| |___ 
+| (_ / _ \/ _ \/ _` |   -_)
+ \___\___/\___/\__, |_\___|
+               |___/
+			   
+-consider renaming Optiization in Locomotion to something that includes Energy in the title?
+-I would have put the equations of motion in the Simplest Walker section, but the equations in the related paper use different generalizd coordinate for the swing leg.
+
+Chris' sections:
+-Modeling: all
+-Passive: rimless wheel
+	      simplest walker
+-Energetics: all
+-Optimization: energy optimization
+-Similarity
+
+Alan's sections:
+-Introduction: all
+-Motors and muscles
+-Passive: stability
+          Rimless stability?
+          SLIP
+		  Simplest walker stability?
+-Controlling
+-Energetics: optimal control
+
+
+20110516-1007-*** CLD
+
+-I'm starting to read through the book, will make notes.
+-Email to Ruina:
+	-the way we worked this semester
+	-what we think we accomplished
+	-where we are in our editing process
+	-HIGH LEVEL QUESTIONS
+		-how to mix & mingle Models and Passive Dynamics, e.g. placement of rimelss wheel.
+		-introduction material
+		-we used to have Energetics and Optimizaiton as one chapter
+	-PDF has links, enjoy exploring!
+		
+		
+-Robert Chen made a good point: if we use "we" in the context sections of the book, it sounds like it was our research
+-Modeling legged locomotion: human vs n-legged: it's all n-legged
+-REPLACE LOCOMOTIVE AND LARS WITH ROBOTS EVERYWHERE, WITH DISCLAIMER IN THE BEGINNING. PASS THIS BY RUINA AT SOME POINT.
+-make up a word from latin: crura unus? quis?
+-THURSDAY NIGHT: work on introduction together, and other formatting items.
+-In Collisional model, I added subsubsections
+
+20110511-1453-*** AVA CLD
+
+-Talk with RUINA
+-Submit something next Saturday
+-make sure to give details, like the fact that the course is rolling for Alan
+-for grading, he'll look at it quickly
+-Ruina can look at the book around early August
+-We can pass this on for contributions from Coleman and Minoj Shrinivasan?
+-Rashevsky died out, but McMahon has held up (his textbook)
+-Chris thinks that to determine the future we need to wait until Ruina looks at it
+-Ruina says that we should not discount our ability to judge the quality of our book
+-Pranav could peak at the book
+-send a copy to Pranav to review.
+-Talked about Jason's participation this summer, with MATLAB/homework.
+-So maybe the first half of this summer is detailing it until Ruina can really read it, having other people read it.
+-There could be a website for this book.
+-If we make a website we could put it up on eCommons (Zehnder has fracture mechanics on it)
+-ALAN: FIGURE REVISION: HORSELOCOMOTION correct units on the axis
+
+20110510-1406-*** AVA CLD
+
+Agenda for Ruina meeting tomorrow
+-Hoyt Taylor gait optimization more sources
+-Jason Moran's role: MATLAB? where is it used?
+-his proofreading aid
+-FIGURE REVISION SUGGESTION: HORSELOCOMOTION
+	-need right-side axis for histogram of "unforced" trials
+
+20110509-1638-1700 AVA CLD
+
+-Jason Moran has been added to the team; he might do som matlab stuff and will also proofread for us. We're meeting with Ruina this week hopefully to discuss this.
+-This week we're meeting 3-5pm, and next week a little longer than that, to work on this. The objective is to finish typing up the notes this week, and do all the proofing next week.
+-I want to make a list of things that I want to do.
+	-finish speed-frequency
+	-finish choosing-a-gait
+	-finish RUINA's energy/power rant
+	-over the weekend, print and proof everything, come up with a list of objectives for the week (list of figures to work on, etc)
+
+-Alan's Goals: 
+	- finish intro to stability section
+	- do the snopt section
+	- go through and have a figure-fixing session!
+	- same as chris: revise + proof
+
+20110424-1528-*** AVA CLD
+
+-possible idea for figure addition, for figure with the name Optimization:
+	-possibly combine this figure with 3 addtional figures, showing contours and for fixed f,v,d, the intersections of the level curves (contour lines) with the constraint (horizontal,vertical, diagonal). MAYBE the contours can be in a certain color, as well.
+	
+	|        |
+	|        |        < like that
+	|        |
+	|________|
+    |__|__|__|
+	
+-
+	
+<------<<      <-------<<
+
+20110420-0051-*** AVA
+
+-filling in some figure captions.
+
+20110417   CLD
+
+-gonna work on energy optimization today
+
+
+20110414-1600-1630 CLD
+
+-the stuff I need to work on is:
+-Ruina's rant about biomechanics power definition
+-Energy optimization
+-Homework formatting CZECH
+
+
+20110413-1340-*** AVA CLD
+- ballin, bossin, whatever.
+- always mbox units!!!
+
+
+20110406-1400-??? AVA CLD
+
+-we discussed reorganization of chapters. split energy. future work plan: chris does energy, alan touches up previous sections
+-we put ruina's homework into the pdf
+
+20110405-2400-??? CLD
+
+-can we say "the reader", or "you"? "the equations here are presented in order to familiarize the reader.."
+-"in this book" vs "in this text": IN THIS TEXT
+-particle vs point-mass vs point mass
+-"vanish"
+-"if this equation" vs "if equation5555": USE EQUATION NUMBER ALL THE TIME
+
+20110404-0924-0926 CLD
+
+-cleaning up Further Reading, made it its own section
+-considered putting the homework in, but i guess we should discuss that
+
+20110403-1616-1840 AVA CLD and Andy Ruina
+- Ruina: the book is definitely a great term project, good grades all around!
+- for making it a good book, it will take more time to edit, definitely through the summer. 
+- for making it a real REAL book, make minsoh srivasian a co-author, he's a grad student who's got experience with this stuff. 
+- minimal goal: if course taught again (by ruina), use this book for the course. Next goal: if the course is taught by other people 
+
+- the basic center of mass theorems of systems and what they have to do with locomotion. Work, internal, external. Ruina's website: rant on internal work and external work. Energetics. 
+
+- the model used for SNOPT stuff is the most general (see ruina's nature paper 06), SLIP is a special case, collisional model is a special case, linear inverted pendulum. 
+
+- motivation: passive dynamics is a good start, but not the whole story. Axe the second paragraph of the intro. It's a good place to understand that we're not doing asimo. The story of this book: somebody is out there trying to make a real loco. what are the roadblocks to doing that? ROADBLOCKS
+
+- separate 6 so that energetics is tis onw chapter. optimal control are its own: use nature paper article and describe all 4 cases. still do basic dynamics.
+
+- include homework!
+
+- not continuous control: they control at the section level, n and n+1, check what's up once or twice a step, discrete actions every so often to correct. This comes from the passive idea, but it's still important to know how the controls work with the robot. 
+
+- locomotive= noun. can't use. use: legged thing? 
+
+- the nature of locomotion: what's your goal? rearrange body in closed path in configuration space so that your body is in different place than it was. You can think about rotational locomotion vs. translational locomotion. The astronaut was able to rotational loco but not transl. what gives you the ability to move is friction. if you can only touch the environment with linear viscous friction , you can't locomote. locomotion is dependent on something other than linear viscous friction. USING DRY friction to your advantage. Radah Krishnan wrote a dope paper on this idea. This idea is not really emphasized in this course.
+
+- more about the story: you want an animal or robot to move and not fall apart, and translate. what's the big problem? friction. it's a matter of manipulating friction. one way to deal with that is to use wheels. let's just skip that. we don't like wheels. let's use legs. We get to circumvent friction by using legs and picking them up and putting them down. How then do we go about moving our foot around? 
+
+- the other story: about the passive locomotion. the way it is now: if you want to understand it now, you have all this complex control stuff. lets start with it from a purely passive dynamic toys, analyze this from a mechanics point only. Thinking about the passive stuff is a way to get warmed up to looking at the complex controls stuff. You actually really do have to think about the control to get the same kind of stability as animals. The passive stuff is stable, but not AS STABLE AS the bio counterparts. So passive is therefore not the whole story. 
+
+- chris: story: dynamics applied to systems that are meaningful, or at least seem like they have meaning. 
+
+- the horse curves come from the hoyt and taylor paper. what if you want to go at a speed between walk and trot? in chemistry: it's the lever rule: steam vs. water in phase changes. 
+
+20110403-0912-1210 AVA CLD
+
+-I think it makes the most sense for us to read the whole book on our own, on paper or in acrobat, make notes on what to correct, and then go through it together. so that way, even if we don't get through the revisions together, at lesat we have a copy of all the revisions we suggested, to look at later on.
+-types of things to revise: formatting, (equation vs Equation). and content questions etc
+-metabolic cost =/ cost of locomotion
+
+
+20110402-1348-2150ish AVA CLD
+
+-alan ch5
+-me energy and optimization
+4.3
+3.1
+ch6
+^^that's it for the notes
+-we should distinguish between human / biped / horse locomotion
+agenda for ruina mtg:
+-get homework tex
+-john bertram energy optimization papers
+-IDEA IDEA IDEA TO HAVE A FURTHER READING SECTION 
+-italics?
+-hypothesis: energy focus
+-we're meeting tomorrow at 9am to work on this schtuff together
+-avoid parenthesis. avoid putting figures in parenthesis.
+
+20110330-1358-\infty AVA CLD
+
+- uh i think i made a conflicted copy and i don't know where it went and i forget how it was different from your notes. -alan
+-Alan is taking out the stability section
+-meeting Ruina on Sunday, 9a-1p (April 3rd)
+-3 hrs go over the current manuscript: co-editing, cohesiveness, answer dynamics questions and formatting/consistency stuffs
+-could expand on control.
+-we want subsections for passive locomotion
+-theme of our book: passive? controlled? application'validation?
+-FOR advanced undergrad/young PhD student.
+-phase 1 is finishing all text off notes
+-phase 2 go through and add.
+-objectives for meeting with Ruina:
+              __
+            |`   `\
+             /\     \
+            /   \     \
+           /      \     \
+          /         \     )
+        /             \    )
+      /               /   /
+    /                /   /
+  /                  /   /__
+                  (        --
+                   (____     )
+                        ````
+                 
+20110317-2300-20110318-1730 CLD
+-working on scaling. i took the mcmahon book from ruina's lab
+-i haven't used much controls lingo yet. like fixed point
+-what do you think aobut 2 equal signs in one line of equations?
+-it's gonna take so long to memorize ruina's shortcuts it might not actually save us time =P
+-pendula vs pendulums.
+-when to use italics?
+-ALAn plz modify figure ScaledPerson so that there's an L_1 that describes a single body part/limb
+-i'm trying to make sure i include some info from mcmahon in this chapter.
+-we don't much discuss gait transitions, or at least not in a formal way.
+
+20110316-2221-2400 CLD
+-finishing rimless wheel
+-modified some text about the MultipleCollisions figure
+-angular velocity vs angular speed
+-k i finished writing stuff for the passive chapter. i touched upon nonlinear stuff
+-going to read up a little on scaling, then move onto other work
+
+
+        ___
+          \__    ___
+          /  --__ |
+     .--./       --.--.
+    -   /-        - -- -     
+	 -..-          -..-
+	   
+	
+
+
+20110309-1330-1450 AVA and CLD
+figure revisions:
+-hodograph +/- switchup
+-RimlessPlots: a,b,c,d, remove one of hte curves
+-SmoothRimless figure: direction of force, etc
+~~
+MultipleCollisions figure: imagine an N-legged gait
+
+20110309-930-1336 CLD
+
+-I'm working on Passive Dynamic stuff, the simplest walker model
+-I'm putting \usepackage{rpmath} in TAM7960 JK i'm not
+-I took out the glossary junk from the TAM7960
+-k i just typed up some more of the simplest walker equations
+-before spring break: i need to read the simplest walker paper and tidy up that section; i have to talk about poincare etc. i want to do similarity as well but idk how well that'll go.
+
+20110308-1730-1900 AVA and CLD
+
+-party time
+-Alan: Can you work on modifying figures RimlessPlots at some point? Ruina suggested taking out the curvy stuff in the lower right plot (also could we put (a),(b),(c)'s... in?)
+-[Chris]: working on Simplest Walker and tidying up Rimless Wheel.
+      ____
+    _/[][]\_
+ >o|________|
+     O    O
+     
+-revise rimless wheel (talk about the figures better)
+-finish simplest walker
+-i will work on stability for next week (by spring break)
+
+
+
+20110301-1412-2000 AVA and CLD 
+
+-Fig RimlessPlots: could you put in (a),(b);(c),(d)? are these parametric plots?
+-also, include some sense of time correspondence between the top two figures: what points of the motion are concurrent?, use t* (collision t) for the end of the motion cycle?
+-work party wooooooooooooooot
+-SmoothRimless figure; could the impulse be put onto the other leg? also i don't see this force in your notes (the vertical force)
+-MUsT ask ruina about RimlessPlots
+
+\begin{center}
+\includegraphics[options]{}
+\captionof{figure}{HHEREGOES CAPTION}
+\label{fig:}
+\end{center}
+
+     _____
+    (     )
+   (       )
+  (    ~    )
+   \       /
+    ``\ / `` 
+       \
+        \
+         )
+        / 
+       (
+        ) 
+       (
+       
+
+20110225-1752-idr CLD
+-i think it would be neat to include estimates of magnitudes (how big are all of these energy terms?) i guess this had to be done for the slip simulation
+-what makes the collisional model quasi-elastic?
+-y-zero or y-o? y_0 versus y_o versus y_O
+-at the end of the slip section you talk about poincare. i odn't know enough about poincare to write the lead-in into stability/control.
+-the bibliography is broken
+-i made a temporal comment "in the last three decades"
+-i think that somewhere, ch3 or 4 or 5, we should include output figures from your matlab code for raibert
+-what are return maps?
+
+20110223-1100-1207 AVA
+-working on chapter: properties of motors and muscles
+-motors section should probably have short subsections, power, efficiency, gearboxes, etc. It also needs a little revisions on the equations, I think there are too many. 
+
+20110222-1815-2131 CLD
+-i'm going to try to work on SLIP now
+-what do we do with the Basic Definitions section?
+-i'm not sure I know enough to do this SLIP stuff.
+-k i didn't actually do anything
+
+
+20110220-1008-idr CLD
+-objective: touch up what's done already, and "finish" SLIP.
+-try to take out some of the "we"'s
+-in the eqn table (LMB, AMB, energy) I typed up the equations: did you want to leave them as words? AVA: no.
+-vectors as \mathbf or as \vec? AVA: both.
+-in Ruina's 2005 paper he uses the phrase 'gait cycle'
+-In Ruina's 2005 paper he describes the whole framework of relating muscle work and metabolic cost: is this discussed in the muscle section, or where?
+-human vs animal locomotion?
+-i've been using the word "locomotive" as a joke kinda b/c i think it's a fun play on words.
+-the inferred metabolic cost stuff was pretty confusing to me; it was important to make the distinction that delta E was over just the collision, and that there are energy interactions over the entire gait
+-somewhere we should say "human" locomotion etc where it's human and where it's animal. or biped/etc. is everything just biped? Biped. Human? 
+-examples about we: "A modified collisional model can resemble brachiation." 
+	vs "Brachiation can be modeled/mimicked by the use of a modified collisional model"
+	vs "We can mimick brachiation if we modify our collisional model"
+-ruina uses the phrase 'collisional episode'
+-i need more guidance as to what i should write fo SLIP in chapchap3
+-MULTICOLLISIONS: CONTACT MUST STILL BE AT ONE POINT THOUGH. AVA: It's like a transition between brachiation and the collisional model. Peeps don't have 7 legs, but if we did, that would be dope (and energy efficient).
+-i haven't done captions for the figures in my section =O
+- (1) passive walking: htere's formulas here and i odn't understand them
+- (2) cuts energy cost by 4? i need more infos here
+- IN FIGYOUR HODOGRAPH, + AND - ARE ALL SWITCHEDEDED UP
+-i'm up to chap3 SLIP. i wanna do it tomorrow at some point so if you're around and gonna be working on TAM i'll sit with you. i wish i could bold things in plaintextfiles
+
+20110218-1825-1848
+-what do i do for section 3.1: basic definitions
+-i'm starting to read ruina's collisional model paper but i can't focus. i'll come back to it later
+
+20110216-1340-1455 AVA CLD
+-we can use \graphicspath and (\grffile if we want spaces in paths/directories/filenames)
+-\graphicspath{Figures/}
+
+20110216-1120-1130 AVA
+-workin
+-saw your log notes. Looks great. I don't think we need a glossary if we've got an index. 
+-MODEL, STABILITY/PASSIVE: GO THRU EACH MODEL AGAIN, CONTROL EACH MODEL
+-RIMLESS WHEEL IS COLLISIONAL ish
+-cpg is random tidbid
+-zm and capture point is tidbit
+-actual control is raibert hopping (contact angle)
+-simplest walker is completely passive
+-collisional model is ruina's paper (his own thing)
+-figure out impulse stuff for collisional model from his paper
+simplest walking model is online paper
+inferred versus measured (indirect calorimetry; breathing machines; oxygen consumption and body type)
+
+20110215-1540-1950 CLD
+
+TAM7960.tex
+-i suggest a modification to fig3.5: add more legs and have them all converge at one point
+-include an angle variable NO DONT
+-i think the content of the text is much more valuable than including frills like an index, or worked examples. i say we each take one chapter for two weeks. the first week will be 80% of the work, and then we meet to discuss/revise, comment, and the second week will be 20% to finish and polish. this will take us through mid to late april. from there we can kinda just have fun with it
+we should tlak about uniformity of equations, etc.
+-i didn't understand the impulse stuff
+-i'm up to about page 18 in your notes, but i have plentyy questions and there's plenty of revision to be done
+
+
+
+20110211-1347-2109 CLD
+
+TAM7960.tex
+-if you'd like to work on  now (splitting up the doc etc) I'll sign off for now and do stuff later
+-use of "we"?
+-i'm putting comments in the tex file as [chris]:<comment>
+-i'm leaving alone the eqn box in ch3 so you can do it
+-is there going to be a chapter on different strides/speeds
+-use of th word stride?
+-i started using the glossary sty, since it seems like you want to include a glossary. IDK if your tex program automatically downloads packages for you but the link is here http://www.ctan.org/tex-archive/macros/latex/contrib/glossary/
+you can remove the glossary if you like; sorry this is probably a pain in the butt that i did this
+***** if you get a bug and there's no delimiter error, comment the \makeindex command in the preamble, typeset, then uncomment the line
+-JK ON THE ABOVE.glossary was buggy so i commented it out
+-I included the amsmath library for using the align environment for eqnarrays
+
+
+20110210-1700-2126
+
+TAM7960.tex
+-compiling a list of the alexander books that ruina has for the bibliography
+-put a command to create links in the PDF (for references and for table of contents)
+-started index; it works with links as well
+-feel free to change anything i do with the index. if you think it's something that would be discuss, just put it in this log
+-distinction between human and legged locomotion? looking at ch3.
+-creating \label{sec:*}'s for sections
+-worked on the equations in the table in ch3 (linear, angular, energy). kept the old code intact in case you want
+
+20110209-1450-1502-AVA
+
+working on TAM7960.tex
+deleted chapters folder until I can figure out what the heck is going on with the input stuff. TAM7960.tex still one large file.
