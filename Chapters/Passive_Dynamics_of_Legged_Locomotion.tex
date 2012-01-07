@@ -69,7 +69,7 @@ the motion, the ball returns to that point. If the ball's ``motion" is
 disturbed by an external force, after some number of periods it will return to
 the stable fixed point. In this case, it is a little silly to think of it that
 way, because between periods, the ball is still at stable fixed point during
-its ``motion." \todo[inline]{get rid of previous sentence?} The path that it
+its ``motion." \todo{get rid of preceding sentence?} The path that it
 follows along the hill as it settles to that fixed point can be thought of as
 the basin of attraction: if the ball starts anywhere in the basin, it reaches
 the stable fixed point. 
@@ -96,26 +96,56 @@ fixed point is marked with a star on the map, as shown in figure \ref{fig:BasinO
 \end{figure}
 %
 
-\todo[inline]{can there be a basin of attraction without a fixed point, as is
+\todo{can there be a basin of attraction without a fixed point, as is
 shown in the figure?}
 
 The basin of attraction is made up of all the states (position and velocity)
-that the ball or system can have initially and still return to the stable fixed
-point. In the ball example, it's important to note that the ball may start in
+that the system can have initially and still return to the stable fixed
+point. In the ball example, it is important to note that the ball may start in
 the region $d$ shown in figure \ref{fig:BallOnHill}, but if the velocity is
-nonzero and too great, the ball may not ever reach the stable fixed point. 
+nonzero and too great, the ball may never reach the stable fixed point. 
 
-The stable fixed point is generally called an attractor, and up to this point we've been thinking of the attractor as one point on the Poincare map. However, it is also possible that the attractor could be a complicated region. These complicated regions are sometimes called ``strange attractors." Functionally, strange attractors are the same as a stable fixed point. If the state of the system lies within the attractor, it will return to somewhere else within that attractor one period later, just as a system would return to the stable fixed point one period later. figure \ref{fig:Attractors} shows the difference between the two attractors.
+\todo{change the previous sentence to ``if the velocity is
+leftward, the ball will never reach the stable fixed point''?}
+
+In general, it is possible to have part of the basin of attraction detached
+form the part that contains the fixed point, as is shown in figure
+\ref{fig:BasinOfAttraction}.
+
+The stable fixed point is generally called an attractor, and up to this point
+we have been thinking of the attractor as a single point on the Poincare map.
+However, it is also possible that the attractor could be a complicated curve or
+region. These complicated regions are sometimes called ``strange attractors."
+Functionally, strange attractors are the same as a stable fixed point. If the
+state of the system lies within the attractor, it will return to somewhere else
+within that attractor one period later, just as a system would return to the
+stable fixed point one period later. Figure \ref{fig:Attractors} shows the
+difference between the two attractors.
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.5\textwidth]{Figures/Attractors}\par
 \end{centering}
-\caption[Diagram: Single Point Attractors and Strange Attractors]{Single point attractors and strange attractors. The left Poincare section is for a single point attractor, denoted by the star. The right Poincare section is for a strange attractor, where the shaded area is the strange attractor. If the system's state is within an attractor region, the system's state at the end of all periods will lie within the attractor. Note that the basin of attraction is not shown for either attractor. The strange attractor on the right could be enclosed by a larger basin of attraction. If a disturbance is introduced that doesn't move the trajectory outside the basin of attraction, the trajectory will return to the complicated region after some time.}
+\caption[Diagram: Single Point Attractors and Strange Attractors]{Single point
+attractors and strange attractors. The left Poincare section is for a single
+point attractor, denoted by the star. The right Poincare section is for a
+strange attractor, where the shaded area is the strange attractor. If the
+system's state is within an attractor region, the system's state at the end of
+each period will lie within the attractor. Note that the basin of attraction is
+not shown for either attractor. The strange attractor on the right could be
+enclosed by a larger basin of attraction. If a disturbance is introduced that
+doesn't move the trajectory outside the basin of attraction, the trajectory
+will return to the complicated region after some time.}
 \label{fig:Attractors}
 \end{figure}
 %
+
+\todo[inline]{I like how the loop shows a period. maybe axes again would help?
+I don't know. Also this might be confusing since gray
+was also used to show the basin of attraction in a previous figure. Also the
+figure seems to indicate that for a strange attractor, for every period you do
+come back to the same state.}
 
 The section shown on the left of figure \ref{fig:Attractors} is an example of a
 single point attractor, showing what might happen if a disturbance is
@@ -123,9 +153,18 @@ introduced. The trajectory traced around the section shows that the motions are
 periodic, and do not quite pass through the stable fixed point on each period.
 As long as the trajectory of the state passes through the basin of attraction,
 the trajectory of the state will return to the stable fixed point, and become a
-single loop like the section shown on the right. 
+single loop like in the section shown on the right. 
 
-As may be apparent from the previous two figures, much of our analysis of stability is rooted in the state-space representations of systems. In such a representation, there is a state that the robot is operating at, if you introduce a disturbance to the state, perhaps $\epsilon$, we want to know if the state space representation returns to what it was before the disturbance was introduced. More tools for analyses like these can be found in books on feedback control, such as Ogata \cite{ogata09} (Root Locus, Nyquist, etc). These tools will not be used extensively in this chapter, but understanding the reasons for their use in other systems will be helpful to understanding stability analyses of legged locomotion models. 
+As may be apparent from the previous two figures, much of our analysis of
+stability is rooted in the state-space representation of systems. In such a
+representation, there is a state at which the robot is operating. If we
+introduce a disturbance to the state, perhaps $\epsilon$, we want to know if
+the state space representation returns to what it was before the disturbance
+was introduced. More tools for analyses like this can be found in books on
+feedback control, such as Ogata \cite{ogata09} (Root Locus, Nyquist, etc).
+These tools will not be used extensively in this chapter, but understanding the
+reasons for their use in other systems will be helpful to understanding
+stability analyses of legged locomotion models. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -133,21 +172,47 @@ As may be apparent from the previous two figures, much of our analysis of stabil
 \label{sec:RimlessWheel}
 \index{rimless wheel dynamics}
 
-The motion of a rimless wheel is a classical problem that exhibits some basic aspects of passive stable motion and permits a nice introduction to examining the stability of locomotion models. Consider the rimless wheel in figure \ref{fig:RimlessWheel}, with massless spokes and a mass $m$ at its center, that is rolling down an incline $\gamma$ under the force of gravity along $\ul$. The wheel has $N$ spokes of length $l$, and each spoke is separated from the next by an angle $\phi$. The moment of inertia of the wheel about its center $G$ is $I$. The angle between the incline's normal and the spoke that is in contact with the incline is $\theta = \theta(t)$. The wheel pivots without slip about the end of this spoke, at point $C$. While pivoting, the wheel's center of mass undergoes a motion that can be described as \textit{unstable falling} \cite{coleman96}. This smooth motion occurs in between the plastic collisions of the spokes with the incline.
+The motion of a rimless wheel is a classical problem that exhibits some basic
+aspects of passive stable motion and permits a nice introduction to examining
+the stability of locomotion models. Consider the rimless wheel in figure
+\ref{fig:RimlessWheel}, with massless spokes and a mass $m$ at its center, that
+is rolling down an incline $\gamma$ under the force of gravity along $\ul$. The
+wheel has $N$ spokes of length $l$, and each spoke is separated from the next
+by the angle $\phi$. The moment of inertia of the wheel about its center $G$ is
+$I$. The angle between the incline's normal and the spoke that is in contact
+with the incline is $\theta = \theta(t)$. The wheel pivots without slip about
+the end of this spoke, at point $C$. While pivoting, the wheel's center of mass
+undergoes a motion that can be described as \textit{unstable falling}
+\cite{coleman96}. This smooth motion occurs in between the plastic collisions
+of the spokes with the incline.
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.6\textwidth]{Figures/RimlessWheel}\par
 \end{centering}
-\caption[Diagram: Rimless Wheel]{Rimless wheel. A rimless spoked wheel rotates down an incline with slope $\gamma$. The $N$ massless spokes of length $l$ are separated equally by $\phi$ degrees. The mass $m$ is located at the center of the wheel, and the wheel has moment of inertia $I$. The orientation of the wheel is specified by the angle $\theta$ that the spoke contacting the incline makes with the incline's normal.}
+\caption[Diagram: Rimless Wheel]{Rimless wheel. A rimless spoked wheel rotates
+down an incline with slope $\gamma$. The $N$ massless spokes of length $l$ are
+separated equally by the angle $\phi$ . The mass $m$ is located at the center of
+the wheel, and the wheel has moment of inertia $I$. The orientation of the
+wheel is specified by the angle $\theta$ that the spoke contacting the incline
+makes with the incline's normal.}
 \label{fig:RimlessWheel}
 \end{figure}
 %
 
-The objective with the rimless wheel is to compute its motion, given the parameters above. The motion has two portions: smooth motion and collisions. The motion is most likely (but not necessarily) periodic, so these two portions repeat again and again.
+Our objective with the rimless wheel is to compute its motion, given the
+parameters above, and to examine its stability. The motion has two portions:
+smooth motion and collisions.  The motion is most likely (but not necessarily)
+periodic, so these two portions repeat again and again. Under the right
+conditions, the wheel is able to achieve stable motion without any active
+control.
 
-\textbf{Smooth ``flight":} The velocity of the mass is continuous between collisions. Angular momentum balance is a natural choice for finding the motion, since angular momentum balance about point $C$ does not include the undesired unknown of the reaction force at $C$. Using the free body diagram in figure \ref{fig:RimlessSmoothAndCollision}a,
+\textbf{Smooth ``flight":} The velocity of the mass is continuous between
+collisions. Angular momentum balance is a natural choice for finding the
+motion, since angular momentum balance about point $C$ avoids the
+undesired unknown of the reaction force at $C$. Using the free body diagram in
+figure \ref{fig:RimlessSmoothAndCollision}a,
 
 \begin{align}
 \Sigma \vec{\mathbf{M}}_{/C} &= \dot{\vec{\mathbf{H}}}_{/C} \notag \\
@@ -170,7 +235,17 @@ After substituting these expressions into equation \ref{eq:RimlessAMB}, employin
 \dot{\omega} &= \frac{mgl}{I + m l^2} \sin(\theta + \gamma) \label{eq:RimlessODE1}
 \end{align}
 
-This equation of motion is very similar to that of an inverted pendulum. As with any differential equation in time, its solution requires initial conditions. The rotation of the wheel initially is $\theta_{0} = \theta_n^{+}$, the rotation at the end of the $n$-th collision, which is chosen to be $-\phi/2$: the end of the collision is ambiguous. The angular speed at the start of the ``flight'' is $\omega_{0} = \omega_{n}^{+}$, the angular speed of the wheel after the $n$-th collision. For the first flight, this value is simply chosen. For subsequent motion, this value comes from the spoke collision calculation for the $n$-th collision.
+This equation of motion is very similar to that of an inverted pendulum,
+considering that the coefficient in equation \ref{eq:RimlessODE1} is constant,
+and that $\gamma$ is constant as well. As with any differential equation in
+time, its solution requires initial conditions. The rotation of the wheel
+initially is $\theta_{0} = \theta_n^{+}$, the rotation at the end of the $n$-th
+collision. We choose this to be $-\phi/2$ because the end of the collision is
+ambiguous. The angular speed at the start of the ``flight'' is $\omega_{0} =
+\omega_{n}^{+}$, the angular speed of the wheel after the $n$-th collision. For
+the first flight, this value is simply chosen. For subsequent motion, this
+value comes from the spoke collision calculation for the $n$-th collision. To
+obtain this, we must examine the spoke collision.
 
 \textbf{Spoke collision:} Initial conditions for the angular speed \emph{after} the first ``flight'' are required to solve equations \ref{eq:RimlessODE2} and \ref{eq:RimlessODE1}. The initial position $\theta_{n+1,0}$ is always set as $\phi/2$, but the initial angular speed $\omega_{n+1,0}$ takes on the the angular speed at the end of the $n$+1-th collision, $\omega_{n+1}^{+}$. It is the objective of this spoke collision calculation to determine $\omega_{n+1}^{+}$ from the angular speed before the collision $\omega_{n+1}^{-}$. This relationship is found from conservation of angular momentum about point $C$ when the wheel is in the configuration shown in figure \ref{fig:RimlessSmoothAndCollision}b.
 
@@ -194,7 +269,7 @@ If there are no external torques about the point about which the angular momenum
 The angular momentum before collision $n+1$ is
 
 \begin{equation}
-\vec{\mathbf{H}}_{/C,n+1}^{-} = \vec{\mathbf{r}}_{G/C} \times \vec{\mathbf{v}}_{G}^{-} + I \omega_{n+1}^{-} \vec{\mathbf{k}}
+\vec{\mathbf{H}}_{/C,n+1}^{-} = \vec{\mathbf{r}}_{G/C} \times m\vec{\mathbf{v}}_{G}^{-} + I \omega_{n+1}^{-} \vec{\mathbf{k}}
 \label{eq:RimlessHMinus}
 \end{equation}
 
@@ -212,14 +287,34 @@ Here, the moment of inertia used is about point $C$. Accordingly, this moment of
 \label{eq:RimlessOmegaPlus}
 \end{equation}
 
-A qualitative description of the rimless wheel motion is given by the graphs in figure \ref{fig:RimlessPlots}. Collision $n$ ends at $t = 0$ and collision $n+1$ starts at $t = t^*$. The wheel rotates quickly with $\omega = \omega_{n}^{+}$ right after the collision. Depending on $\phi$, the mass may come out of the collision before or at the apex of its ``flight'' path. If $\phi$ is sufficiently large, the mass slows down as its mass is elevated to the apex of the path. Otherwise, the mass starts its ``flight'' at the apex. The minimum angular speed is achieved at the apex of the smooth "flight". The wheel accelerates downward from its apex as the next spoke approaches collision. Just before the collision, the wheel rotates with angular speed $\omega = \omega_{n+1}^{-}$ (figure \ref{fig:RimlessPlots}b).
+We see that the angular speed changes by a factor that depends only on the mass
+and geometry of the wheel.
+
+Now that we have our initial conditions for the smooth flight. we can piece
+together the ``flight'' and collision. A qualitative description of the rimless
+wheel motion is given by the graphs in figure \ref{fig:RimlessPlots}. Collision
+$n$ ends at $t = 0$ and collision $n+1$ starts at $t = t^*$. The wheel rotates
+quickly with $\omega = \omega_{n}^{+}$ right after the collision. Depending on
+$\phi$, the mass may start its smooth ``flight'' motion before or \emph{at} the
+apex of its ``flight'' path. If $\phi$ is sufficiently large, the mass slows
+down as its mass is elevated to the apex of the path. If not, the mass starts
+its ``flight'' at the apex.  The minimum angular speed is achieved at the apex
+of the smooth "flight". The wheel accelerates downward from its apex as the
+next spoke approaches collision. Just before the collision, the wheel rotates
+with angular speed $\omega = \omega_{n+1}^{-}$ (figure
+\ref{fig:RimlessPlots}b).
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.7\textwidth]{Figures/RimlessPlots}\par
 \end{centering}
-\caption[Plot: Rimless Wheel State vs. Time for Smooth ``Flight'']{Rimless wheel state vs. time for smooth flight. Plot (A) shows the rotation of the wheel throughout the smooth ``flight'', up until the time $t^{*}$ when the collision occurs. The flight is defined as occuring between $\theta = -\phi/2$ and $\theta = \phi/2$. Plot (B) shows the angular speed throughout the smooth ``flight'', which starts at $\omega_{n}^{+}$ and ends at $\omega_{n+1^{-}}$.}
+\caption[Plot: Rimless Wheel State vs. Time for Smooth ``Flight'']{Rimless
+wheel state vs. time for smooth flight. Plot (A) shows the rotation of the
+wheel throughout the smooth ``flight'', up until the time $t^{*}$ when the
+collision occurs. The flight is defined as occuring between $\theta = -\phi/2$
+and $\theta = \phi/2$. Plot (B) shows the angular speed throughout the smooth
+``flight'', which starts at $\omega_{n}^{+}$ and ends at $\omega_{n+1}^{-}$.}
 \label{fig:RimlessPlots}
 \end{figure}
 %
@@ -240,11 +335,38 @@ A qualitative description of the rimless wheel motion is given by the graphs in 
 The curve asymptotically approaches $\omega_{n+1}^{-} = \omega_{n}^{+}$ as gravity has less time to accelerate the wheel for faster initial angular speeds. 
 \end{comment}
 
-The periodic evolution of the wheel's angular speed before and after collisions is described by figure \ref{fig:RimlessPlots2}. Figure \ref{fig:RimlessPlots2}a describes the change in angular speed between the beginning and end of the smooth flight. There is a threshold value below which continued motion is not possible and the wheel does not proceed continually down the incline. In this case the wheel does not have enough initial momentum to move through the apex of the smooth flight path. For greater initial speeds $\omega_{n}^{+}$ for a given cycle of the motion, the wheel starts the smooth flight with more momentum and thus finishes the flight with greater final speeds $\omega_{n+1}^{-}$. The curvature in this relation results from the fact that the force of gravity contributes less to the increased final speed as the initial speed increases. For large $\omega_{n}^{+}$ the flight occurs quickly enough that the downward acceleration due to gravity does not have the time to noticably increase the speed of the wheel.
+The periodic evolution of the wheel's angular speed before and after collisions
+is described by figure \ref{fig:RimlessPlots2}. Figure \ref{fig:RimlessPlots2}a
+describes the change in angular speed between the beginning and end of the
+smooth flight. There is a threshold value below which continued motion is not
+possible and the wheel does not proceed continually down the incline. In this
+case the wheel does not have enough momentum after the collision to move
+through the apex of the smooth flight path. For greater initial speeds
+$\omega_{n}^{+}$, the wheel starts the smooth flight with more momentum and
+thus finishes the flight with a greater final speed $\omega_{n+1}^{-}$. The
+curvature in this relation results from the fact that the force of gravity
+contributes less to the increased final speed for higher values of the initial
+speed. For large $\omega_{n}^{+}$ the flight occurs quickly enough that the
+downward acceleration due to gravity does not have the time to noticably
+increase the speed of the wheel.
 
-Figure \ref{fig:RimlessPlots2}b picks up where figure \ref{fig:RimlessPlots2}a leaves off, literally. This figure provides the difference between the speed $\omega_{n+1}^{-}$ before the next collision and the speed $\omega_{n+1}^{+}$ after this collision. The angular speed of the wheel is discontinuous through the collision since the collision is not elastic. The slope of the straight line in figure \ref{fig:RimlessPlots2}b is given by the constant factor in equation \ref{eq:RimlessHPlus}. The slope here can be thought of as a coefficient of restitution.
+Figure \ref{fig:RimlessPlots2}b picks up where figure \ref{fig:RimlessPlots2}a
+leaves off, literally. This figure provides the difference between the speed
+$\omega_{n+1}^{-}$ before the subsequent collision and the speed
+$\omega_{n+1}^{+}$ after the subsequent collision.  \todo{The angular speed of
+the wheel is discontinuous through the collision since the collision is not
+elastic. chris: i now think the collision is elastic} The slope of the straight
+line in figure \ref{fig:RimlessPlots2}b is given by the constant factor in
+equation \ref{eq:RimlessHPlus}. The slope here can be thought of as a
+coefficient of restitution.
 
-The curves in these plots are dependent on the parameters of the spoked wheel model. For example, if $\gamma = 0$ then the incline becomes a flat surface and the motion is not as interesting as for the general case examined here. If $\gamma = 0$, the motion cannot be stable if the collisions are not perfectly elastic. 
+\begin{comment}
+Keep in mind that the curves in these plots are dependent on the parameters of
+the rimless wheel model. For example, if $\gamma = 0$ then the incline becomes
+a flat surface and the motion is not as interesting as for the general case
+examined here. \todo[inline]{Chris: remove?: If $\gamma = 0$, the motion cannot
+be stable if the collisions are not perfectly elastic.}
+\end{comment}
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
@@ -256,35 +378,78 @@ The curves in these plots are dependent on the parameters of the spoked wheel mo
 \end{figure}
 %
 
-The composition of the graphs in figure \ref{fig:RimlessPlots2} yields figure \ref{fig:RimlessStrideFunction}, which is called a \emph{stride function}\index{stride function}. The stride function can be used to understand how the motion of the wheel evolves over numerous collisions. To determine the motion of the wheel, or $\omega_{n+1}$, throughout multiple cycles of its motion, use the following procedure with figure \ref{fig:RimlessStrideFunction}:
+We now consider the stability of the rimless wheel. The composition of the
+graphs in figure \ref{fig:RimlessPlots2} yields figure
+\ref{fig:RimlessStrideFunction}, which is called a \emph{stride
+function}\index{stride function}. The stride function can be used to understand
+how the motion of the wheel evolves over numerous collisions. To determine the
+motion of the wheel, or $\omega_{n+1}$, throughout multiple cycles of its
+motion, use the following procedure with figure
+\ref{fig:RimlessStrideFunction}:
 
 \begin{enumerate}
 \item Choose an initial value $\omega_{0}^{+}$ on the $\omega_{n}^{+}$-axis.
 \item Trace this point up to the thick curve. This point on the thick curve provides the value of $\omega_{1}^{+}$ on the vertical axis.
-\item Now $n = 1$; find the value of $\omega_{1}^{+}$ on the horizontal axis by tracing horizontally from the vertical axis to the \textit{slope = 1} line.
-\item Trace from the \textit{slope = 1} line to the thick line to discover the value of $\omega_{2}^{+}$ on the vertical axis.
+\item Now $n = 1$; find the value of $\omega_{1}^{+}$ on the horizontal axis by
+    tracing horizontally to the \textit{slope = 1} line.
+\item Trace vertically from the \textit{slope = 1} line to the thick line to discover the value of $\omega_{2}^{+}$ on the vertical axis.
 \item Repeat.
 \end{enumerate}
 
-Again, the angular speed at the beginning of the smooth flight must surpass a threshold value. If the initial angular speed has the steady state value $\omega_{ss}$, the motion is steady and periodic. Note that the threshold angular speed, the steady state angular speed, and the shape of the curve in the figure are all functions of the model's parameters. Since the curve is increasing everywhere, all initial values of $\omega_n^+$ above the threshold cause $\omega_n^+$ to tend toward $\omega_{ss}$. That is, the system tends toward the stable fixed point $\omega_{ss}$ for the parameters used to generate figure \ref{fig:RimlessStrideFunction}.
+\todo[inline]{Chris: I'd say we should put in a basin of attraction plot here
+but am I right that we cannot do so, since, there is only one variable, that
+determines stability?}
+
+Again, the angular speed at the beginning of the smooth flight must surpass a
+threshold value. If the initial angular speed in a given period has the steady
+state value $\omega_{ss}$, then the subsequent motion is steady and periodic
+until the wheel is perturbed. Note that the threshold angular speed, the steady
+state angular speed, and the shape of the curve in the figure are all functions
+of the model's parameters. Since the curve is increasing everywhere, all values
+of $\omega_n^+$ above the threshold cause $\omega_n^+$ (and $\omega_{n+1}^{+}$)
+to tend toward $\omega_{ss}$. That is, this system always tends toward the
+stable fixed point $\omega_{ss}$ for the parameters used to generate figure
+\ref{fig:RimlessStrideFunction}.
 
 \section{Spring Loaded Inverted Pendulum} %(notes page 27-30)
 \label{sec:SpringLoadedInvertedPendulum}
 
-To analyze the passive dynamics of the SLIP model presented in section \ref{sec:SLIP}, it is important to give careful thought to the construction of the Poincare map. Assume that the model travels with a periodic gait. There are peaks and valleys in the trajectory of the center of mass of the model, as shown in figure \ref{fig:SLIPSections}. The Poincare map can be constructed at various points along the trajectory, and some points are better than others. Remember that the Poincare map is constructed by sampling the parameters that describe the motion of the system once per period, and plotting those points. For the SLIP model of walking and running, the system can be fully described by four coordinates of the center of mass: $x$, $y$, $\dot{x}$, and $\dot{y}$. The contact angle of the leg, $\theta_{c}$, is considered to be an initial condition, and is not a part of the system state. Ideally, the Poincare map of the system would plot only two parameters. 
+We now return to the SLIP model presented in section \ref{sec:SLIP} and analyze
+its passive stability. In order to do so, we must first give careful thought to
+the construction of its Poincare map. 
 
-There are quite a few options for points along the gait cycle to construct a Poincare map. The point at which one ``slices'' the gait cycle is called a Poincare section. The point of choosing a section is to reduce the number of equations which we must solve to fully define the motion of the hopper. Six possible sections to choose are as follows:
+Remember that the Poincare map is constructed by sampling the variables that
+describe the motion of the system once per period, and plotting those points.
+Therefore, we must assume that the model travels with a periodic gait. For the
+SLIP model of walking and running, the system's state can be fully described by
+four state variables related to the model's center of mass: $x$, $y$,
+$\dot{x}$, and $\dot{y}$. The contact angle of the leg, $\theta_{c}$, is
+considered to be an initial condition, and is not a part of the system state.
+
+The point at which one ``slices'' the gait cycle is called a Poincare section,
+and we must choose a section for our map. Our choice of section affects the
+number of equations which we must solve to fully define the motion of the
+hopper. We hope to choose a section that minimizes the number of equations.
+Also, a Poincare map of a system ideally uses only two state variables.
+However, this may not always be possible.  There are quite a few options for
+points along the SLIP gait cycle to construct a Poincare map. There are peaks
+and valleys in the gait trajectory of the center of mass of the model, as shown
+in figure \ref{fig:SLIPSections}.   Six possible sections are:
 
 \begin{enumerate}
 
-\item Transition from stance to flight. Choosing this transition point allows the gait trajectory to be built from only two segments: a stance phase and a parabolic flight phase. 
+\item Transition from stance to flight. Choosing this transition point allows
+    the gait trajectory to be built from only two segments: a stance phase and
+    a parabolic flight phase. \todo{how many section variables?}
 
-\item Transition from flight to stance. No need to worry about $y=l_{0}\cos{\theta_{c}}$. Three section variables: $x$, $\dot{x}$, and $\dot{y}$.
+\item Transition from flight to stance. No need to worry about
+    $y=l_{0}\cos{\theta_{c}}$. \todo{what?} Three section state variables: $x$, $\dot{x}$, and
+    $\dot{y}$.
 
-\item Point of maximum height in flight: $\dot{y}=0$. Three section variables: $x$, $\dot{x}$, and $y$.
+\item Point of maximum height in flight: $\dot{y}=0$. Three section state variables: $x$, $\dot{x}$, and $y$.
 \label{item:MaxHeight}
 
-\item Point of minimum height in stance: $\dot{y}=0$. Three section variables: $x$, $\dot{x}$, and $y$.
+\item Point of minimum height in stance: $\dot{y}=0$. Three section state variables: $x$, $\dot{x}$, and $y$.
 
 \item Point where the spring is maximally compressed. 
 
@@ -302,11 +467,48 @@ There are quite a few options for points along the gait cycle to construct a Poi
 \end{figure}
 %
 
-Though all of the options are valid, section \ref{item:MaxHeight} will be analyzed here in further detail. This section reduces the four-dimensional phase space $x$, $y$, $\dot{x}$, and $\dot{y}$ to a three dimensional section $x$, $\dot{x}$, and $y$ because it is known that $\dot{y} = 0$ at the section slice. Additionally, we don't need to know $x$ to be able to predict the motion of the center of mass because the center of mass is traveling in the x-direction, and it location relative to fixed the fixed x-axis is irrelevant if the motion is periodic. More formally, given $y_{n}$ and $\dot{x}_{n}$, we can predict $y_{n+1}$ and $x_{n+1}$, where $n$ is the number of times the section is repeated. 
+Though all of the options are valid, section \ref{item:MaxHeight} will be
+analyzed here in further detail. This section reduces the four-dimensional
+phase space using $x$, $y$, $\dot{x}$, and $\dot{y}$ to a three-dimensional
+state space using only $x$, $\dot{x}$, and $y$ because it is known that
+$\dot{y} = 0$ at the section slice. Additionally, we do not need to know $x$ in
+order to predict the motion of the center of mass because the center of mass is
+traveling only in the $x$ direction, and its location relative to the $x$-axis
+is irrelevant if the motion is periodic. Getting rid of $x$ reduces our state
+space to two dimensions. Given $y_{n}$ and $\dot{x}_{n}$, we want to predict
+$y_{n+1}$ and $x_{n+1}$, where $n$ is an index through sequential
+sections of the periodic motion.
 
-Given the model and the free body diagram presented in section \ref{sec:SLIP}, the trajectory of the center of mass can be calculated with the use of MATLAB's ordinary differential equation (ODE) solvers like ode45.m or ode112.m. There are three distinct segments of motion for the chosen poincare section. The first is the parabolic flight from the top of the trajectory to where the leg initially touches the ground. This first segment's motion is described by one set of differential equations. The second segment of motion is the stance phase, where the spring is compressed. This segment is described by a different set of differential equations. Finally, the third segment is again parabolic flight, described by the same differential equations as the first segment. When writing code to simulate the flight, one can recognize the transitions with the event detection feature of MATLAB's ODE solvers. 
+Given the model and the free body diagram presented in section \ref{sec:SLIP},
+the trajectory of the center of mass can be calculated with the use of MATLAB's
+ordinary differential equation (ODE) solvers like ode45.m and ode112.m.
 
-In the world of Legged Locomotion, it is important to analyze the stability of locomotion models. To analyze the stability of the SLIP model, it is necessary to develop a stride function, or return map, that describes how the center of mass goes from $y_{n}$ and $\dot{x}_{n+1}$ to $y_{n+1}$ and $\dot{x}_{n+1}$. For clarity in this analysis, define $q_{1}\equiv y_{n}$ and $q_{2}\equiv\dot{x}_{n}$. Where, $q$ is a vector of the two states $q_{1}$ and $q_{2}$, and $q_{n+1}$ is a function of $q$ called $f(q)$. A full expansion of this function reveals that it is made up of two functions that each act on $q$:
+There are three distinct segments of the motion for the chosen Poincare
+section. The first is the parabolic flight from the top of the trajectory to
+where the leg initially touches the ground. This first segment's motion is
+described by one set of differential equations. The second segment of motion is
+the stance phase, where the leg contacts the ground and the spring is
+compressed. This segment is described by a different set of differential
+equations. Finally, the third segment is again parabolic flight, described by
+the same differential equations as the first segment. When simulating the
+motion in a platform like MATLAB, one can recognize these transitions with the
+event detection feature of the ODE solver (if it exists).
+
+\begin{comment}
+In the world of legged locomotion, it is important to analyze the stability of
+locomotion models. 
+\end{comment}
+
+Equipped with a choice for a Poincare section, we are ready to analyze the
+passive stability of the SLIP model. To analyze the stability of the SLIP
+model, it is necessary to develop a stride function, or return map, that
+describes how the center of mass changes state from $y_{n}$ and $\dot{x}_{n+1}$
+to $y_{n+1}$ and $\dot{x}_{n+1}$.  For clarity in this analysis, we define
+$q_{1}\equiv y_{n}$ and $q_{2}\equiv\dot{x}_{n}$. We also define $\mathbf{q}$
+as a vector of the two states $q_{1}$ and $q_{2}$, The vector
+$\mathbf{q}_{n+1}$ is a function of $\mathbf{q}$ called $f(\mathbf{q})$. A full
+expansion of this function reveals that it is made up of two functions that
+each act on $\mathbf{q}$:
 
 \begin{align}
 q_{1,n+1}= f_{1}(q_{1,n},q_{2,n}) \notag \\
@@ -316,7 +518,14 @@ q_{2,n+1}=  f_{2}(q_{1,n},q_{2,n})
 
 For a given $q_{n}=[q_{1,n},q_{2,n}]$, the fixed point that describes periodic motion occurs when $q_{n}=f(q_{n})=q_{n+1}$. The fixed point can be found using similar methods as were used to find the fixed point for the rimless wheel. However for this problem, the calculations will be performed in two dimensions, not one.
 
-Given some kind of simulation that uses MATLAB's ODE solvers to calculate the trajectory of the center of mass, values for $q_{n}$ and $q_{n+1}$ can be obtained, and a function $f$can be built that returns $q_{n+1}=f(q_{n})$. Given such a function $f$, the fixed point can be solved for by using MATLAB's fsolve.m. However, fsolve.m requires that the problem take the form $g(q)=0$, so it is helpful to define a function $g(q)\equiv f(q)-q$. For periodic motion, the goal is to solve for $q$ such that $g(q)=0$. This solution is called the ``root'' and will be referred to here as $q^{*}$.
+Given some kind of simulation that uses MATLAB's ODE solvers to calculate the
+trajectory of the center of mass, values for $q_{n}$ and $q_{n+1}$ can be
+obtained, and a function $f$can be built that returns $q_{n+1}=f(q_{n})$. Given
+such a function $f$, the fixed point can be solved for by using MATLAB's
+fsolve.m. However, fsolve.m requires that the problem take the form $g(q)=0$,
+so it is helpful to define a function $g(q)\equiv f(q)-q$. For periodic motion,
+the goal is to solve for $q$ such that $g(q)=0$. This solution is called the
+``root'' and will be referred to here as $q^{*}$.
 
  \begin{align}
  \begin{bmatrix}
