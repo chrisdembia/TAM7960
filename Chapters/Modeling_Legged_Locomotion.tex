@@ -142,35 +142,31 @@ $\KE_{/G}$ denotes the ``relative'' kinetic energy, and $\KE_{G}$ denotes the ``
 \label{sec:ThePointMassModel}
 \index{models of locomotion!point mass}
 
-Before we can understand the point mass model, we must first study a classic math joke:
-
 \begin{quote}
 
-A wealthy playboy is disappointed with his stable of racehorses. He hires an economist, a biologist, and a mathematician to advise him how to develop a winning racehorse. The economist devises a system of incentives to motivate the horses to produce optimal speed. After several horses die of starvation, the playboy fires the economist. He fires the biologist after being told that he will have an award winning racehorse in only 200 generations of careful breeding. Finally, the playboy asks the mathematician if he has solved the problem. The mathematician excitedly answers that after much deep thought he has worked out a beautiful solution: "First assume the horse is a sphere..."
+\emph{``A wealthy playboy is disappointed with his stable of racehorses. He hires an economist, a biologist, and a mathematician to advise him how to develop a winning racehorse. The economist devises a system of incentives to motivate the horses to produce optimal speed. After several horses die of starvation, the playboy fires the economist. He fires the biologist after being told that he will have an award winning racehorse in only 200 generations of careful breeding. Finally, the playboy asks the mathematician if he has solved the problem. The mathematician excitedly answers that after much deep thought he has worked out a beautiful solution: First assume the horse is a sphere...''}
 
 \end{quote}
 
-% [chris]: human locomotion vs legged locomotion?
-Jokes aside, one way to model human locomotion is by assuming the entire body is a point mass. This is a useful way to model a human because of the simplicity of the model. The model may also be accurate to a certain degree; a human's legs account for about only 44\% of the mass of the body \cite{winter92}.
-[chris: 44 percent doesn't sound too low] The simplicity of this model lies in the equations of motion. We focus only on simple and abstract expressions for the energy interactions of the motion, as the motion itself is basic. 
+One way to model locomotion is by assuming the entire body is a point mass. This is a useful way to model a human because this assumption greatly reduces the complexity of the equations of motion needed to describe human locomotion. The model may also be accurate to a certain degree; a human's legs account for about only 44\% of the mass of the body \cite{winter92}\todo{Chris: 44\% doesn't sound too low} . We focus only on simple and abstract expressions for the energy interactions of the motion, as the motion itself is basic. \todo{Alan: this last sentence could use some clarification} 
 
-It seems unlikely that a human could be reduced to only a point mass. Of course, this means that the complex operation of muscles, arms, and legs are neglected. Nonetheless, a human can be reduced to a point mass as shown in figure \ref{fig:PersonFBD}. In this free body diagram, the weight of the human acts at its center of mass, the rest of the body is massless, and both friction and normal forces may act at its feet in the appropriate directions. Additionally, forces such as drag can counter forward motion, and such forces act at the center of mass of the human. 
+A human can be reduced to a point mass as shown in figure \ref{fig:PersonFBD} if the complex operation of muscles, arms, and legs are neglected. In this free body diagram, the weight of the human acts at its center of mass, the rest of the body is massless, and both friction and normal forces may act at its feet in the appropriate directions. Additionally, forces such as drag can counter forward motion, and such forces act at the center of mass of the human. 
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.4\textwidth]{Figures/PersonFBD}\par
 \end{centering}
-\caption[Diagram: Free Body Diagram of a Human]{Free body diagram of a human. For the point mass model of a human, the human is reduced to a single point mass located at its center of mass. The force of gravity acts at the center of mass, as well as air drag if it is included. The force of friction and the normal ground reaction act at the human's massless feet. Of course, internal forces do not appear in the free body diagram.}
+\caption[Diagram: Free Body Diagram of a Human]{Free body diagram of a human. For the point mass model of a human, the human is reduced to a single point mass located at its center of mass. The force of gravity acts at the center of mass, as well as air drag if it is included. The force of friction and the normal ground reaction act at the human's massless feet. Of course, internal forces do not appear in the free body diagram.\todo[inline]{Alan: I am not sure if that horizontal vector was meant to model drag or not when I drew this... I'm just hoping it wasn't for something that I'm forgetting right now. }}
 \label{fig:PersonFBD}
 \end{figure}
 %
 
 Although walking appears to be a smooth process, it can actually be viewed as a series of collisions. The collisional nature of this point mass motion is illustrated in figure \ref{fig:Bounce}. In essence, the point mass model of a human is a bouncing particle. The particle does not collide directly with the ground, but collides through massless legs. The objective here is to find a relation between the work $W$ performed by the locomotive and the metabolic energy cost $E_{m}$\index{metabolic cost} of providing that work \cite{ruina05}. This work is performed by the locomotive's muscles to overcome the collision of the point mass in each stride. Positive work denotes work done \emph{by} the muscles on the skeleton.
 
-The stride, or gait cycle, is divided into a falling portion that occurs before the collision of the mass with the ground, and a rising portion after the collision. The collision provides a impulsive vertical upward force that results in a new vertical velocity of the mass. If drag is neglected, there are no forces in the horizontal direction and the locomotive travels at a constant horizontal speed.
+The stride, or gait cycle, is divided into a falling portion that occurs before the collision of the mass with the ground, and a rising portion after the collision. The collision provides an impulsive vertical upward force that results in a new vertical velocity of the mass. If drag is neglected, there are no forces in the horizontal direction and the locomotive travels at a constant horizontal speed.
 
-The minus sign and positive sign in figure \ref{fig:Bounce} denote the motion before and after the collision. Before the collision, the leg muscles are in \emph{eccentric}\index{contraction!eccentric} contraction, which means they are elongating under tension. In this ``contraction'', the muscle work is negative work is done on the muscles. After the collision, the leg muscles are in \emph{concentric}\index{contraction!concentric} contraction, which means they are shortening and doing positive work on the skeleton.
+The minus sign and positive sign in figure \ref{fig:Bounce} denote the motion before and after the collision. Before the collision, the leg muscles are in \emph{eccentric}\index{contraction!eccentric} contraction, which means they are elongating under tension. In this ``contraction'', the muscles are performing negative work on the body. After the collision, the leg muscles are in \emph{concentric}\index{contraction!concentric} contraction, which means they are shortening and doing positive work on the body.
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
@@ -182,7 +178,7 @@ The minus sign and positive sign in figure \ref{fig:Bounce} denote the motion be
 \end{figure}
 %
 
-Since we desire a relation between energy (metabolic cost) and total work (muscle work) over a single stride, we apply the work-enegy theorem to this model over a single stride.
+Since we desire a relationship between energy (metabolic cost) and total work (muscle work) over a single stride, we apply the work-enegy theorem to this model over a single stride.
 
 \begin{align}
 P &= \vF \cdot \vv \notag \\
@@ -202,6 +198,8 @@ W = W_{pos} + W_{neg} \approx 0
 
 equation \ref{eq:CollisionalWork2} is not an equality because some work goes into nonconservative energy dissipation, such as the deformation of parts of the body that are not muscle.
 
+\todo[inline]{Alan: a general note on the use of "metabolic." The net-zero work concept makes sense if you're thinking only of work in the traditional energetics sense of the word. I feel like many people to whom this whole subject may be new would have trouble with the net-zero work concept because they may think "oh, well then why do I get tired, need to eat, etc. after walking with a steady periodic motion?" The answer is because the way muscles work, you still consume calories to do the negative work. It's not like we're getting energy back by falling. The next section explains this well, with the "b1" and "b2" constants, but the lead-in may be a little confusing. I don't know if this should be made explicit or not.}
+
 We are now equipped to relate muscle work to metabolic energy cost. Recalling figure \ref{fig:MetabolicCost}, the metabolic cost can be expressed as
 
 \begin{displaymath}
@@ -213,16 +211,16 @@ We are now equipped to relate muscle work to metabolic energy cost. Recalling fi
    \right.
 \end{displaymath}
 
-where $E_{m}$ is always positive, $W$ is muscle work, $b_{1}$ is an empirical conversion factor for negative muscle work (as with the eccentric contraction), and $b_{2}$ is an empirical conversion factor for positive muscle work (as with the concentric contraction). The metabolic cost of one stride is then
+where $E_{m}$ is always positive, $W$ is muscle work, $b_{1}$ is an empirical conversion factor for negative muscle work (as with the eccentric contraction), and $b_{2}$ is an empirical conversion factor for positive muscle work (as with the concentric contraction). The metabolic cost of one stride is then:
 
 \begin{align}
 E_{m} &= b_{1} W_{pos} + b_{2} |W_{neg}| \\
 &\approx (b_{1} + b_{2})W_{pos}
 \end{align}
 
-in which equation \ref{eq:CollisionalWork2} has been employed. According to figure \ref{fig:MetabolicCost}, $b = b_{1} + b_{2}$ is approximately 5.
+Collecting in terms of $W_{pos}$ is possible because of the principles used to make the approximation in equation \ref{eq:CollisionalWork2}. If $W_{pos}$ is nearly equal to $|W_{neg}|$, one can be substituted for the other and the sum of the empirical constants $b = b_{1} + b_{2}$ may then be collected as one expression. Figure \ref{fig:MetabolicCost} indicates that $b_{1}\approx4$ and $b_{2}\approx1$. This means that the caloric energy spent by the body while walking is approximately 5 times the positive work required to move the body. 
 
-[chris: can we quantify how much energy this actually is? I can use the discussion of muscles in section \ref{sec:IntroductionToMuscles}, or could refer the reader to employ methods provided in section \ref{sec:OptimizationInLocomotion}]
+\todo[inline]{[chris: can we quantify how much energy this actually is? I can use the discussion of muscles in section \ref{sec:IntroductionToMuscles}, or could refer the reader to employ methods provided in section \ref{sec:OptimizationInLocomotion}] \\ Alan: I think the best we can do is to refer people to section \ref{sec:OptimizationInLocomotion}. That deals with the integration along the path, which is really the only way to quantify the energy used (by the model).}
 
 The trajectory traced by the center of mass in our point mass model shows that the motion is not smooth. This conflicts with our own perception of our motion as being a smooth process. The point mass motion is better applied to the motion of a hopping frog. This ``gait" is described by figure \ref{fig:HoppingFrogModel}. The definition for the cost of transport (COT) is easily applied here to provide 
 
@@ -243,6 +241,8 @@ For more detail about the hopping frog model, see Rashevsky 1948 \cite{rashevsky
 %
 
 However, most animals continue traveling throughout this collision. In fact, the kinetic energy of a locomotive typically remains constant through steady motion \cite{ruina05}). Additionally, the up and down motion traced by the center of mass is usually much smaller than the forward motion. In terms of figure \ref{fig:HoppingFrogModel}, this means that the change in $h$ throughout a gait cycle is much smaller than $d$. For these reasons, we explore a more detailed model of the legs' trajectory and the forces upon the body from the ground.
+
+\todo[inline]{Alan: the hopping frog model stuff either needs to be cut out, or explained better in a way that makes it clear why it's even here.}
 
 \begin{comment}
 For conservation of energy, the positive muscle work must be the same as the net mechanical energy lost in one stride \cite{ruina05}. 
