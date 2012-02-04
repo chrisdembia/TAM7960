@@ -408,7 +408,7 @@ state angular speed, and the shape of the curve in the figure are all functions
 of the model's parameters. Since the curve is increasing everywhere, all values
 of $\omega_n^+$ above the threshold cause $\omega_n^+$ (and $\omega_{n+1}^{+}$)
 to tend toward $\omega_{ss}$. That is, this system always tends toward the
-stable fixed point $\omega_{ss}$ for the parameters used to generate figure
+stable fixed point $\omega_{ss}$ for the parameters used for figure
 \ref{fig:RimlessStrideFunction}.
 
 \section{Spring Loaded Inverted Pendulum} %(notes page 27-30)
@@ -416,7 +416,7 @@ stable fixed point $\omega_{ss}$ for the parameters used to generate figure
 
 We now return to the SLIP model presented in section \ref{sec:SLIP} and analyze
 its passive stability. In order to do so, we must first give careful thought to
-the construction of its Poincare map. 
+the construction of its Poincare map.
 
 Remember that the Poincare map is constructed by sampling the variables that
 describe the motion of the system once per period, and plotting those points.
@@ -451,7 +451,7 @@ in figure \ref{fig:SLIPSections}.   Six possible sections are:
 
 \item Point of minimum height in stance: $\dot{y}=0$. Three section state variables: $x$, $\dot{x}$, and $y$.
 
-\item Point where the spring is maximally compressed. 
+\item Point where the spring is maximally compressed.
 
 \item Point where the stance leg is vertical.
 
@@ -480,35 +480,37 @@ $y_{n+1}$ and $x_{n+1}$, where $n$ is an index through sequential
 sections of the periodic motion.
 
 Given the model and the free body diagram presented in section \ref{sec:SLIP},
-the trajectory of the center of mass can be calculated with the use of MATLAB's
-ordinary differential equation (ODE) solvers like ode45.m and ode112.m.
+we can calculate the trajectory of the center of mass. Such knowledge will
+allow us to analyze the stability of SLIP motion. We can the trajectory with a
+numerical ordinary differential equation (ODE) solver. Two such solvers are
+MATLAB's ODE45 and ODE112. For the remainder of this section, we will describe
+the simulation of the SLIP model in the context of MATLAB.
 
-There are three distinct segments of the motion for the chosen Poincare
-section. The first is the parabolic flight from the top of the trajectory to
-where the leg initially touches the ground. This first segment's motion is
-described by one set of differential equations. The second segment of motion is
-the stance phase, where the leg contacts the ground and the spring is
-compressed. This segment is described by a different set of differential
+The SLIP model features three distinct segments of motion for the chosen
+Poincare section. The first is the parabolic flight from the top of the
+trajectory to where the leg initially touches the ground. This first segment of
+motion is described by one set of differential equations. The second segment of
+motion is the stance phase, in which the leg contacts the ground and the spring
+is compressed. This segment is described by a different set of differential
 equations. Finally, the third segment is again parabolic flight, described by
-the same differential equations as the first segment. When simulating the
-motion in a platform like MATLAB, one can recognize these transitions with the
-event detection feature of the ODE solver (if it exists).
+the same differential equations as the first segment. The transition between
+the segments of motion can often be detected with an event detection feature of
+the ODE solver, as is the case in MATLAB.
 
 \begin{comment}
 In the world of legged locomotion, it is important to analyze the stability of
-locomotion models. 
+locomotion models.
 \end{comment}
 
-Equipped with a choice for a Poincare section, we are ready to analyze the
-passive stability of the SLIP model. To analyze the stability of the SLIP
-model, it is necessary to develop a stride function, or return map, that
-describes how the center of mass changes state from $y_{n}$ and $\dot{x}_{n+1}$
-to $y_{n+1}$ and $\dot{x}_{n+1}$.  For clarity in this analysis, we define
-$q_{1}\equiv y_{n}$ and $q_{2}\equiv\dot{x}_{n}$. We also define $\mathbf{q}$
-as a vector of the two states $q_{1}$ and $q_{2}$, The vector
-$\mathbf{q}_{n+1}$ is a function of $\mathbf{q}$ called $f(\mathbf{q})$. A full
-expansion of this function reveals that it is made up of two functions that
-each act on $\mathbf{q}$:
+Equipped with a choice for a Poincare section, we are almost ready to analyze
+the passive stability of the SLIP model. We first require a stride function, or
+return map, that describes how the center of mass changes state from $y_{n}$
+and $\dot{x}_{n}$ to $y_{n+1}$ and $\dot{x}_{n+1}$.  For clarity in this
+analysis, we define $q_{1}\equiv y_{n}$ and $q_{2}\equiv\dot{x}_{n}$. We also
+define $\mathbf{q}$ as a vector of the two states $q_{1}$ and $q_{2}$, The
+vector $\mathbf{q}_{n+1}$ is a function of $\mathbf{q}$, and so we define
+$\mathbf{q}_{n+1} = \mathbf{f}(\mathbf{q})$.  We split the vector function
+$\mathbf{f}(\mathbf{q})$ into two scalar functions, one for each state variable.
 
 \begin{align}
 q_{1,n+1}= f_{1}(q_{1,n},q_{2,n}) \notag \\
@@ -516,16 +518,25 @@ q_{2,n+1}=  f_{2}(q_{1,n},q_{2,n})
 \label{eq:FullFunctionDefinition}
 \end{align}
 
-For a given $q_{n}=[q_{1,n},q_{2,n}]$, the fixed point that describes periodic motion occurs when $q_{n}=f(q_{n})=q_{n+1}$. The fixed point can be found using similar methods as were used to find the fixed point for the rimless wheel. However for this problem, the calculations will be performed in two dimensions, not one.
+For a given $\mathbf{q}_{n}=[q_{1,n},q_{2,n}]^{T}$, the fixed point that
+describes periodic motion occurs when
+$\mathbf{q}_{n+1}=\mathbf{f}(\mathbf{q}_{n})=\mathbf{q}_{n}$. This fixed point
+can be found using a method similar to that used to find the fixed point for
+the motion of the rimless wheel. However for this problem, the calculations
+will be performed in two dimensions, not one.
 
 Given some kind of simulation that uses MATLAB's ODE solvers to calculate the
-trajectory of the center of mass, values for $q_{n}$ and $q_{n+1}$ can be
-obtained, and a function $f$can be built that returns $q_{n+1}=f(q_{n})$. Given
-such a function $f$, the fixed point can be solved for by using MATLAB's
-fsolve.m. However, fsolve.m requires that the problem take the form $g(q)=0$,
-so it is helpful to define a function $g(q)\equiv f(q)-q$. For periodic motion,
-the goal is to solve for $q$ such that $g(q)=0$. This solution is called the
-``root'' and will be referred to here as $q^{*}$.
+trajectory of the center of mass, We can obtain values for $q_{n}$ and
+$q_{n+1}$ by simulating the motion using an ODE solver, as described above.
+This provides us with an implicit definition of the function $\mathbf{f}$,
+seeing as the ODE solver provides $\mathbf{q}_{n+1}$ from $\mathbf{q}_n$.
+Equipped with $\mathbf{f}$, we can solve for the fixed point of the system
+using a numerical nonlinear root-finder, such as MATLAB's FSOLVE.  However,
+roofinders require that the problem takes the form $\mathbf{g}(\mathbf{q})=0$,
+so we define a function $\mathbf{g}(\mathbf{q}) \equiv
+\mathbf{f}(\mathbf{q})-\mathbf{q}$. To obtain periodic motion, the goal is to
+solve for $\mathbf{q}$ such that $\mathbf{g}(\mathbf{q})=0$. This solution is
+called the ``root'' and will be referred to here as $\mathbf{q}^{*}$.
 
  \begin{align}
  \begin{bmatrix}
@@ -546,14 +557,24 @@ the goal is to solve for $q$ such that $g(q)=0$. This solution is called the
 \end{align}
 
 
-After solving equation \ref{eq:GDefinition}, it's desirable to know if the motion is stable near this fixed point. To assess the stability of the fixed point $q^{*}$, the function $f(q)$, must first be linearized about $q^{*}$. This can be done with the first two terms of a Taylor expansion:
+After solving equation \ref{eq:GDefinition}, it is desirable to know if the
+motion is stable near this fixed point. To assess the stability of the fixed
+point $\mathbf{q}^{*}$, the function $\mathbf{f}(\mathbf{q})$, must first be
+linearized about $\mathbf{q}^{*}$.  This can be done with the first two terms
+of a Taylor expansion:
 
 \begin{equation}
-f ( q ) = f ( q^{*} ) + f' |_{q^{*}} ( q - q^{*} ) + ...
+    \mathbf{f} ( \mathbf{q} ) = \mathbf{f} ( \mathbf{q}^{*} ) +
+    \frac{d}{d\mathbf{q}}\mathbf{f} (\mathbf{q}^{*}) ( \mathbf{q}
+    - \mathbf{q}^{*} )
 \label{eq:LinearShorthand}
 \end{equation}
 
-If the function $f(q)$ is expanded to its full two-parameter form, a matrix called the Jacobian, $J$, reveals itself. By examining the expanded form of the function $f(q)$, it is easy to see why the Jacobian determines the stability of the motion determined by $f(q)$:
+If the function $\mathbf{f}(\mathbf{q})$ is expanded, a matrix called the
+Jacobian, $\mathbf{J}$, reveals itself. By examining the expanded form of the
+Taylor approximation of $\mathbf{f}(\mathbf{q})$, it is easy to see why the
+Jacobian determines the stability of the motion described by
+$\mathbf{f}(\mathbf{q})$:
 
 \begin{align}
 \begin{bmatrix}
@@ -567,21 +588,60 @@ q_{2}^{*}
 \end{bmatrix}
 +
 \begin{bmatrix}
-\frac{\partial f_{1}}{\partial q_{1}} &  \frac{\partial f_{1}}{\partial q_{2}} \\
-\frac{\partial f_{2}}{\partial q_{1}} & \frac{\partial f_{2}}{\partial q_{2}}
+\displaystyle\frac{\partial f_{1}}{\partial q_{1}} &  \displaystyle\frac{\partial f_{1}}{\partial q_{2}} \\
+\displaystyle \frac{\partial f_{2}}{\partial q_{1}} & \displaystyle \frac{\partial f_{2}}{\partial q_{2}}
 \end{bmatrix}
 \begin{bmatrix}
 \epsilon_{1} \\
 \epsilon_{2}
 \end{bmatrix}
-+
-...
 \label{eq:LinearLonghand}
 \end{align}
 
-For the motion to be periodic, it's already been shown that $f(q)$ must equal $q^{*}$. Any time a given step $q$ is given as input to the return map $f(q)$, the return map must output the input. The q that accomplishes this is called $q^{*}$ by definition. If the input $q$ deviates from this ideal $q^{*}$ and causes $f(q)$ to output something other than the input $q$, the motion is considered stable if it eventually returns the ideal $q^{*}$ after multiple iterations. 
+We define the Jacobian as
 
-This can be seen by examining the second term on the right side of equation \ref{eq:LinearLonghand}, where $\epsilon_{1}$ is the error associated with $q_{1}$ and $\epsilon_{2}$ is the error associated with $q_{2}$. These errors $\epsilon_{1}$ and $\epsilon_{2}$ represent a disturbance introduced by variation in terrain or environment of the hopping robot. Every time the robot goes through one gait cycle, the errors $\epsilon$ will change from the initial disturbance $\epsilon_{0}$, based on the difference between the output of $f(q)$ and $q^{*}$ and the values of the elements in the Jacobian, $J$. Though the values of the elements of the Jacobian do not change with each step, the change in the values of the errors $\epsilon$ causes the value of the second term of the right side of equation \ref{eq:LinearLonghand} to either shrink or grow with each step. If the errors $\epsilon$ grow, so does the second term of the right side of equation \ref{eq:LinearLonghand}, and the motion of the hopper is unstable. So the important question is: does the initial perturbation $\epsilon_{0}$ grow? This can be determined by just examining the product of the Jacobian and the perturbation vector $\epsilon_{n}$:
+\begin{equation}
+    \mathbf{J} = 
+\begin{bmatrix}
+\displaystyle\frac{\partial f_{1}}{\partial q_{1}} &  \displaystyle\frac{\partial f_{1}}{\partial q_{2}} \\
+\displaystyle \frac{\partial f_{2}}{\partial q_{1}} & \displaystyle \frac{\partial f_{2}}{\partial q_{2}}
+\end{bmatrix}
+\label{eq:Jacobian}
+\end{equation}
+
+
+
+For the motion to be periodic, it has already been shown that
+$\mathbf{f}(\mathbf{q})$ must equal $\mathbf{q}^{*}$. Any time a given step
+$\mathbf{q}$ is given as input to the return map $\mathbf{f}(\mathbf{q})$, the
+return map must output the input.  The $\mathbf{q}$ that accomplishes this is
+called $\mathbf{q}^{*}$ by definition. If the input $\mathbf{q}$ deviates from
+this ideal $\mathbf{q}^{*}$ and causes $\mathbf{f}(\mathbf{q})$ to output
+something other than the input $\mathbf{q}$, the motion is considered stable if
+the system eventually returns the ideal $\mathbf{q}^{*}$ after a few periods.
+
+This can be seen by examining the second term on the right side of equation
+\ref{eq:LinearLonghand}, where $\epsilon_{1}$ is the error associated with
+$q_{1}$ and $\epsilon_{2}$ is the error associated with $q_{2}$. These errors
+$\epsilon_{1}$ and $\epsilon_{2}$ represent a disturbance introduced by
+variation in the terrain or environment of the hopping robot. Every time the
+robot goes through one gait cycle, the errors $\mathbf{\epsilon}$ will change
+from some initial disturbance $\mathbf{\epsilon}_{0}$, based on the difference
+between \todo{epsilon bold is not working out!!} the fixed point
+$\mathbf{\mathbf{q}}^{*}$ and the output $\mathbf{f}(\mathbf{q})$, and the
+values of the elements in the Jacobian, $\mathbf{J}$.
+\todo{this previous sentence can still be made a little clearer I think}
+\todo{how is the Jacobian calculated? I guess from the physical equations?}
+
+Though the values of the elements of the Jacobian do not change with each step
+(or period), the change in the errors $\mathbf{\epsilon}$ causes the value of
+the second term of the right side of equation \ref{eq:LinearLonghand} to either
+shrink or grow with each step. Whethe the error shrinks or grows depends on
+$\mathbf{J}$. If the errors $\mathbf{\epsilon}$ grow, so does the second term
+of the right side of equation \ref{eq:LinearLonghand}, and the motion of the
+hopper is unstable. So the important question is: does the initial perturbation
+$\mathbf{\epsilon}_{0}$ grow? This can be determined by examining the
+product of the Jacobian and the perturbation vector $\mathbf{\epsilon}_{n}$:
 
 \begin{align}
 \begin{bmatrix}
@@ -589,10 +649,11 @@ This can be seen by examining the second term on the right side of equation \ref
 \epsilon_{2,n+1}
 \end{bmatrix}
 =
-\begin{bmatrix}
-J_{11} &  J_{12} \\
-J_{21} &  J_{22} 
-\end{bmatrix}
+%\begin{bmatrix}
+%J_{11} &  J_{12} \\
+%J_{21} &  J_{22} 
+%\end{bmatrix}
+\mathbf{J}
 \begin{bmatrix}
 \epsilon_{1,n} \\
 \epsilon_{2,n}
@@ -600,46 +661,109 @@ J_{21} &  J_{22}
 \label{eq:ErrorAndJacobian}
 \end{align}
 
-In equation \ref{eq:ErrorAndJacobian} the subscripts denote the associated element of $f(q)$. In the following analysis, the subscripts denote the iteration of the perturbation vector. It's clear that $\epsilon_{1}=J\epsilon_{0}$ and $\epsilon_{2}=J\epsilon_{1}=JJ\epsilon_{0}$. It follows then that $\epsilon_{n}=J\epsilon_{n-1}=J^{n}\epsilon_{0}$. The goal here is to find out if $\epsilon_{n}$ decays to zero as $n$ reaches infinity. If that is true, then the hopper is stable. By making use of the eigenvector definition, the value of $\epsilon_{n}$ as $n$ reaches infinity can be found:
+\todo[inline]{I changed an equation here quite a bit, replacing the 2x2 J with
+just the matrix symbol for the Jacobian. This might make this section harder to
+read cursorily quickly}
+
+\begin{comment}
+In equation \ref{eq:ErrorAndJacobian} the subscripts denote the associated
+element of $\mathbf{f}(\mathbf{q})$.
+\end{comment}
+
+In the following analysis, subscripts denote the step in the simulation. It is
+clear that $\mathbf{\epsilon}_{1} = \mathbf{J}\mathbf{\epsilon}_{0}$ and
+$\mathbf{\epsilon}_{2} = \mathbf{J}\mathbf{\epsilon}_{1} =
+\mathbf{J}\mathbf{J}\mathbf{\epsilon}_{0}$.  It follows then that
+$\mathbf{\epsilon}_{n} = \mathbf{J}\mathbf{\epsilon}_{n-1} =
+\mathbf{J}^{n}\mathbf{\epsilon}_{0}$.  The goal here is to discover if
+$\mathbf{\epsilon}_{n}$ decays to zero as $n$ reaches infinity.  If that is
+true, then the hopper is stable. By making use of the eigenvector definition,
+the value of $\mathbf{\epsilon}_{n}$ as $n$ reaches infinity can be found:
 
 \begin{equation*}
-J\vv=\lambda\vv 
+    J \mathbf{v} = \lambda \mathbf{v}
 \end{equation*}
 
-Given that for this problem, $J$ will always be a two-by-two matrix, it is also true that there will always be two eigenvalues $\lambda$ and two corresponding eigenvectors that satisfy the eigenvector definition:
+Given that for this problem, $\mathbf{J}$ is a $2 \times 2$ matrix, there are
+two eigenvalues $\lambda_i$ and two corresponding eigenvectors $\mathbf{v}_i$
+that satisfy the eigenvector definition:
+
+\todo[inline]{We have an issue here with subscripts! I'm not sure how to
+resolve this right now\ldots}
 
 \begin{align*}
-J\epsilon=&J(a_{1}\vv_{1}+a_{2}\vv_{2}) \\
-=&a_{1}\lambda_{1}\vv_{1}+a_{2}\lambda_{2}\vv_{2}
+    \mathbf{J} \mathbf{\epsilon} =& \mathbf{J} (a_{1}\mathbf{v}_{1}+a_{2}\mathbf{v}_{2}) \\
+=&a_{1}\lambda_{1}\mathbf{v}_{1}+a_{2}\lambda_{2}\mathbf{v}_{2}
 \end{align*}
 
-Now, replacing $J$ with $J^{n}$ gives the following:
+where
 
 \begin{equation*}
-J^{n}\epsilon=\lambda_{1}^{n}a_{1}\vv_{1}+\lambda_{2}^{n}a_{2}\vv_{2}
+    \mathbf{\epsilon} = a_1 \mathbf{v}_1 + a_2 \mathbf{v}_2
 \end{equation*}
 
-which decays as $n$ reaches infinity for all $a_{1}$ and $a_{2}$ only if $|\lambda_{1}| < 1$ and $|\lambda_{2}| < 1$.
+Generalizing for the $n$-th step gives the following:
 
-There are a few different ways to find the Jacobian, $J$. The easiest way to find the Jacobian is to have a root-finding program, such as MATLAB's fsolve.m, output the Jacobian when it finds the root $q^*$. Another way is to refer to equation \ref{eq:LinearLonghand} and find the partial derivatives like so:
+\begin{equation*}
+    J^{n}\mathbf{\epsilon} = \lambda_{1}^{n}a_{1}\mathbf{v}_{1}+\lambda_{2}^{n}a_{2}\mathbf{v}_{2}
+\end{equation*}
+
+which decays as $n$ reaches infinity for all $a_{1}$ and $a_{2}$ if and only if
+$|\lambda_{1}| < 1$ and $|\lambda_{2}| < 1$.
+
+\todo[inline]{The Jacobian does vary with time, right? but we currently say
+otherwise.}
+
+Now we know that we can determine if the motion of the SLIP system is stable by
+looking at its eigenvalues. To do so, we need to know what the Jacobian is.
+There are a few different ways to find the Jacobian.  The easiest way to
+find the Jacobian is to have a root-finding program output the Jacobian when it finds the root $q^*$. MATLAB's FSOLVE can do this. Another way is to refer to
+equation \ref{eq:LinearLonghand} and find the partial derivatives by taking a
+limit:
 
 \begin{equation}
-\lim_{h \to 0} \frac{y(x+h)y(x)}{h}=\frac{\partial y}{\partial x}\bigg|_{x^{*}}
+\frac{\partial y}{\partial x}\bigg|_{x^{*}}
+=\lim_{h \to 0} \frac{y(x^{*}+h)-y(x^{*})}{h}
 \label{eq:FindingJacobian}
 \end{equation}
 
-Finally, one could find $J$ by using an infinitesimally small value $\delta$ to approximate the partial derivatives in \ref{eq:FindingJacobian}, like so: 
+Finally, one could find $\mathbf{J}$ by using an infinitesimally small value
+$\delta$ to approximate the error in \ref{eq:FindingJacobian},
+and solve for $\mathbf{J}$:
+
+\todo[inline]{this used to say ``to approximate the partial derivatives''. did
+i make a mistake by changing this?}
 
 \begin{equation}
 J= \frac{1}{\delta}
 \begin{bmatrix}
-f_{1}\left(q^{*}+\begin{bmatrix} \delta \\ 0 \end{bmatrix}\right) - f_{1}(q^{*}) & f_{1}\left(q^{*}+\begin{bmatrix} 0 \\ \delta \end{bmatrix}\right) - f_{1}(q^{*}) \\[3mm]
-f_{2}\left(q^{*}+\begin{bmatrix} \delta \\ 0 \end{bmatrix}\right) - f_{2}(q^{*}) & f_{2}\left(q^{*}+\begin{bmatrix} 0 \\ \delta \end{bmatrix}\right) - f_{2}(q^{*})
+    f_{1}\left(\mathbf{q}^{*}+\begin{bmatrix} \delta \\ 0 \end{bmatrix}\right)
+        - f_{1}(\mathbf{q}^{*}) & f_{1}\left(\mathbf{q}^{*}+\begin{bmatrix} 0
+            \\ \delta \end{bmatrix}\right) - f_{1}(\mathbf{q}^{*}) \\[3mm]
+
+            f_{2}\left(\mathbf{q}^{*}+\begin{bmatrix} \delta \\ 0
+            \end{bmatrix}\right) - f_{2}(\mathbf{q}^{*}) &
+            f_{2}\left(\mathbf{q}^{*}+\begin{bmatrix} 0 \\ \delta
+            \end{bmatrix}\right) - f_{2}(\mathbf{q}^{*})
 \end{bmatrix}
 \label{eq:FindingQStar}
 \end{equation}
 
-In summary, there are three steps involved in answering the question of stability with the hopping robot. First, find $q^*$ accurately. Second, find the Jacobian $J$. Third, find the eigenvalues of $J$.
+\todo[inline]{What is done in practice, is htis last result the easiest to
+calculate, and it happens to be sufficiently accurate?}
+
+In summary, there are three steps involved in answering the question of
+stability with the hopping robot.
+
+We have shown how to determine if the SLIP motion is stable or instable,
+depending on the parameters used to define the model. This required choosing a
+Poincare section around which we could view the motion as periodic. Then, we
+numerically defined a function $\mathbf{f}(\mathbf{q})$ with which we could
+determine the system's fixed point(s). By approximating
+$\mathbf{f}{\mathbf{q}}$ with a two-term Taylor series, we discovered the
+Jacobian matrix. By writing the Jacobian matrix using an eigenvalue
+decomposition, we could determine if the system is stable or unstable around a
+fixed point. We also looked at different methods for obtaining the Jacobian.
 
 
 \section{Simplest Walker} % (notes page 31-34)
