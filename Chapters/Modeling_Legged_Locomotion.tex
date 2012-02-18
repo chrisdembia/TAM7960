@@ -360,9 +360,9 @@ Equation \ref{eq:GAKE2} can be most easily understood by expressing its second t
 (P^{*} \ul) \cdot \vec{\mathbf{v}}^{-} &= (mv\phi)(-v\phi^{-})(\ul \cdot \ul) \label{eq:GenerateAbsorbIntermediate2}
 \end{align}
 
-where the small angle approximation $\cos{\phi} \approx 1$ has been made. In general, $\Delta E^{*}$ can be either positive or negative. [chris: we don't use this form of delta E, so should we include it?]
+where the small angle approximation $\cos{\phi} \approx 1$ has been made. In general, $\Delta E^{*}$ can be either positive or negative. \todo[inline]{chris: we don't use this form of delta E, so should we include it?}
 
-Typically, the change in velocity of colliding masses is described by a \textit{coefficient of restitution} $e_{r}$, which is the relative speed of separation divided by the relative speed of approach of two colliding masses. This quantity is useful because it gauges how elastic a collision is.
+Typically, the change in velocity of colliding masses is described by a \textit{coefficient of restitution} $e_{r}$, which is the relative speed of separation divided by the relative speed of approach of two colliding masses. This quantity is useful because it describes how elastic a collision is.
 
 \begin{displaymath}
    e_{r} = \left\{
@@ -373,7 +373,12 @@ Typically, the change in velocity of colliding masses is described by a \textit{
    \right.
 \end{displaymath}
 
-For the collisional model, this coefficient is $|v_{\lambda}^{+}|/|v_{\lambda}^{-}| = \phi^{+}/\phi^{-}$. However, this coefficient is not so useful for the scenario in which $\phi^{-} = 0$. This would be a ``collision'' that is not elastic, but actually ``generative'', such as jumping. Remember, the collision here is not necessarily strictly dissipative. For this reason we define a \textit{coefficient of generation} $e_{g}$. \index{coefficient of generation} \index{generation!coefficient of}
+For the collisional model, this coefficient is 
+\begin{displaymath}
+e_{r} = \frac{|v_{\lambda}^{+}|}{|v_{\lambda}^{-}|} = \frac{\phi^{+}}{\phi^{-}}
+\end{displaymath}
+
+However, this coefficient is not so useful for the scenario in which $\phi^{-} = 0$. This would be a ``collision'' that is not elastic, but actually ``generative'', such as jumping. Remember, the collision here is not necessarily strictly dissipative. For this reason we define a \textit{coefficient of generation} $e_{g}$. \index{coefficient of generation} \index{generation!coefficient of}
 
 \begin{align}
 e_{g} &= \frac{\mbox{[relative speed of separation] - [relative speed of approach]}}{\mbox{[relative speed of separation] + [relative speed of approach]}} \notag \\
@@ -393,7 +398,13 @@ This cofficient has the properties:
    \right.
 \end{displaymath}
 
-With some algebra,  $e_{g}$ for the collisional model can be expressed as $\Delta E^{*} / (mv^{2}\phi^{2}/2)$. This is the ratio of the energy gained in the collision to the amount of energy that \emph{would} be in absorbed in a fully plastic collision with the same $v$ and $\phi$ \cite{ruina05}. This also yields another formula for the change in kinetic energy across the collision
+With some algebra,  $e_{g}$ for the collisional model can be expressed as 
+
+\begin{displaymath}
+e_{g}=\frac{\Delta E^{*}}{mv^{2}\phi^{2}/2}
+\end{displaymath}
+
+This is the ratio of the energy gained in the collision to the amount of energy that \emph{would} be in absorbed in a fully plastic collision with the same $v$ and $\phi$ \cite{ruina05}. This also yields another formula for the change in kinetic energy across the collision
 
 \begin{equation}
 \Delta E^{*} = e_{g} \frac{mv^{2} \phi^{2}}{2}
@@ -442,7 +453,7 @@ Again, the first case corresponds to a net energy loss during the collision, and
 
 \subsubsection*{No-cost locomotion and multiple collisions}
 
-Is it possible to achieve locomotion at no energy cost? [chris: include why this would be neat] Logically, it is valuable to explore ways for a locomotive to minimize its $COL$. Remember that we have assumed that the cost of locomotion mostly comes from collisions. Then a model of locomotion in which collisions do not occur could potentially exhibit a very low $COL$. This question can be explored by examining \textit{brachiation}\index{brachiation}, which is the motion of swinging between overhead supports. This motion is exhibited by gibbon apes and by children on monkey bars. The kinematics of this motion is described in figure \ref{fig:Brachiation}. The locomotive's path alternates between pendular when swinging on a tree branch, and parabolic when in free flight subject to gravity \cite{bertram99}.
+Is it possible to achieve locomotion at no energy cost? \todo[inline]{chris: include why this would be neat} Logically, it is valuable to explore ways for a locomotive to minimize its $COT$. Remember that we have assumed that the cost of locomotion mostly comes from collisions. Then a model of locomotion in which collisions do not occur could potentially exhibit a very low $COT$. This question can be explored by examining \textit{brachiation}\index{brachiation}, which is the motion of swinging between overhead supports. This motion is exhibited by gibbon apes and by children on monkey bars. The kinematics of this motion is described in figure \ref{fig:Brachiation}. The locomotive's path alternates between pendular when swinging on a tree branch, and parabolic when in free flight subject to gravity \cite{bertram99}.
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
@@ -465,7 +476,7 @@ If the intersection of the parabola and circular arc is smooth (the direction of
 \end{figure}
 %
 
-A situation in which the pendular motion is characterized by compression is with skiing across snow moguls, as in figure \ref{fig:Moguls}. While in the trough between moguls, a skiier's velocity is redirected by a centripetal "compressive" normal force. The skiier leaves the trough with a velocity that is parallel to the slope of the mogul at the point of departure. If the skiier enters the next trough with a velocity parallel to the mogul at the point of contact, then the velocity is continuous and no collision has occured. In othe rwords, no collision plane can be defined.
+A situation in which the pendular motion is characterized by compression is with skiing across snow moguls, as in figure \ref{fig:Moguls}. While in the trough between moguls, a skiier's velocity is redirected by a centripetal ``compressive" normal force. The skiier leaves the trough with a velocity that is parallel to the slope of the mogul at the point of departure. If the skiier enters the next trough with a velocity parallel to the mogul at the point of contact, then the velocity is continuous and no collision has occurred. In other words, no collision plane can be defined.
 
 However, we have only moved the brachiation to the ground, and skiing is still very different from walking. A modified collisional model can resemble brachiation. In this modified collisional model, the locomotive experiences multiple collisions with the ground contact in each gait cycle rather than a single collision.
 
@@ -478,11 +489,11 @@ However, we have only moved the brachiation to the ground, and skiing is still v
 \label{fig:MultipleCollisions}
 \end{figure}
 %
-[chris: i think this entire chapter needs to be much clearer about what we're modeling. is it humans or what?]
+\todo[inline]{chris: i think this entire chapter needs to be much clearer about what we're modeling. is it humans or what?}
 
 Consider $n$ collisions that deflect the velocity of the locomotive by $\phi/n$, where $\phi$ is the total deflection from the $n$ collisions that is equivalent to the deflection $\phi$ from the single-collision model (figure \ref{fig:MultipleCollisions}). In this figure, it can be assumed that these $n$ collisions are executed by an $n$-legged locomotive and that each collision is performed by a different leg; the model is an abstraction from real scenarios. The parameters $v$, $e_{g}$ and $r$ are not changed in the $n$-collision model. Since the change in energy $\Delta E^*$ from a single collision is proportional to $\phi^2$, the metabolic cost for a single collision is reduced by a factor of $n^2$. Since these lower-cost collisions occur $n$ times, the \emph{total} cost of locomotion is reduced by a factor of $1/n$. As $n \rightarrow \infty$, the metabolic cost goes to zero.
 
-This generalization allows the consideration of a number of gaits that describe at least two legs in the gait cycle. [chris: gaits are discussed fundamentally in Optimization of Locomotion - Choosing a gait. should that be moved here?] Four biped (two-legged) gaits are considered, as labeled (1) through (4) in the \textit{hodograph}\index{hodograph} in figure \ref{fig:Hodograph}. The hodograph contains plots of the velocity vector of the point mass as it evolves over the course of the collision. The full vector is only drawn in its initial and final positions, but the vector traces the dotted line path for the gait considered. The vector is plotted as always starting from the same location to depict how its magnitude changes as its direction changes by the full deflection $\phi$. The locomotive is indeed moving forward through the collision, though this is not apparent in the figure. The first of the two collisions is performed by a leg from a previous stance, and the second collision by a leg entering a new stance. Remember that velocity corresponds to a certain amount of kinetic energy, and for steady periodic motion the kinetic energy at the start of each gait cycle must be the same. Thus, the length of $v^{-}$ must be the same in every gait cycle. If negligible work is done during other portions of the gait, then the length of $v^{+}$ must be the same as the length of $v^{-}$. 
+This generalization allows the consideration of a number of gaits that describe at least two legs in the gait cycle. \todo[inline]{chris: gaits are discussed fundamentally in Optimization of Locomotion - Choosing a gait. should that be moved here? Alan: I think the section you're referring to is appropriate where it is, because it's discussing the choice in the context of optimization.} Four biped (two-legged) gaits are considered, as labeled (1) through (4) in the \textit{hodograph}\index{hodograph} in figure \ref{fig:Hodograph}. The hodograph contains plots of the velocity vector of the point mass as it evolves over the course of the collision. The full vector is only drawn in its initial and final positions, but the vector traces the dotted line path for the gait considered. The vector is plotted as always starting from the same location to depict how its magnitude changes as its direction changes by the full deflection $\phi$. The locomotive is indeed moving forward through the collision, though this is not apparent in the figure. The first of the two collisions is performed by a leg from a previous stance, and the second collision by a leg entering a new stance. Remember that velocity corresponds to a certain amount of kinetic energy, and for steady periodic motion the kinetic energy at the start of each gait cycle must be the same. Thus, the length of $v^{-}$ must be the same in every gait cycle. If negligible work is done during other portions of the gait, then the length of $v^{+}$ must be the same as the length of $v^{-}$. 
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
@@ -491,7 +502,7 @@ This generalization allows the consideration of a number of gaits that describe 
 \subfloat[incoming and outgoing impulses]{\includegraphics[width=0.3\textwidth]{Figures/StepTransition}\label{fig:StepTransition}}
 \subfloat[simultaneous impulse force time history (for case 4)]{\includegraphics[width=0.3\textwidth]{Figures/ForcesFollowCircle}\label{fig:ForcesFollowCircle}}
 \end{centering}
-\caption[Diagram and Figure: Two-Collision Gaits in the Collisional Model]{Two-collision gaits in the collisional model. The hodograph (a) describes the four two-collision gaits explored in this section. A hodograph describes how a vector changes in both magnitude and direction by plotting the vector from the same point. The next diagram (b) shows the two impulses that belong to the first and second collisions that appear in some of the four gaits: the first impulse is perpendicular to the incoming velocity, and the second impulse is perpendicular to the outgoing velocity. The plots in (c) describe for case 4 the time history of the simultaneous forces that correpsond to the incoming and outgoing impulses. [chris: subfigure captions need formatting]}
+\caption[Diagram and Figure: Two-Collision Gaits in the Collisional Model]{Two-collision gaits in the collisional model. The hodograph (a) describes the four two-collision gaits explored in this section. A hodograph describes how a vector changes in both magnitude and direction by plotting the vector from the same point. The next diagram (b) shows the two impulses that belong to the first and second collisions that appear in some of the four gaits: the first impulse is perpendicular to the incoming velocity, and the second impulse is perpendicular to the outgoing velocity. The plots in (c) describe for case 4 the time history of the simultaneous forces that correpsond to the incoming and outgoing impulses. \todo[inline]{chris: subfigure captions need formatting}}
 \label{fig:Ncollisional}
 \end{figure}
 %
@@ -508,13 +519,13 @@ This generalization allows the consideration of a number of gaits that describe 
 
 This collisional model is fairly flexible, and can also be used to examine quadruped gaits, as with horses.
 
-[chris: this comes off as a theoretical ploy or an indication of an inconsistent theory; how can people actually walk so they're making multiple collisions? should make statement about how this is a mechanics theory. this section could also include a derivaiton of all inferred metabolic cost results for the 4 cases]
+\todo[inline]{chris: this comes off as a theoretical ploy or an indication of an inconsistent theory; how can people actually walk so they're making multiple collisions? should make statement about how this is a mechanics theory. this section could also include a derivaiton of all inferred metabolic cost results for the 4 cases}
 
 \section{Introduction to the SLIP Model} %(notes page 26)
 \label{sec:SLIP}
 \index{models of locomotion!SLIP}
 
-The last three decades have seen substantial focus on a mass-spring model of locomotion that is now popularly called the Spring-Loaded Inverted Pendulum model. The model has prevailed because it is very simple but is rich in its ability to understand the control of locomotion [chris: i made this up, but i feel like it's true]. For this reason, the model is explored in depth in sections \ref{sec:SpringLoadedInvertedPendulum} and \ref{sec:RaibertHoppingRobot}. For even more detail on the SLIP model, refer to Raibert \cite{raibert95}, Poulakakis \cite{poulakakis07,poulakakis07b}, and McGeer. The SLIP model is described by figure \ref{fig:SLIPSetup}. The locomotion is modeled with a single leg and a point mass body. The leg is a single massless link; there is no knee joint.
+The last three decades have seen substantial focus on a mass-spring model of locomotion that is now popularly called the Spring-Loaded Inverted Pendulum model. The model has prevailed because it is very simple but is rich in its ability to understand the control of locomotion. \todo[inline]{chris: i made this up, but i feel like it's true} For this reason, the model is explored in depth in sections \ref{sec:SpringLoadedInvertedPendulum} and \ref{sec:RaibertHoppingRobot}. For even more detail on the SLIP model, refer to Raibert \cite{raibert95}, Poulakakis \cite{poulakakis07,poulakakis07b}, and McGeer. The SLIP model is described by figure \ref{fig:SLIPSetup}. The locomotion is modeled with a single leg and a point mass body. The leg is a single massless link; there is no knee joint.
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
