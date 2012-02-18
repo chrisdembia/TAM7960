@@ -767,22 +767,39 @@ given fixed point.
 \label{sec:SimplestWalker}
 \index{simplest walker}
 
-
-
-The rimless wheel model described in section \ref{sec:RimlessWheel} can be modified logically in order to create a model of a simple bipedal gait. With the rimless wheel, only two spokes at any given time are involved in the interesting dynamics of the motion. Naturally, these two spokes can be thought of as simple legs. In fact, Garcia \cite{garcia97} asserts that this model is the simplest (irreducible) model of walking. As figure \ref{fig:SimplestWalkerPendulum} hints, this model is a simplification of a double-pendulum model that was studied by 
-others in the 1980's. Indeed, this model contains two single-pendula.
+The rimless wheel model described in section \ref{sec:RimlessWheel} can be
+modified logically in order to create a model of a simple bipedal gait. With
+the rimless wheel, only two spokes at any given time are involved in the
+interesting dynamics of the motion. Naturally, these two spokes can be thought
+of as simple legs. In fact, Garcia \cite{garcia97} asserts that this model is
+the simplest (irreducible) model of walking. As figure
+\ref{fig:SimplestWalkerPendulum} hints, this model is a simplification of a
+double pendulum model that was studied by others in the 1980's
+\todo[inline]{need citation}. Indeed, this model contains two single pendula
+rotating about the a single joint at the hip.
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.5\textwidth]{Figures/SimplestWalkerPendulum}\par
 \end{centering}
-\caption[Diagram: Simplest Walker Model]{Simplest walker model. This model consists of only two massless links of length $l$ joined at the hip, with masses $m_{1}$ and $m_{2}$ at the ends of the links. For certain slopes of the incline $\gamma$, stable motion is possible.}
+\caption[Diagram: Simplest Walker Model]{Simplest walker model. This model
+consists of only two massless links of length $l$ joined at the hip, with
+masses $m_{1}$ and $m_{2}$ at the ends of the links. For certain slopes of the
+incline $\gamma$, stable motion is possible.}
 \label{fig:SimplestWalkerPendulum}
 \end{figure}
 %
 
-Similar to the rimless wheel model, the locomotive is traverseing an incline defined by the angle $\gamma$. The leg that is in no-slip contact with the incline is called the \textit{stance leg} and the other leg is called the \textit{swing leg}\index{stance leg}\index{swing leg}. The legs of length $l$ are massless, the mass of the hips is $m_{2}$, and the mass of each foot is $m_{1}$, with $\beta = m_{1} / m_{2} \ll 1$.
+\subsection*{System description}
+\label{sec:SimplestWalkerSystemDescription}
+
+Similar to the rimless wheel model, the locomotive is traverseing an incline
+defined by the angle $\gamma$. The leg that is in no-slip contact with the
+incline is called the \textit{stance leg} and the other leg is called the
+\textit{swing leg}\index{stance leg}\index{swing leg}. The legs are both
+massless and have a length $l$. The mass of the hips is $m_{2}$, and the mass
+of each foot is $m_{1}$, with $\beta = m_{1} / m_{2} \ll 1$.
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
@@ -794,13 +811,38 @@ Similar to the rimless wheel model, the locomotive is traverseing an incline def
 \end{figure}
 %
 
-Unlike the rimless wheel, this system has two degrees of freedom because the angle between the legs is not fixed. The configuration of the locomotive is defined by the angles $\theta_1$ and $\theta_2$ and the corresponding angular speeds $\dot{\theta}_1$ and $\dot{\theta}_2$. Both angles are defined with respect to the normal of the incline. The free body diagram of the model in figure \ref{fig:SimplestWalkerFBD} describes this locomotive in more detail. The forces present in the full system are the weight of each mass and the reaction force of the incline against the stance leg (the vector sum of static friction and normal force). The motion proceeds under the force of gravity. A free body diagram of the swing leg (not shown) would reveal a force in the swing leg that is required to maintain the joint constraint at point $G$. This force is decomposed into two components: tension $T$ along the leg and a force $F$ perpendicular to the leg. 
+Unlike the rimless wheel, this system has two degrees of freedom because the
+angle between the legs is not fixed. The configuration of the locomotive is
+defined by the angles $\theta_1$ and $\theta_2$ and the corresponding angular
+speeds $\dot{\theta}_1$ and $\dot{\theta}_2$. Both angles are defined with
+respect to the normal of the incline. The free body diagram of the model in
+figure \ref{fig:SimplestWalkerFBD} describes this locomotive in more detail.
+The forces present in the full system are the weight of each mass and the
+reaction force of the incline against the stance leg $\vec{\mathbf{R}}$ (the
+vector sum of static friction and normal force). The motion proceeds under the
+force of gravity. A free body diagram of the swing leg (not shown) would reveal
+a force in the swing leg that is required to maintain the joint constraint at
+point $G$. This force is decomposed into two components: tension $T$ along the
+swing leg and a force $F$ perpendicular to the swing leg.
+
+\todo{perhaps show an FBD of the swing leg}
 
 \begin{comment}
 [chris: in Alan's notes where is F's line of action?]
 \end{comment}
 
-There are six unknowns in this model: the angular acceleration of each degree of freedom, $\ddot{\theta}_{1}$ and $\ddot{\theta}_{2}$, the tension $T$ and perpendicular force $F$ in the swing leg, and the two components of the support force $\vec{\mathbf{R}}$. The system is described by two free body diagrams and three momentum balances for each diagram. This gives six equations with which to solve for all six unknowns. To obtain only the motion of the locomotive and avoid the support forces and internal forces, only angular momentum balance is required for each of the two free body diagrams. For the system free body diagram angular momentum balance about $C$ yields
+\subsection*{Equations of Motion}
+\label{sec:SimplestWalkerSystemDescription}
+
+There are six unknowns in this model: the angular acceleration of each degree
+of freedom, $\ddot{\theta}_{1}$ and $\ddot{\theta}_{2}$, the tension $T$ and
+perpendicular force $F$ in the swing leg, and the two components of the support
+force $\vec{\mathbf{R}}$. The system is described by two free body diagrams and
+three momentum balances for each diagram. This gives six equations with which
+we can solve for all six unknowns. To obtain only the motion of the locomotive
+and avoid the support forces and internal forces, only angular momentum balance
+is required for each of the two free body diagrams. For the full system free
+body diagram, angular momentum balance about $C$ yields
 
 \begin{align}
 \Sigma \vM_{/C} &= \vHdot_{/C} \notag \\
@@ -826,10 +868,22 @@ To solve these equations, expressions for $\vec{\mathbf{a}}_{G}$ and $\vec{\math
  &= \va_{G}  -\dot{\theta}_{2}^{2} \vr_{D/G} + \ddot{\theta}_{2} \uk \times \vr_{D/G}
 \end{align}
 
-where $\vr_{G/C} = l (- \sin{\theta_{1}} \ui +\cos{\theta_{1}} \uj)$ and $\vr_{G/C} = l (\sin{\theta_{2}} \ui - \cos{\theta_{2}} \uj)$. The equations can be greatly simplified if the feet have no mass, $\beta = 0$.
+\todo[inline]{I'm not sure the signs for accelerations are correct here, since
+theta's are defined positive for cw rotations}
+
+where $\vr_{G/C} = l (- \sin{\theta_{1}} \ui +\cos{\theta_{1}} \uj)$ and
+$\vr_{D/G} = l (\sin{\theta_{2}} \ui - \cos{\theta_{2}} \uj)$. The equations
+can be greatly simplified if the feet have no mass, $\beta = 0$.
 
 
-As with the rimless wheel, equations \ref{eq:SimplestWalkerAMB1} and \ref{eq:SimplestWalkerAMB2} describe the dynamics of the model during the smooth ``flight''. The solution for the smooth flight motion requires information about the plastic collision that occurs between flights. The instant at which the collision starts is called \textit{heelstrike}\index{heelstrike}. At heelstrike, point $C$ collides with the incline and the collision is analyzed by the following equalities across the collisions
+As with the rimless wheel, equations \ref{eq:SimplestWalkerAMB1} and
+\ref{eq:SimplestWalkerAMB2} describe the dynamics of the model during the
+smooth ``flight''. The solution for the smooth flight motion requires
+information about the inelastic collision that occurs between flights. The
+instant at which the collision starts is called
+\textit{heelstrike}\index{heelstrike}. At heelstrike, point $C$ collides with
+the incline and the collision is analyzed by the following equalities across
+the collisions
 
 \begin{align}
 \vHdot_{/C}^{+} &= \vHdot_{/C}^{-} \notag \\
@@ -837,33 +891,95 @@ As with the rimless wheel, equations \ref{eq:SimplestWalkerAMB1} and \ref{eq:Sim
 \label{eq:SimplestWalkerCollision}
 \end{align}
 
-These equations result in expressions that are very similar to equations \ref{eq:RimlessHPlus} and \ref{eq:RimlessHMinus} for the rimless wheel, except that this time there are two degrees of freedom to manage. As for the rimless wheel, the weight of the masses can be ignored in the angular momentum expressions since the collisions occur so quickly. The coupled differential equations for $\theta_{1}$ and $\theta_{2}$ and the collision equations are presented in \cite{garcia97}. 
+These equations result in expressions that are very similar to equations
+\ref{eq:RimlessHPlus} and \ref{eq:RimlessHMinus} for the rimless wheel, except
+that this time there are two degrees of freedom to manage. As for the rimless
+wheel, the weight of the masses can be ignored in the angular momentum
+expressions since the collisions occur so quickly. The coupled differential
+equations for $\theta_{1}$ and $\theta_{2}$ and the collision equations are
+presented in \cite{garcia97}. \todo{we really don't want to show the derivation
+here? I think there needs to be more meat here before we jump into
+``stability'',
+and our discussion on stability needs to align with our discussion of stability
+from previous sections}
 
-The equations of motion in this model are actually \emph{nonlinear}\index{nonlinear}. This means that for certain system parameters the motion of the locomotive is chaotic, and small changes in initial conditions result in largely different motions. The model exhibits \emph{period-doubling}\index{period-doubling} phenomena as the angle of the incline $\gamma$ is increased. The period-doubling is captured in the Poincare map\index{Poincare map} in figure \ref{fig:SimplestWalkerEigenvalues}.
+\subsection*{Bifurcation}
+\label{sec:SimplestWalkerBifurcation}
 
-A Poincare map is a graph in which the value of a state variable of the model in each cycle of the motion is plotted as a function of some parameter of the model. The natural parameter to use in this case is the angle of the incline $\gamma$. The vertical axis of the Poincare map holds the step length for each gait cycle. For small inclines, the step length is constant for each gait cycle and so there is only one curve to the left of the first point where the curve splits into two curves at what is called a \emph{bifurcation point}\index{bifurcation point}.
+The equations of motion in this model are actually
+\emph{nonlinear}\index{nonlinear}. This means that for certain system
+parameters the motion of the locomotive may be chaotic, and so small changes in
+initial conditions can result in largely different motions. The simplest walker
+model exhibits the \emph{period-doubling}\index{period-doubling} phenomenon as
+the angle of the incline $\gamma$ is increased. The period-doubling is captured
+in the bifurcation diagram\index{Poincare map} in figure
+\ref{fig:SimplestWalkerEigenvalues}.
+
+A bifurcation diagram is a graph in which the value of a state variable of the
+model over many periods of the motion is plotted as a function of some
+parameter of the model. The natural parameter to use in this case is the angle
+of the incline $\gamma$. The vertical axis of this bifurcation diagram holds
+the step length for each gait cycle. For small inclines, the step length is
+constant for each gait cycle. This is shown in the graph, where there is only
+one curve to the left of the dotted vertical line. The point where the curve
+splits into two curves is called a \emph{bifurcation point}\index{bifurcation
+point}.
+
+\todo[inline]{step length is measured along the incline?}
 
 % FIGURE
 \begin{figure}[h]		% h="here" t="top" b="bottom" p="separate page"
 \begin{centering}
 \includegraphics[width=0.6\textwidth]{Figures/SimplestWalkerEigenvalues}\par
 \end{centering}
-\caption[Plot: Simplest Walker Bifurcation and Eigenvalues]{Simplest walker bifurcation and eigenvalues. The top plot is a bifurcation diagram that shows the step length for many gait cycles for a given value of $\gamma$, as $\gamma$ is varied. The bottom plot shows the first eigenvalue of the Jacobian of the system's Poincare map (map not shown). Eigenvalues of $\lambda = -1$ correspond to bifurcation points in the top plot, and \emph{period-doubling}: beyond $\gamma = 0.015 rad$, the simplest walker executes a limping period-2 gait in which step length alternates between two values for each period.}
+\caption[Plot: Simplest Walker Bifurcation and Eigenvalues]{Simplest walker
+bifurcation and eigenvalues. The top plot is a bifurcation diagram that shows
+the step length for many gait cycles for a given value of $\gamma$, as $\gamma$
+is varied. The bottom plot shows the first eigenvalue of the Jacobian of the
+system's Poincare map (map not shown). Eigenvalues of $\lambda = -1$ correspond
+to bifurcation points, and consequently, \emph{period-doubling}. Beyond
+$\gamma = \gamma^{*}$, the simplest walker executes a limping period-2 gait in
+which step length alternates between two values.}
 \label{fig:SimplestWalkerEigenvalues}
 \end{figure}
 %
 
-The nonlinear behavior of the model is determined by the Jacobian of the Poincare map. The first eigenvalue $\lambda$ of this Jacobian follows the curve presented in figure \ref{fig:SimplestWalkerEigenvalues}. The values of $\gamma$ for which the eigenvalue $\lambda = -1$ are the incline angles at which bifurcation occurs. After this bifurcation point, the motion is described as being \textit{period-2}. This means that the step length oscillates between two values between gait cycles. This motion resembles limping, in which one leg takes larger steps than the other.
+\todo[inline]{figure: show 0.015 rad, or put in a variable for the gamma value
+like gamma star. also, show arrows on the curves to show that they continue
+on. Split figure into 4.12(a) and 4.12(b)}
 
-For $0 < \gamma < 0.015$ rad, the motion of the simplest walker model is stable. The fact that such a simple mechanical model of locomotion has stable solutions without actuation or control hints that the coordination of locomotion is mostly mechanical. This view is in constrast with a view that states coordination results from muscle action or from neurological control \cite{garcia97}.
+The nonlinear behavior of the model is determined by the Jacobian of the
+Poincare map. The first eigenvalue $\lambda$ of this Jacobian follows the curve
+presented in figure \ref{fig:SimplestWalkerEigenvalues}. The values of $\gamma$
+for which the eigenvalue $\lambda = -1$ are the incline angles at which
+bifurcation occurs. After this bifurcation point, the motion is described as
+being \textit{period-2}. This means that the step length alternates between two
+values between gait cycles. This motion resembles limping, because one leg
+takes larger steps than the other.
+
+For $0 < \gamma < \gamma^{*}$ rad, the motion of the simplest walker model is
+stable. The fact that such a simple mechanical model of locomotion has stable
+solutions without actuation or control hints that the coordinated locomotion is
+mostly mechanical. This view is in constrast with a view that states
+coordinated locomotion results from muscle action or from neurological control
+\cite{garcia97}.
 
 For an in-depth description of the nonlinear behavior of this model, 
 refer to Garcia \cite{garcia97}.
 
 
+\section*{Passive Models of Locomotion}
 
-
-All the models presented in this chapter and chapter \ref{sec:ModelingLeggedLocomotion} are very simple. Mass has been concentrated at the hip or at the foot. More detailed dynamic models of locomotion can be developed in a somewhat logical fashion. The models can be extended by including distributed masses for the legs, or perhaps links for the upper body. For these situations, analytical descriptions quickly become cumbersome. It is important though to examine if such detailed models add any new information or provide any additional accuracy. There is an elegance to the ability to make important conclusions about animal locomotion from only the motion of a few point masses.
+All the models presented in this chapter and chapter
+\ref{sec:ModelingLeggedLocomotion} are very simple. Mass has been concentrated
+at the hip or at the foot. More detailed dynamic models of locomotion can be
+developed in a somewhat logical fashion. The models can be extended by
+including distributed masses for the legs, or perhaps links for the upper body.
+For these situations, analytical descriptions quickly become cumbersome. It is
+important though to examine if such detailed models add any new information or
+provide any additional accuracy. There is an elegance to the ability to make
+important conclusions about animal locomotion from the motion of only a few
+point masses.
 
 
 \begin{comment}
