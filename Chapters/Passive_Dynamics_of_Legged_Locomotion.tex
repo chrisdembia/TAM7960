@@ -750,20 +750,18 @@ J= \frac{1}{\delta}
 \end{equation}
 
 \todo[inline]{What is done in practice, is htis last result the easiest to
-calculate, and it happens to be sufficiently accurate?}
+calculate, and it happens to be sufficiently accurate? What affects the
+stability (initial conditions)}
 
-In summary, there are three steps involved in answering the question of
-stability with the hopping robot.
-
-We have shown how to determine if the SLIP motion is stable or instable,
-depending on the parameters used to define the model. This required choosing a
-Poincare section around which we could view the motion as periodic. Then, we
-numerically defined a function $\mathbf{f}(\mathbf{q})$ with which we could
+We took three steps to determine if the SLIP motion is stable or unstable,
+depending on the parameters used to define the model. This requires choosing a
+Poincare section around which we can view the motion as periodic. Then, we
+numerically define a function $\mathbf{f}(\mathbf{q})$ with which we can
 determine the system's fixed point(s). By approximating
-$\mathbf{f}{\mathbf{q}}$ with a two-term Taylor series, we discovered the
+$\mathbf{f}(\mathbf{q})$ with a two-term Taylor series, we discover the
 Jacobian matrix. By writing the Jacobian matrix using an eigenvalue
-decomposition, we could determine if the system is stable or unstable around a
-fixed point. We also looked at different methods for obtaining the Jacobian.
+decomposition, we can determine if the system is stable or unstable around a
+given fixed point.
 
 \section{Simplest Walker} % (notes page 31-34)
 \label{sec:SimplestWalker}
